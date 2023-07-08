@@ -1,0 +1,16 @@
+:root {
+
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'poppins', sans-serif;
+}
+
+html,body,#root {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(6, 12, 32);
+}
