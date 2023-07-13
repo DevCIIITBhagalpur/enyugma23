@@ -1,3 +1,32 @@
+:root {
+  --w: 50%;
+  @media screen and (max-width: 768px) {
+    --w: 100%;
+  }
+}
 .home {
-    
+  color: white;
+}
+
+.container {
+  // Styles for the container element
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center stretch;
+
+  .item {
+    width: var(--w);
+    flex: 0 0 var(--w);
+    justify-content: center;
+  }
+}
+.banner {
+  width: var(--w);
+
+  flex-shrink: 0;
+}
+
+.model {
+  background-color: grey;
 }
