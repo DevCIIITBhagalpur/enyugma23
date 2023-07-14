@@ -7,10 +7,10 @@ const CountdownTimer = () => {
   const renderer = ({ days, hours, minutes, seconds }) => {
     return (
       <div style={{ fontFamily: "Digital", color: "white" }}>
-        <span>{days}d </span>
-        <span>{hours}h </span>
-        <span>{minutes}m </span>
-        <span>{seconds}s</span>
+        <span>{days} Days : </span>
+        <span>{hours} Hrs : </span>
+        <span>{minutes} Min : </span>
+        <span>{seconds} Sec</span>
       </div>
     );
   };
