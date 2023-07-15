@@ -32,13 +32,14 @@ export default function Home() {
             </Item>
           </Grid>
           <Grid item xs={6}>
-            <Item>
+            <Item className="buttons">
               <button className="btn">Explore</button>
-              <button className="btn">Explore</button>
+              <button className="btn">Events</button>
             </Item>
           </Grid>
           <Grid item xs={6}>
-            <Item>
+            <Item className="countDownSection">
+              <p class="countDownText">The countdown has begun !</p>
               <CountdownTimer />
             </Item>
           </Grid>
