@@ -39,7 +39,7 @@ export default function Home() {
           </Grid>
           <Grid item xs={6}>
             <Item className="countDownSection">
-              <p class="countDownText">The countdown has begun !</p>
+              <p className="countDownText">The countdown has begun !</p>
               <CountdownTimer />
             </Item>
           </Grid>
