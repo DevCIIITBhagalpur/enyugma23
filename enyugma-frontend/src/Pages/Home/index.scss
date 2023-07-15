@@ -35,16 +35,11 @@ button {
   border-radius: 40px;
 }
 .buttons{
-  background-color: red;
-  // border: 6px solid red;
   display: flex;
   align-items: center;
   width:100%;
   justify-content: center;
   gap: 40px;
-  border: 2px solid red;
-  position: relative;
-  // left: 50px;
 }
 .countDownText{
   color: white;
