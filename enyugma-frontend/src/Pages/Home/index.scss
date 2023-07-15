@@ -1,62 +1,71 @@
 :root {
+  --w: 65%;
+  @media screen and (max-width: 768px) {
+    --w: 100%;
+  }
 }
 .home {
   color: white;
-  --w: 65%;
-  @media screen and (max-width: 768px) {
-  }
-  @media only screen and (max-width: 600px) {
-    --w: 100%;
-    .buttons {
-      flex-direction: column;
-    }
-  }
-  .banner {
-    width: var(--w);
+}
 
-    flex-shrink: 0;
-  }
-  .model {
-    background-color: rgb(49, 3, 123);
-    height: 320px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: white;
-    border: 2px solid white;
-  }
-  .buttons {
-    // background-color: red;
-    // border: 6px solid red;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-    gap: 40px;
+.banner {
+  width: var(--w);
 
-    button {
-      padding: 25px 90px;
-      cursor: pointer;
-      background-color: rgba(136, 0, 255, 0.2);
-      border: 4px solid #8800ff;
-      color: white;
-      font-size: 1.6rem;
-      border-radius: 40px;
-    }
-  }
+  flex-shrink: 0;
+}
 
-  .countDownText {
-    color: white;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: rgb(255, 255, 0);
+.model {
+  background-color: rgb(49, 3, 123);
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  border: 2px solid white;
+}
+button {
+  padding: 1.5rem 5rem;
+  cursor: pointer;
+  background-color: rgba(136, 0, 255, 0.2);
+  border: 4px solid #8800ff;
+  color: white;
+  font-size: 1.6rem;
+  border-radius: 40px;
+}
+.buttons{
+  background-color: red;
+  // border: 6px solid red;
+  display: flex;
+  align-items: center;
+  width:100%;
+  justify-content: center;
+  gap: 40px;
+  border: 2px solid red;
+  position: relative;
+  // left: 50px;
+}
+.countDownText{
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 0);
+}
+.countDownSection{
+  
+  width: 100%;
+  text-align: center;
+  font-size: 2rem; 
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1200px) {
+  .buttons{
+    flex-direction: column;
   }
-  .countDownSection {
-    width: 100%;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
+  button {
+    padding: 1rem 3rem;
   }
 }
+
