@@ -12,12 +12,16 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+<<<<<<< HEAD
     "@mui/icons-material": "^5.14.0",
+=======
+>>>>>>> bed4e68c55a113522cfcb663a5f594510f4b7565
     "@mui/material": "^5.14.0",
     "@react-three/drei": "^9.78.1",
     "@react-three/fiber": "^8.13.4",
     "@types/three": "^0.153.0",
     "react": "^18.2.0",
+    "react-countdown": "^2.3.5",
     "react-dom": "^18.2.0",
     "react-responsive-masonry": "^2.1.7",
     "react-router-dom": "^6.14.1",
