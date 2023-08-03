@@ -5,7 +5,7 @@
 header {
     width: 100%;
     padding: 10px;
-    position: sticky;
+    position: relative;
     height:64px;
     margin-bottom:64px;
 
@@ -36,6 +36,7 @@ header {
         align-items: center;
         gap: 32px;
         width: 70%;
+        z-index: 999;
     }
     ul li {
         list-style: none;
@@ -118,7 +119,7 @@ header {
             height: 100%;
             top: 0;
             right: -200px;
-            background: #162938;
+            background: rgb(6,12,32);
             z-index: 999;
             transition: display 0.5s;
             display: none;
@@ -127,14 +128,16 @@ header {
             position: absolute;
             right: 0;
             top: 0;
-            background: #162938;
+            background: rgb(0, 0, 0);
             padding-top: 100px;
+            z-index:999;
             height: auto;
-            width: 200px;
+            width: 320px;
             flex-direction: column;
         }
         .nav ul li {
             padding-bottom: 40px;
+            z-index:999;
         }
         .nav.openNav {
             transition: 0.5s;
@@ -144,7 +147,7 @@ header {
         .close {
             position: absolute;
             top: 20px;
-            right: 165px;
+            right: 20px;
             z-index: 1000;
             display: block;
             border-radius: 50%;
