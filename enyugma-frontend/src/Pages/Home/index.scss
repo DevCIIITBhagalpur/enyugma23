@@ -1,23 +1,35 @@
-
 .home {
     color: white;
-
+    width: 100%;
+    height: 100%;
+    .heroSection {
+        background-image: linear-gradient(
+                rgba(0, 0, 0, 0.8) 70%,
+                rgba(0, 0, 0, 1)
+            ),
+            url("./bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        height: 100vh;
+    }
     .bannerItem {
-        max-width: 65%;
         overflow: hidden;
         .banner {
-            max-width: 65%;
+            max-width: 100%;
             height: auto;
             flex-shrink: 0;
             transition: 500ms;
+            filter: brightness(0.5) ;
             &:hover {
-                transform: scale(2);
+                // transform: scale(1.3);
+                filter: brightness(1) hue-rotate(180deg) drop-shadow(0 0 0.75rem #fff);
             }
         }
     }
     .model {
         background-color: rgb(49, 3, 123);
-        height: 320px;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -80,5 +92,23 @@
             }
         }
     }
+
+    .canva {
+        cursor: grab;
+        width: 80% !important;
+        height: 80% !important;
+    }
 }
 
+@media only screen and (max-width: 900px) {
+    .home {
+        .heroSection {
+            min-height: 100vh;
+            height: auto;
+        }
+
+        .bannerItem {
+            max-width: 100%;
+        }
+    }
+}

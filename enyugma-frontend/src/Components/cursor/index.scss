@@ -1,13 +1,15 @@
 .cursor {
-    position: absolute;
+    position: fixed;
     width: 20px;
+    top: 0;
+    left: 0;
     height: 20px;
     border-radius: 100%;
     background-color: white;
-    // z-index: 1;
+    z-index: 999;
     pointer-events: none;
-    transition: background-color 0.3s, width 0.3s, height 0.3s;
-        mix-blend-mode: exclusion;
+    transition: background-color 0.2s, width 0.2s, height 0.2s;
+    mix-blend-mode: exclusion;
     &.hovered {
         background-color: #8800ff;
         width: 40px;
@@ -16,19 +18,27 @@
 }
 
 .cursor2 {
-    position: absolute;
+    position: fixed;
+    top:0;
+    left:0;
     width: 40px;
     height: 40px;
     border-radius: 100%;
     box-shadow: 0 0 10px #8700ff;
-    // z-index: 1;
+    z-index: 999;
     pointer-events: none;
-    transition: background-image 0.3s, width 0.3s, height 0.3s;
+    transition: background-image 0.2s, width 0.2s, height 0.2s;
 
     &.hovered2 {
         background-image: radial-gradient(circle, transparent 20%, #ffffff);
-        transform: scale(2);
         width: 60px;
         height: 60px;
+    }
+}
+
+
+@media only screen and (max-width:800px) {
+    .cursor,.cursor2 {
+        display: none;
     }
 }

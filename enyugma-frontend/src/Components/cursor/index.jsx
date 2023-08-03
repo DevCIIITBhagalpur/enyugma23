@@ -1,5 +1,5 @@
 import "./index.scss";
-import { useState,useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 export default function GlowBall() {
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
@@ -15,36 +15,36 @@ export default function GlowBall() {
     const buttonRef2 = useRef(null);
 
     const checkIfOverLink = (e) => {
-        console.log(e.target.tagName)
-        if(e.target.tagName === "A" || e.target.parentElement.tagName === "A"){
+        console.log(e.target.tagName);
+        if (canZoom(e)) {
             buttonRef.current.classList.add("hovered");
             buttonRef2.current.classList.add("hovered2");
 
-            setCH(40);
-            setCW(40);
-            setCH2(60);
-            setCW2(60);
+            
         } else {
             buttonRef.current.classList.remove("hovered");
             buttonRef2.current.classList.remove("hovered2");
-
-            setCH(20);
-            setCW(20);
-            setCH2(40);
-            setCW2(40);
         }
-
     };
 
     document.onmousemove = (e) => {
+        const c1 = document.getElementById("c1");
+        const c2 = document.getElementById("c2");
+
+        const cW = c1.offsetWidth;
+        const cH = c1.offsetHeight;
+
+        const cW2 = c2.offsetWidth;
+        const cH2 = c2.offsetHeight;
         setTimeout(() => {
-            setX(e.clientX - cW / 2);
-            setY(e.clientY - cH / 2);
+            c1.style.transform = `translateX(${e.clientX - cW / 2}px) translateY(${ e.clientY - cH / 2}px)`;
         }, 20);
 
+       
         setTimeout(() => {
-            setX2(e.clientX - cW2 / 2);
-            setY2(e.clientY - cH2 / 2);
+            c2.style.transform = `translateX(${
+                e.clientX - cW2 / 2
+            }px) translateY(${e.clientY - cH2 / 2}px)`;
         }, 100);
 
         checkIfOverLink(e);
@@ -54,23 +54,40 @@ export default function GlowBall() {
         <>
             <div
                 className="cursor"
-                style={{
-                    "--x": `${x}px`,
-                    "--y": `${y}px`,
-                    transform: "translateX(var(--x)) translateY(var(--y))",
-                }}
+                id="c1"
                 ref={buttonRef}
             ></div>
 
             <div
                 className="cursor2"
-                style={{
-                    "--x": `${x2}px`,
-                    "--y": `${y2}px`,
-                    transform: "translateX(var(--x)) translateY(var(--y))",
-                }}
+                id="c2"
                 ref={buttonRef2}
             ></div>
         </>
+    );
+}
+
+function canZoom(e) {
+    return (
+        e.target.tagName === "A" ||
+        e.target.parentElement.tagName === "A" ||
+        e.target.tagName === "BUTTON" ||
+        e.target.parentElement.tagName === "BUTTON" ||
+        e.target.tagName === "IMG" ||
+        e.target.parentElement.tagName === "IMG" ||
+        e.target.tagName === "INPUT" ||
+        e.target.parentElement.tagName === "INPUT" ||
+        e.target.tagName === "TEXTAREA" ||
+        e.target.parentElement.tagName === "TEXTAREA" ||
+        e.target.tagName === "SELECT" ||
+        e.target.parentElement.tagName === "SELECT" ||
+        e.target.tagName === "VIDEO" ||
+        e.target.parentElement.tagName === "VIDEO" ||
+        e.target.tagName === "AUDIO" ||
+        e.target.parentElement.tagName === "AUDIO" ||
+        e.target.tagName === "CANVAS" ||
+        e.target.parentElement.tagName === "CANVAS" ||
+        e.target.tagName === "IFRAME" ||
+        e.target.parentElement.tagName === "IFRAME"
     );
 }

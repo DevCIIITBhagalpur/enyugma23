@@ -1,96 +1,88 @@
 .footer {
-    position:absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-image: url(https://wallpaper-house.com/data/out/6/wallpaper2you_112356.jpg);
+    background-image: linear-gradient(rgba(6, 12, 32,1) 20%, rgba(0, 0, 0, 0.7)),
+        url(https://wallpaper-house.com/data/out/6/wallpaper2you_112356.jpg);
     color: #fff;
     padding: 20px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-     
 
-    .logoImage{
+    .logoImage {
         width: 6rem;
-        
-        
-      }
-      .logoImage:hover{
+        transition: 500ms;
+    }
+    .logoImage:hover {
         transform: scale(1.05);
         padding: auto;
-      }
-  
+    }
+
     .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
-  
+
     .footer-section {
-      flex: 1 1 300px;
-      margin-bottom: 20px;
-      .icon:hover{
-        transform: scale(1.05);
-      }
-      
-      
+        flex: 1 1 300px;
+        margin-bottom: 20px;
     }
-    .footer-section h3{
+    .footer-section h3 {
         color: azure;
     }
-    .footer-section p  a:hover{
-        transform: scale(1.05);
-    }
-    a{
+    .footer-section .icon p a {
         text-decoration: none;
         color: rgb(242, 242, 177);
+        transition: 500ms;
     }
-    
+
+        .footer-section .icon p a:hover {
+          font-size: 20px;
+    }
+
     .image-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
-      gap: 10px;
-      margin-top: 20px;
-  
-      img {
-        width: 100%;
-        height: auto;
-        cursor:zoom-in;
-        border-radius: 8px;
-      }
-      img:hover{
-        transform: scale(1.5);
-      }
-    }
-  
-    .footer-bottom {
-      text-align: center;
-      padding-top: 10px;
-    }
-  
-    .image-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-  
-      .image-overlay-content {
-        max-width: 90%;
-        max-height: 90%;
-        margin: 0 auto;
-  
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+
         img {
-          width: 100%;
-          height: auto;
+            width: 100%;
+            height: auto;
+            cursor: zoom-in;
+            transition: 500ms;
+            border-radius: 8px;
+        }
+        img:hover {
+            transform: scale(1.5);
         }
     }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 10px;
     }
-  }
-  
+
+    .image-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+
+        .image-overlay-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: 0 auto;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
