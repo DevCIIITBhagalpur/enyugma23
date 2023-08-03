@@ -33,7 +33,7 @@ const Gallery = () => {
               <List
                   label=" "
                   link="https://source.unsplash.com/random/1"
-                  LiClass="disable honeycomb-cell noneTab mobil"
+                  LiClass="disable honeycomb-cell noneTab noneMobil"
               />
               <List
                   label=" "
@@ -202,7 +202,7 @@ const Gallery = () => {
               <List
                   label=" "
                   link="https://source.unsplash.com/random/1"
-                  LiClass="disable honeycomb-cell noneTab mobil"
+                  LiClass="disable honeycomb-cell noneTab noneMobil"
               />
               <List
                   label=" "
