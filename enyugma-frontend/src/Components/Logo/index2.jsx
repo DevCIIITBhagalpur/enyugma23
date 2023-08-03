@@ -6,34 +6,30 @@ Command: npx gltfjsx@6.2.10 assets/logo.glb
 */
 
 import React, { useRef } from "react";
-import {  useGLTF } from "@react-three/drei";
+import { Wireframe, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
-export default function Wireframe(props) {
-    const { nodes, materials } = useGLTF("./logo2.glb");
+export default function LogoModel(props) {
+    const { nodes, materials } = useGLTF("./logo.glb");
 
     // rotate the logo on x axis every frame
 
     const ref = useRef();
     useFrame(() => {
         ref.current.rotation.y += 0.001;
-
     });
-
-
-    
 
     return (
         <group {...props} dispose={null} ref={ref}>
             <mesh
-            rotation={[Math.PI / 2, 0, 0]}
+                rotation={[Math.PI / 2, 0, 0]}
                 geometry={nodes.Curve001.geometry}
                 material={materials["SVGMat.004"]}
                 position={[0, 0, 0]}
                 scale={[20.861, 80.736, 20.861]}
-                />
+            />
         </group>
     );
 }
 
-useGLTF.preload("./logo2.glb");
+useGLTF.preload("./logo.glb");

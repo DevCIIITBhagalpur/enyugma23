@@ -11,8 +11,8 @@ import Gallery from "../../Components/Gallery/index.jsx";
 import Navbar from "../../Components/Navbar/index.jsx";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import LogoModel from "../../Components/Logo/index.jsx"
-import {Stars as BgStars} from "@react-three/drei";
+import Wireframe from "../../Components/Logo/index.jsx"
+import { useState } from "react";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: "transparent",
@@ -53,13 +53,17 @@ export function HeroSection() {
                         <img src={banner} alt="" className="banner" />
                     </Item>
                 </Grid>
-                <Grid item xs={6} sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}>
-                        <Model />
-
+                <Grid
+                    item
+                    xs={6}
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        minHeight: "500px",
+                    }}
+                >
+                    <Model />
                 </Grid>
                 <Grid item xs={6}>
                     <Item className="buttons">
@@ -86,14 +90,17 @@ export function HeroSection() {
 
 
 function Model() {
+    const [isHovering, setIsHovering] = useState(false);
+
+    
+
     return (
     <Canvas
         camera={{ position: [0, 0, 5] }}
-        shadows={true}
         className="canva"
     >
-        <ambientLight intensity={0.5} castShadow={true} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+        <ambientLight intensity={1}  />
+        <spotLight position={[10, 10, 10]} angle={0.1} penumbra={0.5} />
         <pointLight position={[-10, -10, -10]} />
         <OrbitControls 
             rotation={[Math.PI / 2, 0, 0]}
@@ -102,7 +109,7 @@ function Model() {
             enablePan={false}
             minZoom={1}
         />
-        <LogoModel />
+       <Wireframe />
     </Canvas>
     );
 }
