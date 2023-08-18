@@ -6,6 +6,7 @@ import GlowBall from "./Components/cursor/index.jsx";
 import Navbar from "./Components/Navbar/index.jsx";
 import Footer from "./Components/Footer/index.jsx";
 import Preloader from "./Components/Preloader/Preloader";
+import Spin from "./Components/Spin/Preloader";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
