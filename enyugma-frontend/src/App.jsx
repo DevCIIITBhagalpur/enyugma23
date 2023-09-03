@@ -2,6 +2,7 @@ import "./App.scss";
 import { Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Home from "./Pages/Home/index.jsx";
+import TechnicalEvent from "./Pages/TechnicalEvent";
 import GlowBall from "./Components/cursor/index.jsx";
 import Navbar from "./Components/Navbar/index.jsx";
 import Footer from "./Components/Footer/index.jsx";
@@ -25,7 +26,7 @@ function App() {
           <GlowBall />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/events" element={<h1>About</h1>} />
+            <Route path="/events" element={<TechnicalEvent />} />
             <Route path="/contact" element={<h1>Contact</h1>} />
           </Routes>
           <Footer />
