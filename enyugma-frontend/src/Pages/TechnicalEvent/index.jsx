@@ -22,11 +22,6 @@ export default function TechnicalEvent() {
       <Navbar />
       <div className="technicalEvent">
         {technicalEvent.map(createTechnicalCard)}
-        <TechnicalCard
-          eventName="Codeloop"
-          eventDesc="lorem ipsum 50 jassdiajlskmx sdfncasjkbcasa kansjknx"
-          imgUrl="https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/banner/638b5a18b4907_codeloop.png?d=1920x1920"
-        />
       </div>
     </>
   );
