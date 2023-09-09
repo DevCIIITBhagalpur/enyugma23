@@ -48,12 +48,12 @@
         img {
             width: 100%;
             height: auto;
-            cursor: zoom-in;
+            cursor: pointer;
             transition: 500ms;
             border-radius: 8px;
         }
         img:hover {
-            transform: scale(1.5);
+            transform: scale(1.1);
         }
     }
 

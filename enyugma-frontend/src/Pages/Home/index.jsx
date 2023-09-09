@@ -105,7 +105,7 @@ function Model() {
         <OrbitControls 
             rotation={[Math.PI / 2, 0, 0]}
             enableRotate={true}
-            enableZoom={true}
+            enableZoom={false}
             enablePan={false}
             minZoom={1}
         />

@@ -17,6 +17,9 @@
   color: white;
   font-family: sans-serif;
   margin: 2rem 2.5rem;
+  &:hover .avatar {
+    animation: span 10s linear infinite;
+    }
 
   .avatar {
     width: 100%;
@@ -24,7 +27,6 @@
     position: absolute;
     object-fit: cover;
     filter: sepia(100) hue-rotate(160deg);
-    animation: span 10s linear infinite;
   }
 
   .info {

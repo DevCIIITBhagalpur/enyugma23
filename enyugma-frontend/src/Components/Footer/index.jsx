@@ -4,17 +4,10 @@ import EmailIcon from '@mui/icons-material/Email';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import logo from "../../assets/logo.png";
 import './footer.scss';
+import { gallery } from '../Gallery/list.js';
 
 const Footer = () => {
-  const galleryImages = [
-    'https://i.ytimg.com/vi/-8na-RtbgVs/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLA13FCWoXXPNiuVcFGUW2plKOZVuw',
-   
-    'https://i.ytimg.com/vi/6dnvfhZs-FY/maxresdefault.jpg',
-    'https://media.licdn.com/dms/image/C4D22AQFhBePtF9ZhGA/feedshare-shrink_800/0/1671352488923?e=1692230400&v=beta&t=NWYMAbWU-2c4qtTQaMkJiKf4wteIlGy5KvdMsSS-rS0',
-    'https://media.licdn.com/dms/image/C4D22AQHIXGTAQSki7A/feedshare-shrink_800/0/1671352310254?e=1692230400&v=beta&t=l_MaPdf_2udvpAdHvv7dZjFmTs-tgzx49OoTSAn_0AA',
-    'https://media.licdn.com/dms/image/C4D22AQGxo-QPWcsw4Q/feedshare-shrink_800/0/1671351670582?e=1692230400&v=beta&t=xkU7YPVuu5rql8b1qEL8latEqRYWjMtDeQQx3aJZW5M',
-    'https://media.licdn.com/dms/image/C4D22AQGSzJjA1JRqTQ/feedshare-shrink_800/0/1671352309771?e=1691625600&v=beta&t=81BTZhs67EXdgnb_7-AipGrg0A_YBfGrSt4RVM-Jn0A',
-  ];
+  const galleryImages = gallery.slice(0, 4);
 
   const [selectedImage, setSelectedImage] = useState(null);
 

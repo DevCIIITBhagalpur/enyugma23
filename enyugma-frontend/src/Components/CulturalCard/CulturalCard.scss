@@ -1,63 +1,79 @@
-* {
-    margin: 0;
+.card {
+    width: 350px;
+    height: 490px;
+    /*   border: 1px solid black; */
+
+    // box-shadow: 2px 2px 10px #bfbfbf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 8px;
     padding: 0;
-  }
-  
-  .card {
-    width: 350px;
+
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            padding: 10px 20px 0px 55px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+        }
+        button {
+            padding: 10px 50px;
+            font-size: 1.1rem;
+            margin: 25px 30px 70px 55px;
+            background-color: #ffdd00b3;
+            border: none;
+            box-shadow: 3px 3px 5px #bfbfbf;
+            cursor: pointer;
+            transition: 0.3s ease;
+            z-index: 5;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+        }
+        button:hover {
+            background-color: #f4c430;
+        }
+    }
+}
+.bg {
     height: 490px;
-    box-sizing: border-box; 
-    margin: 50px;
-  /*   border: 1px solid black; */
-    background-image: url("https://i.ibb.co/1vkX0fx/bg-removebg-preview.png");
-    background-size: cover;
-    background-position: center;
-    box-shadow: 2px 2px 10px #bfbfbf;
-  }
-  .bg {
-    height: 490px;
     width: 350px;
-    position:absolute;
-    z-index: 0;
-  }
-  .imageHolder {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 2;
+    opacity: 1;
+    transition: 500ms;
+}
+.imageHolder {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
     position: relative;
     top: 18px;
-  }
-  img{
-    width: 90%;
-    height: 220px;
-    z-index: -1;
-  }
-  
-  .title {
-    font-family: 'Kolker Brush', sans-serif;
+    height: 100%;
+    z-index: 1;
+
+    img {
+        width: 90%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        filter: sepia(100) hue-rotate(160deg);
+    }
+}
+
+.title {
+    font-family: "Kolker Brush", sans-serif;
     font-size: 3.5rem;
     font-weight: light;
     padding: 30px 30px 0px 55px;
-  }
-  p {
-    padding: 10px 20px 0px 55px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-  }
-  button {
-    padding: 10px 50px;
-    font-size: 1.1rem;
-    margin: 25px 30px 70px 55px;
-    background-color: #ffdf00;
-    border: none;
-    box-shadow: 3px 3px 5px #bfbfbf;
-    cursor: pointer;
-    transition: 0.3s ease;
-    z-index: 5;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-  }
-  button:hover {
-    background-color: #f4c430;
-  }
+}

@@ -8,6 +8,7 @@ import Navbar from "./Components/Navbar/index.jsx";
 import Footer from "./Components/Footer/index.jsx";
 import Preloader from "./Components/Preloader/Preloader";
 import Spin from "./Components/Spin/Preloader";
+import CulturalEvent from "./Pages/CulturalEvent/index.jsx";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +27,8 @@ function App() {
           <GlowBall />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/events" element={<TechnicalEvent />} />
+            <Route path="/events/technical" element={<TechnicalEvent />} />
+            <Route path="/events/cultural" element={<CulturalEvent />} />
             <Route path="/contact" element={<h1>Contact</h1>} />
           </Routes>
           <Footer />

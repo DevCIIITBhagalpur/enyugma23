@@ -16,7 +16,7 @@ export default function Wireframe(props) {
 
     const ref = useRef();
     useFrame(() => {
-        ref.current.rotation.y += 0.001;
+        ref.current.rotation.y += 0.005;
 
     });
 
