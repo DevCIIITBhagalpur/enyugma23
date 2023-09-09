@@ -6,12 +6,14 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height:auto;
+    height: auto;
     min-height: 100vh;
     margin-bottom: 64px;
-    background-image: linear-gradient(rgba(0,0,0,0.7) 20%, rgb(6,12,32) 80%);
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.7) 20%,
+        rgb(6, 12, 32) 80%
+    );
     overflow: hidden;
-
 
     .image-overlay {
         position: fixed;
@@ -58,6 +60,17 @@
         cursor: pointer;
     }
 
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     .honeycomb-cell__title {
         height: 100%;
         display: flex;
@@ -83,6 +96,9 @@
         object-fit: cover;
         -o-object-position: center;
         object-position: center;
+        &:not(.disable) {
+            animation: fade-in 0.5s ease-in-out;
+        }
     }
 
     .honeycomb-cell::before,
@@ -164,7 +180,6 @@
     .mobilDisplay {
         display: none;
     }
-
 }
 
 @media only screen and (max-width: 420px) {
