@@ -3,9 +3,9 @@ import "./index.scss";
 export default function Stars() {
     return (
         <>
-            <div id="stars"></div>
-            <div id="stars2"></div>
-            <div id="stars3"></div>
+            <div id="sstars"></div>
+            <div id="sstars2"></div>
+            <div id="sstars3"></div>
         </>
     );
 }

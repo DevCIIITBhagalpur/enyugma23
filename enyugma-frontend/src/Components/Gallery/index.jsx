@@ -49,6 +49,11 @@ const Gallery = () => {
 
     return (
         <div className="container">
+            <h1>A Glimpse of the Past</h1>
+            <br />
+            <br />
+            <br />
+            <br />
             <ul className="honeycomb" lang="es">
                 <List
                     label=" "

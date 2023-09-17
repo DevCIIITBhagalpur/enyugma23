@@ -1,17 +1,36 @@
 :root {
-
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: 'poppins', sans-serif;
-
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "poppins", sans-serif;
 }
 
-html,body,#root {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(6, 12, 32);
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(6, 12, 32);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
 }

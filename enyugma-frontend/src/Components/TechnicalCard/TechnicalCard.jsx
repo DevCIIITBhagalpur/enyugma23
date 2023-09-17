@@ -1,27 +1,50 @@
 /* eslint-disable react/prop-types */
-import { Paper } from "@mui/material";
+import { Button, Paper } from "@mui/material";
 import "./TechnicalCard.scss";
-import { React, useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const TechnicalCard = (props) => {
-  return (
-      <Paper className="card" elevation={16} sx={{
-        borderRadius: "20px",
-      }}>
-          <img
-              className="avatar"
-              width="300"
-              height="480"
-              src={props.imgUrl}
-              alt="avatar"
-          />
-          <div className="creditoverlay"></div>
-          <div className="info">
-              <h1>{props.eventName}</h1>
-              <p>{props.eventDesc}</p>
-          </div>
-      </Paper>
-  );
+const hoverRef = useRef(null);
+
+useEffect(() => {
+    const hover = hoverRef.current;
+    hover.addEventListener("mouseover", () => {
+        hover.style.opacity = 1;
+        hover.style.backgroundColor = "rgba(0,0,0,0.8)";
+    });
+    hover.addEventListener("mouseout", () => {
+        hover.style.opacity = 0;
+        hover.style.backgroundColor = "rgba(0,0,0,0.5)";
+    });
+}, []);
+
+    return (
+        <Paper
+            className="card"
+            elevation={16}
+            sx={{
+                borderRadius: "20px",
+            }}
+        >
+            <img
+                className="avatar"
+                width="300"
+                height="480"
+                src={props.imgUrl}
+                alt="avatar"
+            />
+            <div className="creditoverlay"></div>
+            <div className="info" ref={hoverRef}>
+                <h1>{props.eventName}</h1>
+                <p>{props.eventDesc}</p>
+
+                <Link to={`./${props.id}`} className="btn">
+                    <span>View &#10138;  </span>
+                </Link>
+            </div>
+        </Paper>
+    );
 };
 
 export default TechnicalCard;

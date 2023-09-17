@@ -67,11 +67,11 @@ export function HeroSection() {
                 </Grid>
                 <Grid item xs={6}>
                     <Item className="buttons">
-                        <Link className="btn" to="/explore">
-                            Explore
-                        </Link>
                         <Link className="btn" to="/events">
                             Events
+                        </Link>
+                        <Link className="btn" to="/gallery">
+                            Gallery
                         </Link>
                     </Item>
                 </Grid>

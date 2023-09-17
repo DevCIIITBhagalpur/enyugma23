@@ -10,7 +10,7 @@ import {  useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export default function Wireframe(props) {
-    const { nodes, materials } = useGLTF("./logo2.glb");
+    const { nodes, materials } = useGLTF("/logo2.glb");
 
     // rotate the logo on x axis every frame
 
@@ -36,4 +36,4 @@ export default function Wireframe(props) {
     );
 }
 
-useGLTF.preload("./logo2.glb");
+useGLTF.preload("/logo2.glb");

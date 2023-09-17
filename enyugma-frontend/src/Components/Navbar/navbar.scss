@@ -14,10 +14,16 @@ header {
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        z-index:4;
+
+        .logo {
+            z-index: 5;
+        }
 
         .logoImg {
             width: 6rem;
             padding: 10px;
+            z-index: 5;
         }
     }
     .navbar .nav {
@@ -29,6 +35,7 @@ header {
     }
     .logo {
         flex-basis: 40%;
+        cursor: pointer;
     }
     ul {
         display: flex;
@@ -72,7 +79,16 @@ header {
             &:hover {
                 text-shadow: 0 0 16px #ffffff74;
             }
+            &.active {
+                text-shadow: 0 0 16px #ffffff74;
+                &::after {
+                    width: 100%;
+                    height: 16px;
+                }
+                
+            }
         }
+        
         .registerBtn {
             font-size: 18px;
             padding: 7px 15px;

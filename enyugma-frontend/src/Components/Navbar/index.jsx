@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/logo.png";
@@ -20,9 +20,9 @@ const Navbar = () => {
         <>
             <header>
                 <div className="navbar">
-                    <div className="logo">
+                    <Link className="logo" to="/">
                         <img src={logo} alt="" className="logoImg" />
-                    </div>
+                    </Link>
 
                     <div className={activeNav}>
                         <div className="close" onClick={closeNav}>
@@ -30,16 +30,16 @@ const Navbar = () => {
                         </div>
                         <ul className="navList">
                             <li className="navItem">
-                                <Link to="/events/technical" className="link">Technical</Link>
+                                <NavLink to="/events/technical" className="link">Technical</NavLink>
                             </li>
                             <li className="navItem">
-                                <Link to="/events/cultural" className="link">Cultural</Link>
+                                <NavLink to="/events/cultural" className="link">Cultural</NavLink>
                             </li>
                             <li className="navItem">
-                                <Link to="#" className="link">Workshops</Link>
+                                <NavLink to="/events/workshop" className="link">Workshops</NavLink>
                             </li>
                             <li className="navItem">
-                                <Link to="#" className="link">Sponsors</Link>
+                                <NavLink to="/sponsors" className="link">Sponsors</NavLink>
                             </li>
                             <li className="navItem">
                                 <button className="registerBtn">
