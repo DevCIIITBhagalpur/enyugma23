@@ -8,14 +8,14 @@
     color: var(--sbg);
     box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.817);
     padding: 16px;
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     // aspect-ratio: 4/3;
     position: relative;
     transition: 250ms;
     overflow: hidden;
     color: white;
-    font-family: sans-serif;
+    // font-family: sans-serif;
     margin: 2rem 2.5rem;
     &:hover .avatar {
         animation: span 10s linear infinite;
