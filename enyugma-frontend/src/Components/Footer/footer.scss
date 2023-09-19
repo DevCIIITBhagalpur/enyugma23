@@ -1,3 +1,5 @@
+
+
 .footer {
     background-image: linear-gradient(rgba(6, 12, 32,1) 20%, rgba(0, 0, 0, 0.7)),
         url(https://wallpaper-house.com/data/out/6/wallpaper2you_112356.jpg);
@@ -6,10 +8,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    
 
     .logoImage {
         width: 6rem;
         transition: 500ms;
+        
     }
     .logoImage:hover {
         transform: scale(1.05);
@@ -23,8 +27,17 @@
     }
 
     .footer-section {
-        flex: 1 1 300px;
+        // flex: 1 1 300px;
+       
         margin-bottom: 20px;
+    }
+    // .footer-center{
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    // }
+    .footer-section p{
+        font-size: 20px ;
     }
     .footer-section h3 {
         color: azure;
@@ -86,3 +99,50 @@
         }
     }
 }
+
+
+
+
+  @media (max-width: 800px) {
+   
+       .footer-center{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-content {
+    
+        margin: 0 10%;
+    
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-content {
+    
+        margin: 0 5%;
+    
+    }
+  }
+
+  @media (max-width: 400px) {
+     
+}
+
+
+// @media (max-width: 1000px) {
+   
+// }
+
+// @media (max-width: 800px) {
+   
+// }
+
+// @media (max-width: 600px) {
+   
+// }
+
+// @media (max-width: 400px) {
+   
+// }

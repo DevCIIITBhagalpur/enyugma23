@@ -22,7 +22,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-content">
-                <div className="footer-section">
+                <div className="footer-section footer-center">
                     <img src={logo} alt="loading..." className="logoImage" />
                     <p>Indian Institute Of Information Technology, Bhagalpur</p>
                 </div>

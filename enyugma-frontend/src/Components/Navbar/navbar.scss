@@ -21,20 +21,20 @@ header {
         }
 
         .logoImg {
-            width: 6rem;
+            width: 128px;
             padding: 10px;
             z-index: 5;
         }
     }
     .navbar .nav {
-        padding-left: 30px;
+        // padding-left: 30px;
         display: flex;
         align-items: center;
-        flex-basis: 60%;
-        justify-content: space-evenly;
+        // flex-basis: 60%;
+        // justify-content: space-evenly;
     }
     .logo {
-        flex-basis: 40%;
+        // flex-basis: 40%;
         cursor: pointer;
     }
     ul {
@@ -42,8 +42,9 @@ header {
         justify-content: flex-end;
         align-items: center;
         gap: 32px;
-        width: 70%;
+        // width: 70%;
         z-index: 999;
+        padding-right: 3rem;
     }
     ul li {
         list-style: none;
@@ -117,12 +118,10 @@ header {
     }
 
     @media (max-width: 1000px) {
-        .nav {
-            flex-basis: 80%;
-        }
-        .logo {
-            flex-basis: 20%;
-        }
+      .navbar .logoImg{
+        width: 95px;
+
+      }
         .registerDiv {
             padding: 0px;
         }
