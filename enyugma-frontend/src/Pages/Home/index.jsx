@@ -25,6 +25,8 @@ export default function Home() {
         <div className="home">
             <HeroSection />
             <Gallery />
+           
+            
         </div>
     );
 }

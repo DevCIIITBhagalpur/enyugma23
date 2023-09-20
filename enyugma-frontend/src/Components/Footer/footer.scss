@@ -1,148 +1,187 @@
-
-
 .footer {
-    background-image: linear-gradient(rgba(6, 12, 32,1) 20%, rgba(0, 0, 0, 0.7)),
-        url(https://wallpaper-house.com/data/out/6/wallpaper2you_112356.jpg);
-    color: #fff;
-    padding: 20px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    
+  background-image: linear-gradient(rgba(6, 12, 32, 1) 20%, rgba(0, 0, 0, 0.7)),
+    url(https://wallpaper-house.com/data/out/6/wallpaper2you_112356.jpg);
+  color: #fff;
+  padding: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px 40px;
 
-    .logoImage {
-        width: 6rem;
-        transition: 500ms;
-        
+  .logoImage {
+    width: 6rem;
+    transition: 500ms;
+  }
+  .logoImage:hover {
+    transform: scale(1.05);
+    padding: auto;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .footer-section p {
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+  }
+  .footer-section h3 {
+    color: azure;
+  }
+  .footer-icons {
+    // align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  .footer-section .icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  .footer-section .icon .link {
+    text-decoration: none;
+    color: rgb(242, 242, 177);
+    transition: 500ms;
+  }
+  .icon-class {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 50%;
+  }
+  .icon-class:hover {
+    background-color: rgb(173, 79, 79);
+  }
+
+  .footer-section:nth-child(2).icon .link:hover {
+    font-size: 22px;
+  }
+
+  .footer-section:nth-child(3){
+    // margin: 0 auto;
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+  }
+  .footer-section:nth-child(3) .link {
+    line-height: 30px;
+    background-color: #ffffff1f;
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+  .footer-section:nth-child(3) .icon {
+    margin: 5px;
+  }
+
+  .OurTeamBtn{
+    padding: 3px 10px;
+    background-color: #fff;
+    color: #000;
+    font-size: 21px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+
+    img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: 500ms;
+      border-radius: 8px;
     }
-    .logoImage:hover {
-        transform: scale(1.05);
-        padding: auto;
-    }
-
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    .footer-section {
-        // flex: 1 1 300px;
-       
-        margin-bottom: 20px;
-    }
-    // .footer-center{
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    // }
-    .footer-section p{
-        font-size: 20px ;
-    }
-    .footer-section h3 {
-        color: azure;
-    }
-    .footer-section .icon p a {
-        text-decoration: none;
-        color: rgb(242, 242, 177);
-        transition: 500ms;
-    }
-
-        .footer-section .icon p a:hover {
-          font-size: 20px;
-    }
-
-    .image-gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
-        gap: 10px;
-        margin-top: 20px;
-
-        img {
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: 500ms;
-            border-radius: 8px;
-        }
-        img:hover {
-            transform: scale(1.1);
-        }
-    }
-
-    .footer-bottom {
-        text-align: center;
-        padding-top: 10px;
-    }
-
-    .image-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 999;
-
-        .image-overlay-content {
-            max-width: 90%;
-            max-height: 90%;
-            margin: 0 auto;
-
-            img {
-                width: 100%;
-                height: auto;
-            }
-        }
-    }
-}
-
-
-
-
-  @media (max-width: 800px) {
-   
-       .footer-center{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .footer-content {
-    
-        margin: 0 10%;
-    
+    img:hover {
+      transform: scale(1.1);
     }
   }
 
-  @media (max-width: 600px) {
-    .footer-content {
-    
-        margin: 0 5%;
-    
-    }
+  .footer-bottom {
+    backdrop-filter: blur(50px);
+
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
   }
 
-  @media (max-width: 400px) {
-     
+  .image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+
+    .image-overlay-content {
+      max-width: 90%;
+      max-height: 90%;
+      margin: 0 auto;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
 }
 
+@media (max-width: 800px) {
+  .footer-center {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section p {
+    text-align: center;
+  }
+  .footer-content {
+    margin: 0 10%;
+  }
+  .footer-icons {
+    margin: auto;
+  }
+  .footer-section:nth-child(3) {
+    text-align: center;
+    margin: auto;
+  }
+  .OurTeamBtn{
+   margin-bottom: 15px;
+  }
 
-// @media (max-width: 1000px) {
-   
-// }
+}
 
-// @media (max-width: 800px) {
-   
-// }
-
-// @media (max-width: 600px) {
-   
-// }
-
-// @media (max-width: 400px) {
-   
-// }
+@media (max-width: 600px) {
+  .footer {
+    padding: 10px 5px;
+    margin: auto;
+  }
+  .footer-content {
+    margin: 0 2px;
+  }
+}
