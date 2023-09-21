@@ -73,7 +73,7 @@
   .footer-section:nth-child(3){
     // margin: 0 auto;
     display: flex;
-    // align-items: center;
+    align-items: center;
     justify-content: center;
   }
   .footer-section:nth-child(3) .link {
@@ -83,19 +83,26 @@
     border-radius: 5px;
     font-size: 20px;
   }
+  .footer-section:nth-child(3) img{
+    width: 80px;
+    margin-bottom: 10px;
+  }
   .footer-section:nth-child(3) .icon {
     margin: 5px;
   }
 
   .OurTeamBtn{
-    padding: 3px 10px;
-    background-color: #fff;
+    padding: 3px 20px;
+    background-color: #ffffffca;
     color: #000;
     font-size: 21px;
     border: none;
     border-radius: 5px;
     font-weight: 500;
     cursor: pointer;
+  }
+  .OurTeamBtn:hover{
+    background-color: #fff;
   }
 
   .image-gallery {
@@ -169,9 +176,14 @@
   .footer-section:nth-child(3) {
     text-align: center;
     margin: auto;
+    
+    align-items: center;
   }
   .OurTeamBtn{
    margin-bottom: 15px;
+  }
+  .footer-section:nth-child(3) img{
+   display: none;
   }
 
 }

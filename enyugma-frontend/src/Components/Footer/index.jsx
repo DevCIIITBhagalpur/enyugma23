@@ -5,6 +5,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import logo from "../../assets/logo.png";
+import IIItbLogo from "../../assets/iiitbh.png"
 import "./footer.scss";
 import { gallery } from "../Gallery/list.js";
 import { Link } from "react-router-dom";
@@ -70,34 +71,9 @@ const Footer = () => {
           </div>
           </div>
         </div>
-        {/* <div className="footer-section ">
-          <h3>Enyugma'22 Results</h3>
-          <br />
-          <div className="icon">
-           
-              <Link
-                className="link"
-                href="https://instagram.com/enyugma_iiitbh?igshid=MzRlODBiNWFlZA=="
-                target="_blank"
-              >
-                Technical Event Result
-              </Link>
-            
-          </div>
-        
-          <div className="icon">
-            
-              <Link
-                className="link"
-                href="https://instagram.com/enyugma_iiitbh?igshid=MzRlODBiNWFlZA=="
-                target="_blank"
-              >
-                Cultural Event Result
-              </Link>
-            
-          </div>
-        </div> */}
+     
          <div className="footer-section ">
+            <img src={IIItbLogo} alt="" />
           <button className="OurTeamBtn">Our Team</button>
           
         </div>
