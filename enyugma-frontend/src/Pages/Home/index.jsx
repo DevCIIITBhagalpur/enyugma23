@@ -106,7 +106,7 @@ function Model() {
         <pointLight position={[-10, -10, -10]} />
         <OrbitControls 
             rotation={[Math.PI / 2, 0, 0]}
-            enableRotate={true}
+            enableRotate={window.innerWidth > 768 ? true : false}
             enableZoom={false}
             enablePan={false}
             minZoom={1}

@@ -45,38 +45,35 @@
         transition: 500ms;
         opacity: 0;
         font-size: 20px;
-        gap:16px;
-
+        gap: 16px;
 
         .btn {
-          text-align: center;
-          text-decoration: none;
-          animation: fadeIn 1s ease-in-out infinite alternate;
+            text-align: center;
+            text-decoration: none;
+            animation: fadeIn 1s ease-in-out infinite alternate;
 
-          @keyframes fadeIn {
-            0% {
-              opacity: 0.5;
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0.5;
+                }
+                100% {
+                    opacity: 1;
+                }
             }
-            100% {
-              opacity: 1;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 0;
+                height: 2px;
+                background: #fff;
+                transition: width 0.3s;
             }
-            
-          }
 
-
-          &::after {
-            content: "";
-            display: block;
-            width: 0;
-            height: 2px;
-            background: #fff;
-            transition: width 0.3s;
-          }
-
-          &:hover::after {
-            width: 100%;
-            transition: width 0.3s;
-          }
+            &:hover::after {
+                width: 100%;
+                transition: width 0.3s;
+            }
         }
     }
 }
