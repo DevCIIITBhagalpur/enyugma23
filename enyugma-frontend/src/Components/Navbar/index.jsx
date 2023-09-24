@@ -5,7 +5,10 @@ import { Link, NavLink } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/logo.png";
+import iiitbh from "../../assets/iiitbh.png";
 import "./navbar.scss";
+import MenuBar from "../Menu/index.jsx";
+import { Divider } from "@mui/material";
 
 const Navbar = () => {
     const [activeNav, setActiveNav] = useState("nav");
@@ -22,8 +25,13 @@ const Navbar = () => {
                 <div className="navbar">
                     <Link className="logo" to="/">
                         <img src={logo} alt="" className="logoImg" />
+                        <Divider orientation="vertical" flexItem sx={{
+                            backgroundColor: "white",
+                            width: "2px",
+                        }} />
+                        <img src={iiitbh} alt="" className="logoImg" />
                     </Link>
-
+                    { window.innerWidth > 768 ? <>
                     <div className={activeNav}>
                         <div className="close" onClick={closeNav}>
                             <CloseIcon />
@@ -42,14 +50,13 @@ const Navbar = () => {
                                 <NavLink to="/sponsors" className="link">Sponsors</NavLink>
                             </li>
                             <li className="navItem">
-                                <button className="registerBtn">
+                                <Link to="/register" className="registerBtn">
                                     Register
-                                </button>
+                                </Link>
                             </li>
                         </ul>
                     </div>
-
-                    <MenuIcon className="menu" onClick={openNav} />
+                        </> : <MenuBar />}
                 </div>
             </header>
         </>

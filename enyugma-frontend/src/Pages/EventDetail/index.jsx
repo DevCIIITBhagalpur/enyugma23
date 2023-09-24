@@ -6,7 +6,9 @@ import { ThemeProvider } from "@emotion/react";
 import Navbar from "../../Components/Navbar/index.jsx";
 import cultural3 from "../../assets/bgs/cultural3.png";
 import technical2 from "../../assets/bgs/technical2.png";
+import workshop from "../../assets/bgs/workshop1.png";
 import Stars2 from "../../Components/Stars2/index.jsx";
+import codeloop from "../../assets/codeloop.png";
 
 
 export default function EventDetail() {
@@ -43,6 +45,7 @@ export default function EventDetail() {
             "In case of a tie, the team with the least penalty will be declared as the winner.",
             "If the tie still persists, the team which submitted the last correct solution will be declared as the winner.",
         ],
+        banner: codeloop,
     });
 
     const fetchEventData = async (eventName) => {
@@ -60,6 +63,9 @@ export default function EventDetail() {
         const eventType = arr[arr.length - 2];
         if(eventType === "technical") {
             setEventBg(technical2);
+        }
+        else if(eventType === "workshop") {
+            setEventBg(workshop);
         }
         else {
             setEventBg(cultural3);
@@ -100,10 +106,25 @@ function CustomTabPanel(props) {
             hidden={value !== index}
             id={`simple-tabpanel-${index}`}
             aria-labelledby={`simple-tab-${index}`}
+            style={{
+                height: "100%",
+                width: "75%",
+                borderBottom: "1px solid #ffffff25",
+            }}
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 3 }}>
+                <Box
+                    sx={{
+                        p: 5,
+                        width: "100%",
+                        minWidth: "300px",
+                        margin: "auto",
+                        borderLeft: "1px solid #ffffff25",
+                        borderRight: "1px solid #ffffff25",
+                        height: "100%",
+                    }}
+                >
                     <Typography>{children}</Typography>
                 </Box>
             )}
@@ -149,6 +170,8 @@ function BasicTabs({ eventDetails }) {
                         <Tab label="Judging Criteria" {...a11yProps(4)} />
                     </Tabs>
                 </Box>
+                <Box sx={{ height: "100%", width: "100%",display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-around" }}>
+                    <img src={eventDetails.banner} alt="" className="event-banner" /> 
                 <CustomTabPanel value={value} index={0}>
                     <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
                         <Typography variant="h6">
@@ -157,7 +180,7 @@ function BasicTabs({ eventDetails }) {
                     </Box>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={1}>
-                    <Box sx={{ display: "flex", flexDirection: "column" }}>
+                    <Box sx={{ display: "flex", flexDirection: "column",height:"100%" }}>
                         {Object.keys(eventDetails.generalDetails).map((key) => (
                             <Box
                                 key={key}
@@ -208,6 +231,7 @@ function BasicTabs({ eventDetails }) {
                         </Typography>
                     ))}
                 </CustomTabPanel>
+                </Box>
             </Box>
         </ThemeProvider>
     );

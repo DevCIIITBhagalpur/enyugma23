@@ -74,7 +74,7 @@ const Footer = () => {
      
          <div className="footer-section ">
             <img src={IIItbLogo} alt="" />
-          <button className="OurTeamBtn">Our Team</button>
+          <Link to="/our-team" className="OurTeamBtn">Our Team</Link>
           
         </div>
       </div>
@@ -86,7 +86,7 @@ const Footer = () => {
         </div>
       )}
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} IIITBH.All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Indian Institute  of Information Technology Bhagalpur. All right reserved.</p>
       </div>
     </footer>
   );

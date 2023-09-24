@@ -20,11 +20,14 @@
     "@react-three/drei": "^9.78.1",
     "@react-three/fiber": "^8.13.4",
     "@types/three": "^0.153.0",
+    "compass-mixins": "^0.12.12",
     "react": "^18.2.0",
     "react-countdown": "^2.3.5",
     "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
     "react-responsive-masonry": "^2.1.7",
     "react-router-dom": "^6.14.1",
+    "remark-gfm": "^4.0.0",
     "styled-components": "^6.0.4",
     "three": "^0.154.0"
   },
@@ -37,7 +40,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "gh-pages": "^5.0.0",
+    "mathsass": "^0.11.0",
     "sass": "^1.63.3",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "vite-plugin-image-optimizer": "^1.1.7"
   }
 }

@@ -13,6 +13,7 @@ import Events from "./Pages/Events/index.jsx";
 import EventDetail from "./Pages/EventDetail/index.jsx";
 import SponsorCard from "./Components/SponsorCard/index.jsx";
 import Sponsors from "./Pages/Sponsors/index.jsx";
+import WorkshopEvent from "./Pages/WorkshopEvent/index.jsx";
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -40,18 +41,23 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="events">
                         <Route index element={<Events />} />
-                        <Route path="technical"  >
+                        <Route path="technical">
                             <Route index element={<TechnicalEvent />} />
                             <Route path=":id" element={<EventDetail />} />
                         </Route>
-                        <Route path="cultural" >
+                        <Route path="cultural">
                             <Route index element={<CulturalEvent />} />
+                            <Route path=":id" element={<EventDetail />} />
+                        </Route>
+                        <Route path="workshop" >
+                            <Route index element={<WorkshopEvent />} />
                             <Route path=":id" element={<EventDetail />} />
                         </Route>
                     </Route>
                     <Route path="contact" element={<h1>Contact</h1>} />
+
                     <Route path="gallery" element={<GalleryPage />} />
-                    <Route path= "sponsors" element={<Sponsors/>} />
+                    <Route path="sponsors" element={<Sponsors />} />
                 </Routes>
                 <Footer />
             </div>
