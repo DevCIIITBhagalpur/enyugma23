@@ -1,18 +1,36 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import Config from './config.js';
-const App = express();
+const express = require("express");
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const app = express();
+const cors = require("cors");
+dotenv.config();
+const PORT = process.env.PORT ;
+const uri = process.env.DB_CONNECT;
 
-App.use(bodyParser.json());
-App.use(cors());
 
-App.get('/', (req, res) => {
-    res.json({
-        message: 'Welcome to Enyugma'
-    });
-});
+async function run() {
+    try {
+        const conn = await mongoose.connect(uri, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("Connected to the database");
+    } catch (error) {
+        console.error("Error connecting to the database:", error);
+        process.exit(1); // Terminate the application on database connection error
+    }
+}
 
-App.listen(Config.Port, () => {
-    console.log(`Server started on port ${Config.Port}`);
+run().catch(console.dir);
+
+const userRoutes = require("./routes/user");
+
+app.use(express.json());
+app.use(cors());
+
+// Routes Middleware
+app.use("/api/user", userRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

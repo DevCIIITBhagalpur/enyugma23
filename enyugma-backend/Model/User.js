@@ -1,0 +1,61 @@
+const mongoose = require("mongoose");
+
+const UserSchema = new mongoose.Schema({
+    firstname:{
+        type:String,
+        required:true
+    },
+    lastname:{
+        type:String,
+        required:true,
+    },
+    emailId:{
+        type:String,
+        unique:true,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true,
+    },
+    confirmPassword:{
+        type:String,
+        required:true,
+    },
+    technicalEvents:[{
+        type:String,
+    }],
+    culturalEvents:[{
+        type:String,
+    }],
+    instituteName:{
+        type:String,
+        required:true,
+    },
+    batchYear:{
+        type:String,
+        required:true,
+    },
+    phoneNumber:{
+        type:Number,
+        required:true,
+    },
+    teamSize:{
+        type:Number,
+        required:true,
+    },
+    city:{
+        type:String,
+        required:true,
+    },
+    pincode:{
+        type:String,
+        required:true,
+    },
+    state:{
+        type:String,
+        required:true,
+    },
+});
+
+module.exports = mongoose.model("User", UserSchema)
