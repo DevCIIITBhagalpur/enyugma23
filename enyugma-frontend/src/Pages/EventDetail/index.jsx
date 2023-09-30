@@ -114,7 +114,7 @@ function CustomTabPanel(props) {
             aria-labelledby={`simple-tab-${index}`}
             style={{
                 height: "100%",
-                minHeight: "500px",
+                minHeight: "350px",
                 overflowY: "auto",
                 width: "75%",
                 borderBottom: "1px solid #ffffff25",
@@ -125,10 +125,10 @@ function CustomTabPanel(props) {
             {value === index && (
                 <Box
                     sx={{
-                        p: 5,
+                         p: 5,
                         width: "100%",
                         // minWidth: "300px",
-                        margin: "auto",
+                        // margin: "auto",
                         borderLeft: "1px solid #ffffff25",
                         borderRight: "1px solid #ffffff25",
                         height: "100%",
