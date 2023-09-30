@@ -62,42 +62,42 @@ const Gallery = () => {
                 />
                 <List
                     label=" "
+                    link={images[0]}
+                    LiClass="disable honeycomb-cell noneTab tabDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[0]}
+                    LiClass="disable honeycomb-cell noneTab tabDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[0]}
+                    LiClass="disable honeycomb-cell noneTab mobilDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[1]}
+                    LiClass="enable honeycomb-cell noneTab noneMobil mobil"
+                />
+                <List
+                    label=" "
+                    link={images[1]}
+                    LiClass="disable honeycomb-cell noneTab noneMobil"
+                />
+                <List
+                    label=" "
+                    link={images[1]}
+                    LiClass="disable honeycomb-cell noneTab tabDisplay"
+                />
+                <List
+                    label=" "
                     link={images[1]}
                     LiClass="disable honeycomb-cell noneTab tabDisplay"
                 />
                 <List
                     label=" "
                     link={images[2]}
-                    LiClass="disable honeycomb-cell noneTab tabDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[3]}
-                    LiClass="disable honeycomb-cell noneTab mobilDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[4]}
-                    LiClass="enable honeycomb-cell noneTab noneMobil mobil"
-                />
-                <List
-                    label=" "
-                    link={images[6]}
-                    LiClass="disable honeycomb-cell noneTab noneMobil"
-                />
-                <List
-                    label=" "
-                    link={images[7]}
-                    LiClass="disable honeycomb-cell noneTab tabDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[8]}
-                    LiClass="disable honeycomb-cell noneTab tabDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[9]}
                     LiClass="enable honeycomb-cell noneTab tabDisplay"
                 />
             </ul>
@@ -105,32 +105,32 @@ const Gallery = () => {
             <ul className="honeycomb" lang="es">
                 <List
                     label=" "
-                    link={images[10]}
+                    link={images[3]}
                     LiClass="enable honeycomb-cell noneTab tabDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[0]}
-                    LiClass="disable honeycomb-cell noneTab tabDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[1]}
-                    LiClass="enable honeycomb-cell noneTab tabDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[2]}
-                    LiClass="disable honeycomb-cell tab noneMobil mobilDisplay"
                 />
                 <List
                     label=" "
                     link={images[3]}
+                    LiClass="disable honeycomb-cell noneTab tabDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[4]}
+                    LiClass="enable honeycomb-cell noneTab tabDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[17]}
+                    LiClass="disable honeycomb-cell tab noneMobil mobilDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[4]}
                     LiClass="disable honeycomb-cell  tab noneMobil mobil"
                 />
                 <List
                     label=" "
-                    link={images[4]}
+                    link={images[5]}
                     LiClass="enable honeycomb-cell noneTab tabDisplay"
                 />
                 <List
@@ -147,80 +147,38 @@ const Gallery = () => {
             <ul className="honeycomb" lang="es">
                 <List
                     label=" "
-                    link={images[7]}
+                    link={images[6]}
                     LiClass="disable honeycomb-cell noneTab tabDisplay"
                 />
                 <List
                     label=" "
-                    link={images[8]}
+                    link={images[7]}
                     LiClass="enable honeycomb-cell noneTab tabDisplay"
                 />
                 <List
                     label=" "
-                    link={images[9]}
+                    link={images[7]}
                     LiClass="disable honeycomb-cell tab noneMobil mobilDisplay"
                 />
                 <List
                     label=" "
-                    link={images[10]}
+                    link={images[8]}
                     LiClass="enable honeycomb-cell  noneTab mobil"
                 />
                 <List
                     label=" "
-                    link={images[0]}
-                    LiClass="disable honeycomb-cell tab mobil"
-                />
-                <List
-                    label=" "
-                    link={images[1]}
-                    LiClass="enable honeycomb-cell  noneTab tabDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[2]}
-                    LiClass="disable honeycomb-cell noneTab tabDisplay"
-                />
-            </ul>
-            <ul className="honeycomb" lang="es">
-                <List
-                    label=" "
-                    link={images[2]}
-                    LiClass="enable honeycomb-cell noneTab tabDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[3]}
-                    LiClass="disable honeycomb-cell noneTab tabDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[4]}
-                    LiClass="enable honeycomb-cell noneTab tabDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[5]}
-                    LiClass="disable honeycomb-cell tab noneMobil mobilDisplay"
-                />
-                <List
-                    label=" "
-                    link={images[6]}
-                    LiClass="disable honeycomb-cell tab mobil"
-                />
-                <List
-                    label=" "
-                    link={images[7]}
-                    LiClass="enable honeycomb-cell  noneTab tabDisplay"
-                />
-                <List
-                    label=" "
                     link={images[8]}
-                    LiClass="disable honeycomb-cell noneTab tabDisplay"
+                    LiClass="disable honeycomb-cell tab mobil"
                 />
                 <List
                     label=" "
                     link={images[9]}
-                    LiClass="enable honeycomb-cell noneTab tabDisplay"
+                    LiClass="enable honeycomb-cell  noneTab tabDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[9]}
+                    LiClass="disable honeycomb-cell noneTab tabDisplay"
                 />
             </ul>
             <ul className="honeycomb" lang="es">
@@ -236,37 +194,79 @@ const Gallery = () => {
                 />
                 <List
                     label=" "
-                    link={images[0]}
+                    link={images[11]}
+                    LiClass="enable honeycomb-cell noneTab tabDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[18]}
+                    LiClass="disable honeycomb-cell tab noneMobil mobilDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[11]}
+                    LiClass="disable honeycomb-cell tab mobil"
+                />
+                <List
+                    label=" "
+                    link={images[12]}
+                    LiClass="enable honeycomb-cell  noneTab tabDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[12]}
                     LiClass="disable honeycomb-cell noneTab tabDisplay"
                 />
                 <List
                     label=" "
-                    link={images[1]}
+                    link={images[13]}
+                    LiClass="enable honeycomb-cell noneTab tabDisplay"
+                />
+            </ul>
+            <ul className="honeycomb" lang="es">
+                <List
+                    label=" "
+                    link={images[14]}
+                    LiClass="enable honeycomb-cell noneTab tabDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[14]}
+                    LiClass="disable honeycomb-cell noneTab tabDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[14]}
+                    LiClass="disable honeycomb-cell noneTab tabDisplay"
+                />
+                <List
+                    label=" "
+                    link={images[14]}
                     LiClass="disable honeycomb-cell noneTab noneMobil mobilDisplay"
                 />
                 <List
                     label=" "
-                    link={images[2]}
+                    link={images[15]}
                     LiClass="enable honeycomb-cell noneTab mobil"
                 />
                 <List
                     label=" "
-                    link={images[3]}
+                    link={images[15]}
                     LiClass="disable honeycomb-cell noneTab noneMobil"
                 />
                 <List
                     label=" "
-                    link={images[4]}
+                    link={images[15]}
                     LiClass="disable honeycomb-cell noneTab tabDisplay"
                 />
                 <List
                     label=" "
-                    link={images[5]}
+                    link={images[15]}
                     LiClass="disable honeycomb-cell noneTab tabDisplay"
                 />
                 <List
                     label=" "
-                    link={images[6]}
+                    link={images[16]}
                     LiClass="enable honeycomb-cell noneTab tabDisplay"
                 />
             </ul>

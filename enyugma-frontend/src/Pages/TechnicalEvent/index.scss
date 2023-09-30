@@ -20,11 +20,11 @@
             top: 0;
             left: 0;
             overflow: hidden;
+            z-index: 1;
          }
          
         .technicalEvent {
             display: flex;
-
             flex-direction: row;
             flex-wrap: wrap;
             align-items: center;

@@ -27,6 +27,7 @@ export default function WorkshopEvent() {
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
+                    // minHeight: "100vh",
                 }}
                 className="bbox"
             >

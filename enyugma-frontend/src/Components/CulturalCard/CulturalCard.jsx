@@ -43,36 +43,48 @@ const CulturalCard = (props) => {
           });
       }, []);
   return (
-    <div  style={{ borderRadius: "20px", padding: "0 !important" ,backgroundColor:"rgba(0,0,0,0.5)",boxShadow:" 0px 0px 16px 0px rgba(0,0,0,0.9)" ,width:"auto"}}>
-      <Paper
-          className="card"
-          {...props.others}
+      <div
           style={{
-              backgroundImage: `url(${props.imgUrl})`,
-              clipPath:
-                  " polygon(0% 15%, 100% 100%, 15% 0%, 85% 0%, 0 100%, 100% 15%, 100% 85%, 0 0, 85% 100%, 15% 100%, 100% 0, 0% 85%)",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "100% 100%",
-              backgroundPosition: "center",
               borderRadius: "20px",
-              margin: "0",
-              transition: "all 0.5s ease-in-out",
+              padding: "0 !important",
+              backgroundColor: "rgba(0,0,0,0.5)",
+              boxShadow: " 0px 0px 16px 0px rgba(0,0,0,0.9)",
+              width: "auto",
           }}
-          ref={cardref}
       >
-          {/* <img src={border} alt="bg-removebg-preview" border="0" className="bg" /> */}
-          <div className="overlay" ref={bgref}>
-              <div className="info" ref={hoverRef}>
-                  <h1>{props.eventName}</h1>
-                  <p>{props.eventDesc}</p>
+          <Paper
+              className="card"
+              {...props.others}
+              style={{
+                  backgroundImage: `url(${props.banner})`,
+                  clipPath:
+                      " polygon(0% 15%, 100% 100%, 15% 0%, 85% 0%, 0 100%, 100% 15%, 100% 85%, 0 0, 85% 100%, 15% 100%, 100% 0, 0% 85%)",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "100% 100%",
+                  backgroundPosition: "center",
+                  borderRadius: "20px",
+                  margin: "0",
+                  transition: "all 0.5s ease-in-out",
+              }}
+              ref={cardref}
+          >
+              {/* <img src={border} alt="bg-removebg-preview" border="0" className="bg" /> */}
+              <div className="overlay" ref={bgref}>
+                  <div className="info" ref={hoverRef}>
+                      <h1>{props.name}</h1>
+                      <p>
+                          {props.description.length > 100
+                              ? props.description.substring(0, 100) + "..."
+                              : props.description}
+                      </p>
 
-                  <Link to={`./${props.id}`} className="btn">
-                      <span>View &#10138; </span>
-                  </Link>
+                      <Link to={`./${props.id}`} className="btn">
+                          <span>View &#10138; </span>
+                      </Link>
+                  </div>
               </div>
-          </div>
-      </Paper>
-    </div>
+          </Paper>
+      </div>
   );
 };
 
