@@ -1,16 +1,16 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
+import express, { json } from "express";
+import { config } from "dotenv";
+import { connect } from "mongoose";
 const app = express();
-const cors = require("cors");
-dotenv.config();
+import cors from "cors";
+config();
 const PORT = process.env.PORT ;
 const uri = process.env.DB_CONNECT;
 
 
 async function run() {
     try {
-        const conn = await mongoose.connect(uri, {
+        const conn = await connect(uri, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
@@ -23,9 +23,9 @@ async function run() {
 
 run().catch(console.dir);
 
-const userRoutes = require("./routes/user");
+import userRoutes from "./routes/user";
 
-app.use(express.json());
+app.use(json());
 app.use(cors());
 
 // Routes Middleware
