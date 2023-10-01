@@ -3,16 +3,41 @@ import "./index.scss";
 import { Masonry } from "@mui/lab";
 import { gallery as list } from "../../Components/Gallery/list.js";
 import Navbar from "../../Components/Navbar/index.jsx";
-import { Suspense } from "react";
+import { Suspense,useEffect,useState } from "react";
 
 export default function GalleryPage() {
+    const [clm,setClm] = useState(
+        window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : window.innerWidth < 1200 ? 3 : 4);
+
+    const handleResize = () => {
+        if (window.innerWidth < 600) {
+            setClm(1);
+        } else if (window.innerWidth < 900) {
+            setClm(2);
+        } else if (window.innerWidth < 1200) {
+            setClm(3);
+        } else {
+            setClm(4);
+        }
+    }
+
+   useEffect(() => {
+         window.addEventListener("resize", handleResize);
+         return () => {
+              window.removeEventListener("resize", handleResize);
+         }
+    }
+    , []);
+
     return (
         <>
             <Navbar />
             <Box className="gallerybox">
                 <h1>Gallery</h1>
                 <Suspense fallback={<SkeletonComp />}>
-                    <Masonry columns={3} spacing={2}>
+                    <Masonry columns={clm} spacing={2} 
+
+                    >
                         {list.map((item, index) => (
                             <div key={index}>
                                 <img

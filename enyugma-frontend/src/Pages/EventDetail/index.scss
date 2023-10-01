@@ -17,13 +17,15 @@
         top: 0;
         left: 0;
         overflow: hidden;
+        z-index:0;
     }
 
     .event-banner {
         flex:1;
-        max-width: 400px;
+        max-width: 320px;
         aspect-ratio: 1/1;
         border-radius: 16px;
+        width: 100%;
 
         @media (max-width: 768px) {
             display: none;

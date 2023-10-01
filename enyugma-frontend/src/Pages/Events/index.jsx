@@ -147,7 +147,7 @@ function Slider({ list, type }) {
             ref={wheelRef}
         >
             {list.map((item) => {
-                return <GenC key={item.id} item={item} />;
+                return <GenC key={item.id} item={item} type={type} />;
             })}
             <Box
                 sx={{
@@ -193,7 +193,7 @@ function Slider({ list, type }) {
     );
 }
 
-function GenC({ item }) {
+function GenC({ item,type }) {
     const hoverRef = React.useRef(null);
 
     React.useEffect(() => {
@@ -220,18 +220,19 @@ function GenC({ item }) {
             });
         };
     }, []);
+    console.log(item);
     return (
         <Box
             sx={{
                 flexShrink: 0,
-                width: 500,
+                width: 600,
                 height: "100%",
                 display: "flex",
                 flexDirection: "row",
                 flexWrap: "nowrap",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundImage: `url(${item.imgUrl})`,
+                backgroundImage: `url(${item.banner})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -254,7 +255,9 @@ function GenC({ item }) {
                 }}
                 ref={hoverRef}
             >
-                {item.eventName}
+                <Link to={`${type}/${item.id.toLowerCase()}`} >
+                {item.name}
+                </Link>
             </Typography>
         </Box>
     );

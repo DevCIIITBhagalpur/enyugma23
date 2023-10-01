@@ -1,51 +1,48 @@
 import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { useLocation } from "react-router-dom";
-import { Box, Button, Tab, Tabs, Typography, createTheme } from "@mui/material";
+import {
+    Box,
+    Button,
+    Divider,
+    Tab,
+    Tabs,
+    Typography,
+    createTheme,
+} from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import Navbar from "../../Components/Navbar/index.jsx";
 import cultural3 from "../../assets/bgs/cultural3.png";
 import technical2 from "../../assets/bgs/technical2.png";
 import workshop from "../../assets/bgs/workshop1.png";
 import Stars2 from "../../Components/Stars2/index.jsx";
-import codeloop from "../../assets/codeloop.png";
-
+import session from "../../assets/events/speaker-session.png";
+import technicalEvent from "../TechnicalEvent/technicalEvent.js";
+import culturalEvent from "../CulturalEvent/list.js";
 
 export default function EventDetail() {
     const location = useLocation();
     const [eventBg, setEventBg] = useState("");
     const [eventDetails, setEventDetails] = useState({
-        name: "CodeLoop",
-        type: "technical",
-        description: "CodeLoop is a coding event",
-        generalDetails: {
-            Platform: "Codechef",
-            Date: "12/10/2021",
-            Time: "12:00 PM",
-            Duration: "2 hours",
-            Registration: "Free",
-        },
+        id: "comingsoon",
+        name: "Coming Soon",
+        eventType: "workshop",
+        description: `Coming Soon`,
+        phases: [
+            {
+                name: "Coming Soon",
+                desc: `* Coming Soon.`,
+                type: "Coming Soon",
+            },
+        ],
         prizes: {
-            pool: 70000,
-            distribution: [
-                "15000 + goodies + certificate",
-                "10000 + goodies + certificate",
-                "5000 + goodies + certificate",
-                "4000 + certificate",
-                "5th-8th : 1000 + certificate",
-            ],
+            pool: "Coming Soon",
+            distribution: ["Coming Soon"],
         },
-        rules: [
-            "This is a team event. Each team can have a maximum of 3 members.",
-            "The event will be conducted on Codechef.",
-            "The event will be of 2 hours.",
-        ],
-        judgingCriteria: [
-            "The team with the highest score will be declared as the winner.",
-            "In case of a tie, the team with the least penalty will be declared as the winner.",
-            "If the tie still persists, the team which submitted the last correct solution will be declared as the winner.",
-        ],
-        banner: codeloop,
+        banner: session,
+        generalDetails: {
+            type: "Coming Soon",
+        },
     });
 
     const fetchEventData = async (eventName) => {
@@ -59,16 +56,24 @@ export default function EventDetail() {
     const arr = location.pathname.split("/");
 
     useEffect(() => {
-        const eventName = arr[arr.length - 1];
+        const eventId = arr[arr.length - 1];
         const eventType = arr[arr.length - 2];
-        if(eventType === "technical") {
+        if (eventType === "technical") {
             setEventBg(technical2);
-        }
-        else if(eventType === "workshop") {
+            const eventdata = technicalEvent.find(
+                (event) => event.id === eventId,
+            );
+            // console.log(eventdata);
+            setEventDetails(eventdata);
+        } else if (eventType === "workshop") {
             setEventBg(workshop);
-        }
-        else {
+        } else {
             setEventBg(cultural3);
+            const eventdata = culturalEvent.find(
+                (event) => event.id === eventId,
+            );
+            // console.log(eventdata);
+            setEventDetails(eventdata);
         }
     }, [arr]);
 
@@ -83,12 +88,13 @@ export default function EventDetail() {
             >
                 <Navbar />
                 <div className="abs">
-                <Stars2 />
+                    <Stars2 />
                 </div>
                 <Typography variant="h2" className="event-name">
                     {eventDetails.name}
                 </Typography>
                 <BasicTabs eventDetails={eventDetails} />
+                <br />
                 <Button variant="contained" className="register-button">
                     Register
                 </Button>
@@ -108,18 +114,21 @@ function CustomTabPanel(props) {
             aria-labelledby={`simple-tab-${index}`}
             style={{
                 height: "100%",
+                minHeight: "350px",
+                overflowY: "auto",
                 width: "75%",
                 borderBottom: "1px solid #ffffff25",
+                zIndex: 0,
             }}
             {...other}
         >
             {value === index && (
                 <Box
                     sx={{
-                        p: 5,
+                         p: 5,
                         width: "100%",
-                        minWidth: "300px",
-                        margin: "auto",
+                        // minWidth: "300px",
+                        // margin: "auto",
                         borderLeft: "1px solid #ffffff25",
                         borderRight: "1px solid #ffffff25",
                         height: "100%",
@@ -154,83 +163,228 @@ function BasicTabs({ eventDetails }) {
 
     return (
         <ThemeProvider theme={darktheme}>
-            <Box sx={{ width: "100%",height:"50%" }}>
-                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Box
+                sx={{
+                    width: "100%",
+                    height: "50%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "space-around",
+                }}
+            >
+                <Box
+                    sx={{
+                        borderBottom: 1,
+                        borderColor: "divider",
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
                     <Tabs
                         value={value}
                         onChange={handleChange}
                         aria-label="basic tabs example"
                         align="center"
-                        centered
+                        scrollButtons
+                        sx={{
+                            zIndex: 1,
+                        }}
+                        // centered
+                        variant="scrollable"
                     >
                         <Tab label="Description" {...a11yProps(0)} />
                         <Tab label="Details" {...a11yProps(1)} />
                         <Tab label="Prize" {...a11yProps(2)} />
-                        <Tab label="Rules" {...a11yProps(3)} />
-                        <Tab label="Judging Criteria" {...a11yProps(4)} />
+                        <Tab label="Phases" {...a11yProps(3)} />
+                        {eventDetails.eventType === "cultural" && (
+                            <Tab label="Rules" {...a11yProps(4)} />
+                        )}
+                        {eventDetails.eventType === "cultural" && (
+                            <Tab label="Judging Criteria" {...a11yProps(5)} />
+                        )}
                     </Tabs>
                 </Box>
-                <Box sx={{ height: "100%", width: "100%",display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-around" }}>
-                    <img src={eventDetails.banner} alt="" className="event-banner" /> 
-                <CustomTabPanel value={value} index={0}>
-                    <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-                        <Typography variant="h6">
-                            {eventDetails.description}
-                        </Typography>
-                    </Box>
-                </CustomTabPanel>
-                <CustomTabPanel value={value} index={1}>
-                    <Box sx={{ display: "flex", flexDirection: "column",height:"100%" }}>
-                        {Object.keys(eventDetails.generalDetails).map((key) => (
-                            <Box
-                                key={key}
-                                sx={{ display: "flex", flexDirection: "row" }}
+                <Box
+                    sx={{
+                        height: "100%",
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-around",
+                    }}
+                >
+                    <img
+                        src={eventDetails.banner}
+                        alt=""
+                        className="event-banner"
+                    />
+                    <CustomTabPanel value={value} index={0}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                height: "100%",
+                            }}
+                        >
+                            <Typography variant="h6">
+                                {eventDetails.description}
+                            </Typography>
+                        </Box>
+                    </CustomTabPanel>
+                    <CustomTabPanel value={value} index={1}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                height: "100%",
+                            }}
+                        >
+                            {Object.keys(eventDetails.generalDetails).map(
+                                (key) => (
+                                    <Box
+                                        key={key}
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "row",
+                                        }}
+                                    >
+                                        <Typography
+                                            variant="h6"
+                                            sx={{ fontWeight: "bold" }}
+                                        >
+                                            {key} :{" "}
+                                        </Typography>
+                                        <Typography variant="h6">
+                                            {eventDetails.generalDetails[key]}
+                                        </Typography>
+                                    </Box>
+                                ),
+                            )}
+                        </Box>
+                    </CustomTabPanel>
+                    <CustomTabPanel value={value} index={2}>
+                        <Box sx={{ display: "flex", flexDirection: "column" }}>
+                            <Typography
+                                variant="h6"
+                                sx={{ fontWeight: "bold" }}
                             >
-                                <Typography
-                                    variant="h6"
-                                    sx={{ fontWeight: "bold" }}
-                                >
-                                    {key} :{" "}
-                                </Typography>
-                                <Typography variant="h6">
-                                    {eventDetails.generalDetails[key]}
-                                </Typography>
-                            </Box>
-                        ))}
-                    </Box>
-                </CustomTabPanel>
-                <CustomTabPanel value={value} index={2}>
-                    <Box sx={{ display: "flex", flexDirection: "column" }}>
-                        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                            Prize Pool :{" "}
-                        </Typography>
-                        <Typography variant="h6">
-                            {eventDetails.prizes.pool}
-                        </Typography>
-                        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                            Prize Distribution :{" "}
-                        </Typography>
-                        {eventDetails.prizes.distribution.map((prize, i) => (
-                            <Typography variant="h6" key={prize}>
-                                {i + 1}. {prize}
+                                Prize Pool :{" "}
+                            </Typography>
+                            <Typography variant="h6">
+                                {eventDetails.prizes.pool}
+                            </Typography>
+                            <Typography
+                                variant="h6"
+                                sx={{ fontWeight: "bold" }}
+                            >
+                                {eventDetails.prizes.pool !== "N/A"
+                                    ? "Prize Distribution"
+                                    : "Benefits & Perks"}{" "}
+                                :{" "}
+                            </Typography>
+                            {eventDetails.prizes.distribution.map(
+                                (prize, i) => (
+                                    <Typography variant="h6" key={prize}>
+                                        {i + 1}. {prize}
+                                    </Typography>
+                                ),
+                            )}
+                        </Box>
+                    </CustomTabPanel>
+                    <CustomTabPanel value={value} index={3}>
+                        {eventDetails.phases.map((phase, i) => (
+                            <Typography variant="h6" key={i}>
+                                <h2>{"Round: " + (i + 1)}</h2>
+                                {Object.entries(phase).map((x) => {
+                                    return (
+                                        <div key={x[0]}>
+                                            <h3>
+                                                {x[0][0].toUpperCase() +
+                                                    x[0].slice(1)}
+                                                :
+                                            </h3>
+                                            <pre
+                                                style={{
+                                                    whiteSpace: "pre-wrap",
+                                                    wordWrap: "break-word",
+                                                }}
+                                            >
+                                                {x[1].split("*").map((x, i) => {
+                                                    return (
+                                                        <blockquote
+                                                            key={i}
+                                                            style={{
+                                                                borderLeft:
+                                                                    "5px solid #ffffff25",
+                                                                paddingLeft:
+                                                                    "10px",
+                                                                marginLeft:
+                                                                    "10px",
+                                                                marginTop:
+                                                                    "10px",
+                                                                marginBottom:
+                                                                    "10px",
+                                                            }}
+                                                        >
+                                                            {x}
+                                                        </blockquote>
+                                                    );
+                                                })}
+                                            </pre>
+                                        </div>
+                                    );
+                                })}
+                                <Divider />
                             </Typography>
                         ))}
-                    </Box>
-                </CustomTabPanel>
-                <CustomTabPanel value={value} index={3}>
-                    {eventDetails.rules.map((rule, i) => (
-                        <Typography variant="h6" key={rule}>
-                            {i + 1}. {rule}
-                        </Typography>
-                    ))}
-                </CustomTabPanel>
-                <CustomTabPanel value={value} index={4}>
-                    {eventDetails.judgingCriteria.map((criteria, i) => (
-                        <Typography variant="h6" key={criteria}>
-                            {i + 1}. {criteria}
-                        </Typography>
-                    ))}
-                </CustomTabPanel>
+                    </CustomTabPanel>
+                    {eventDetails.eventType === "cultural" && (
+                        <>
+                            <CustomTabPanel value={value} index={4}>
+                                {eventDetails.rules.map((criteria, i) => (
+                                    <Typography variant="h6" key={criteria}>
+                                        <blockquote
+                                            style={{
+                                                borderLeft:
+                                                    "5px solid #ffffff25",
+                                                paddingLeft: "10px",
+                                                marginLeft: "10px",
+                                                marginTop: "10px",
+                                                marginBottom: "10px",
+                                            }}
+                                        >
+                                            {criteria}
+                                        </blockquote>
+                                    </Typography>
+                                ))}
+                            </CustomTabPanel>
+                            <CustomTabPanel value={value} index={5}>
+                                {eventDetails.judgingCriteria.map(
+                                    (criteria, i) => (
+                                        <Typography variant="h6" key={criteria}>
+                                            <blockquote
+                                                style={{
+                                                    borderLeft:
+                                                        "5px solid #ffffff25",
+                                                    paddingLeft: "10px",
+                                                    marginLeft: "10px",
+                                                    marginTop: "10px",
+                                                    marginBottom: "10px",
+                                                }}
+                                            >
+                                                {criteria}
+                                            </blockquote>
+                                        </Typography>
+                                    ),
+                                )}
+                            </CustomTabPanel>
+                        </>
+                    )}
                 </Box>
             </Box>
         </ThemeProvider>

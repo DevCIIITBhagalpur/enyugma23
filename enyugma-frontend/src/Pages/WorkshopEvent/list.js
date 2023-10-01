@@ -1,60 +1,60 @@
-import codeloop from "../../assets/codeloop.png";
+import wk from "../../assets/events/speaker-session.png";
 const technicalEvent = [
   {
     id: 1,
-    eventName: "Codeloop",
+    eventName: "Coming Soon",
     imgUrl:
-      codeloop,
-    eventDesc: "Hola! como estas? soy bien y tu? gracious bien",
+      wk,
+    eventDesc: "Details are coming soon",
   },
   {
     id: 2,
-    eventName: "Codeloop",
+    eventName: "Coming Soon",
     imgUrl:
-      codeloop,
-    eventDesc: "Hola! como estas? soy bien y tu? gracious bien",
+      wk,
+    eventDesc: "Details are coming soon",
   },
   {
     id: 3,
-    eventName: "Codeloop",
+    eventName: "Coming Soon",
     imgUrl:
-      codeloop,
-    eventDesc: "Hola! como estas? soy bien y tu? gracious bien",
+      wk,
+    eventDesc: "Details are coming soon",
   },
   {
     id: 4,
-    eventName: "Codeloop",
+    eventName: "Coming Soon",
     imgUrl:
-      codeloop,
-    eventDesc: "Hola! como estas? soy bien y tu? gracious bien",
+      wk,
+    eventDesc: "Details are coming soon",
   },
   {
     id: 5,
-    eventName: "Codeloop",
+    eventName: "Coming Soon",
     imgUrl:
-      codeloop,
-    eventDesc: "Hola! como estas? soy bien y tu? gracious bien",
+      wk,
+    eventDesc: "Details are coming soon",
   },
   {
     id: 6,
-    eventName: "Codeloop",
+    eventName: "Coming Soon",
     imgUrl:
-      codeloop,
-    eventDesc: "Hola! como estas? soy bien y tu? gracious bien",
+      wk,
+    eventDesc: "Details are coming soon",
   },
   {
     id: 7,
-    eventName: "Codeloop",
+    eventName: "Coming Soon",
     imgUrl:
-      codeloop,
-    eventDesc: "Hola! como estas? soy bien y tu? gracious bien",
+      wk,
+    eventDesc: "Details are coming soon",
   },
   {
     id: 8,
-    eventName: "Codeloop",
+    eventName: "Coming Soon",
     imgUrl:
-      codeloop,
-    eventDesc: "Hola! como estas? soy bien y tu? gracious bien",
+      wk,
+    eventDesc: "Details are coming soon",
   },
 ];
 

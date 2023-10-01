@@ -15,7 +15,7 @@ export default function GlowBall() {
     const buttonRef2 = useRef(null);
 
     const checkIfOverLink = (e) => {
-        console.log(e.target.tagName);
+        // console.log(e.target.tagName);
         if (canZoom(e)) {
             buttonRef.current.classList.add("hovered");
             buttonRef2.current.classList.add("hovered2");

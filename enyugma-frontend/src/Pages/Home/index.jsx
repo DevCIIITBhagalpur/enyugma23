@@ -5,13 +5,13 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import CountdownTimer from "../../Components/CountdownTimer";
-import banner from "../../assets/banner.webp"
+import banner from "../../assets/banner.webp";
 import Stars from "../../Components/Stars/index.jsx";
 import Gallery from "../../Components/Gallery/index.jsx";
 import Navbar from "../../Components/Navbar/index.jsx";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Wireframe from "../../Components/Logo/index.jsx"
+import Wireframe from "../../Components/Logo/index.jsx";
 import { useState } from "react";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -25,8 +25,6 @@ export default function Home() {
         <div className="home">
             <HeroSection />
             <Gallery />
-           
-            
         </div>
     );
 }
@@ -90,28 +88,24 @@ export function HeroSection() {
     );
 }
 
-
 function Model() {
     const [isHovering, setIsHovering] = useState(false);
 
-    
-
     return (
-    <Canvas
-        camera={{ position: [0, 0, 5] }}
-        className="canva"
-    >
-        <ambientLight intensity={1}  />
-        <spotLight position={[10, 10, 10]} angle={0.1} penumbra={0.5} />
-        <pointLight position={[-10, -10, -10]} />
-        <OrbitControls 
-            rotation={[Math.PI / 2, 0, 0]}
-            enableRotate={window.innerWidth > 768 ? true : false}
-            enableZoom={false}
-            enablePan={false}
-            minZoom={1}
-        />
-       <Wireframe />
-    </Canvas>
+        <Canvas camera={{ position: [0, 0, 5] }} className="canva">
+            <ambientLight intensity={1} />
+            <spotLight position={[10, 10, 10]} angle={0.1} penumbra={0.5} />
+            <pointLight position={[-10, -10, -10]} />
+            {window.innerWidth > 786 && (
+                <OrbitControls
+                    rotation={[Math.PI / 2, 0, 0]}
+                    enableRotate={window.innerWidth > 768 ? true : false}
+                    enableZoom={false}
+                    enablePan={false}
+                    minZoom={1}
+                />
+            )}
+            <Wireframe />
+        </Canvas>
     );
 }

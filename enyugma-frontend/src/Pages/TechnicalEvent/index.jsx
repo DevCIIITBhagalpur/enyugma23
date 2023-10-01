@@ -11,9 +11,9 @@ function createTechnicalCard(technicalEvent) {
         <TechnicalCard
             id={technicalEvent.id}
             key={technicalEvent.id}
-            eventName={technicalEvent.eventName}
-            eventDesc={technicalEvent.eventDesc}
-            imgUrl={technicalEvent.imgUrl}
+            name={technicalEvent.name}
+            description={technicalEvent.description}
+            banner={technicalEvent.banner}
         />
     );
 }
