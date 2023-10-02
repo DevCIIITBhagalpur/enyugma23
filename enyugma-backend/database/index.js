@@ -10,7 +10,7 @@ const { Client } = pg;
  * state: string;
  * city: string;
  * pincode: number;
- * type: "individual" | "teamLead" | "cognizance";
+ * type: "individual"  | "cognizance";
  * technicalEvents: string[];
  * culturalEvents: string[];
  * teamSize?: number;

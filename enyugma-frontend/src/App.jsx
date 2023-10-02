@@ -14,6 +14,7 @@ import EventDetail from "./Pages/EventDetail/index.jsx";
 import SponsorCard from "./Components/SponsorCard/index.jsx";
 import Sponsors from "./Pages/Sponsors/index.jsx";
 import WorkshopEvent from "./Pages/WorkshopEvent/index.jsx";
+import Register from "./Pages/Register/index.jsx";
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -58,6 +59,7 @@ function App() {
 
                     <Route path="gallery" element={<GalleryPage />} />
                     <Route path="sponsors" element={<Sponsors />} />
+                    <Route path="register" element={<Register />} />
                 </Routes>
                 <Footer />
             </div>

@@ -35,7 +35,7 @@ const CulturalCard = (props) => {
               hover.style.opacity = 0;
               bg.style.backgroundColor = "rgba(0,0,0,0.5)";
               card.style.clipPath =
-                  " polygon(0% 15%, 100% 100%, 15% 0%, 85% 0%, 0 100%, 100% 15%, 100% 85%, 0 0, 85% 100%, 15% 100%, 100% 0, 0% 85%)";
+                  "polygon(0 4%, 15% 15%, 3% 0, 96% 0, 85% 15%, 100% 4%, 100% 98%, 85% 85%, 96% 100%, 3% 100%, 15% 85%, 0 96%)";
               // // off = setTimeout(() => {
               // // card.style.clipPath =
               // //     " ";
@@ -58,7 +58,7 @@ const CulturalCard = (props) => {
               style={{
                   backgroundImage: `url(${props.banner})`,
                   clipPath:
-                      " polygon(0% 15%, 100% 100%, 15% 0%, 85% 0%, 0 100%, 100% 15%, 100% 85%, 0 0, 85% 100%, 15% 100%, 100% 0, 0% 85%)",
+                      "polygon(0 4%, 15% 15%, 3% 0, 96% 0, 85% 15%, 100% 4%, 100% 98%, 85% 85%, 96% 100%, 3% 100%, 15% 85%, 0 96%)",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "100% 100%",
                   backgroundPosition: "center",
