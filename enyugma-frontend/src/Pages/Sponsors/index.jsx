@@ -2,12 +2,11 @@ import { Box } from "@mui/material";
 import Navbar from "../../Components/Navbar/index.jsx";
 import SponsorCard from "../../Components/SponsorCard/index.jsx";
 import "./index.scss";
-import cultural from "../../assets/bgs/cultural5.png"
+import cultural from "../../assets/bgs/cultural5.webp";
 import sponsorList from "./list.js";
 import { useState } from "react";
 
 export default function Sponsors() {
-    
     return (
         <Box
             sx={{
@@ -51,12 +50,12 @@ export default function Sponsors() {
                         {sponsorList.map((sponsor) => {
                             return (
                                 // <div className="wrap" key={sponsor.name}>
-                                    <SponsorCard
-                                        key={sponsor.name}
-                                        link={sponsor.link}
-                                        name={sponsor.name}
-                                        logo={sponsor.logo}
-                                    />
+                                <SponsorCard
+                                    key={sponsor.name}
+                                    link={sponsor.link}
+                                    name={sponsor.name}
+                                    logo={sponsor.logo}
+                                />
                                 // </div>
                             );
                         })}

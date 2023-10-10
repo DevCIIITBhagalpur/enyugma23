@@ -2,7 +2,12 @@
     display: flex;
     align-items: center;
     width: 100%;
-    background-image: linear-gradient(180deg, rgba(6, 12, 32, 0.298) 20%, rgba(6, 12, 32,1) 50%), url("/cultural6.png");
+    background-image: linear-gradient(
+            180deg,
+            rgba(6, 12, 32, 0.298) 20%,
+            rgba(6, 12, 32, 1) 50%
+        ),
+        url("/cultural6.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
@@ -10,11 +15,11 @@
     // min-height: 100vh;
 
     .overlay {
-         backdrop-filter:  blur(2px);
-         background-color: rgba(6, 12, 32, 0.5);
-         position: relative;
+        backdrop-filter: blur(2px);
+        background-color: rgba(6, 12, 32, 0.5);
+        position: relative;
 
-         .abs {
+        .abs {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -22,8 +27,8 @@
             left: 0;
             overflow: hidden;
             z-index: -1;
-         }
-         
+        }
+
         .technicalEvent {
             display: flex;
 

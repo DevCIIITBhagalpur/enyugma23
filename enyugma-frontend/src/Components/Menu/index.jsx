@@ -4,7 +4,7 @@ import CodeOffIcon from "@mui/icons-material/CodeOff";
 import { Tooltip, Icon } from "@mui/material";
 import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import WorkspacesIcon from "@mui/icons-material/Workspaces";
-import sponsorsicon from "../../assets/sponsors.png";
+import sponsorsicon from "../../assets/sponsors.webp";
 import { useEffect, useState } from "react";
 import LoginIcon from "@mui/icons-material/Login";
 export default function MenuBar() {

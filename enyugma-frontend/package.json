@@ -42,6 +42,7 @@
     "gh-pages": "^5.0.0",
     "mathsass": "^0.11.0",
     "sass": "^1.63.3",
+    "sharp": "^0.32.6",
     "vite": "^4.3.2",
     "vite-plugin-image-optimizer": "^1.1.7"
   }

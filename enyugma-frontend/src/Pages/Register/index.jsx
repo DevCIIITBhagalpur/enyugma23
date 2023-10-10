@@ -14,7 +14,7 @@ import {
     createTheme,
 } from "@mui/material";
 import Navbar from "../../Components/Navbar/index.jsx";
-import cultural4 from "../../assets/bgs/cultural4.png";
+import cultural4 from "../../assets/bgs/cultural4.webp";
 import "./index.scss";
 import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -80,76 +80,64 @@ export default function Register() {
         if (!emailRegex.test(email)) {
             setEmailError("Invalid email");
             hasAnyError = true;
-        }
-        else setEmailError("");
+        } else setEmailError("");
 
         if (!mobileRegex.test(mobile)) {
             setMobileError("Invalid mobile");
             hasAnyError = true;
-        }
-        else setMobileError("");
+        } else setMobileError("");
 
         if (!pincodeRegex.test(pincode)) {
             setPincodeError("Invalid pincode");
             hasAnyError = true;
-        }
-        else setPincodeError("");
+        } else setPincodeError("");
 
         if (!passwordRegex.test(password)) {
             setPasswordError("Invalid password");
             hasAnyError = true;
-        }
-        else setPasswordError("");
+        } else setPasswordError("");
 
         if (type === "congingent" && size <= 1) {
             setSizeError("Invalid size");
             hasAnyError = true;
-        }
-        else setSizeError("");
+        } else setSizeError("");
 
         if (type === "congingent" && size % 1 !== 0) {
             setSizeError("Invalid size");
             hasAnyError = true;
-        }
-        else setSizeError("");
+        } else setSizeError("");
 
         if (!file) {
             setFileError("Please upload a file");
             hasAnyError = true;
-        }
-        else setFileError("");
+        } else setFileError("");
 
         if (!transactionId) {
             setTransactionIdError("Please enter transaction id");
             hasAnyError = true;
-        }
-        else setTransactionIdError("");
+        } else setTransactionIdError("");
 
         if (!city) {
             setCityError("Please enter city");
             hasAnyError = true;
-        }
-        else setCityError("");
+        } else setCityError("");
 
         if (!state) {
             setStateError("Please enter state");
             hasAnyError = true;
-        }
-        else setStateError("");
+        } else setStateError("");
 
         if (!college) {
             setCollegeError("Please enter college");
             hasAnyError = true;
-        }
-        else setCollegeError("");
+        } else setCollegeError("");
 
         if (!type) {
             setTypeError("Please select type");
             hasAnyError = true;
-        }
-        else setTypeError("");
+        } else setTypeError("");
 
-        if(hasAnyError) return;
+        if (hasAnyError) return;
 
         const data = {
             name,
@@ -194,7 +182,11 @@ export default function Register() {
                     }}
                 >
                     <Paper className="qrcode" elevation={8}>
-                        <img className="code" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Rickrolling_QR_code.png?20200615212723" alt="qr code" />
+                        <img
+                            className="code"
+                            src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Rickrolling_QR_code.webp?20200615212723"
+                            alt="qr code"
+                        />
                         <Typography variant="body2" className="note">
                             Scan this QR code to pay
                         </Typography>

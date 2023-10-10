@@ -1,10 +1,10 @@
-import rcoffroad from "../../assets/events/rec.png";
-import smartgrid from "../../assets/events/smart-grid.png";
-import roboarm from "../../assets/events/robotic-arm.png";
-import qctf from "../../assets/events/ctf.png";
-import codeloop from "../../assets/events/codeloop.png";
-import bitbybit from "../../assets/events/bit-by-bit.png";
-import ideastorm from "../../assets/events/ideastorm.png";
+import rcoffroad from "../../assets/events/rec.webp";
+import smartgrid from "../../assets/events/smart-grid.webp";
+import roboarm from "../../assets/events/robotic-arm.webp";
+import qctf from "../../assets/events/ctf.webp";
+import codeloop from "../../assets/events/codeloop.webp";
+import bitbybit from "../../assets/events/bit-by-bit.webp";
+import ideastorm from "../../assets/events/ideastorm.webp";
 const technicalEvent = [
     {
         id: "rcoffroad",

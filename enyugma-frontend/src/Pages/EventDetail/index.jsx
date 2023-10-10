@@ -12,11 +12,11 @@ import {
 } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import Navbar from "../../Components/Navbar/index.jsx";
-import cultural3 from "../../assets/bgs/cultural3.png";
-import technical2 from "../../assets/bgs/technical2.png";
-import workshop from "../../assets/bgs/workshop1.png";
+import cultural3 from "../../assets/bgs/cultural3.webp";
+import technical2 from "../../assets/bgs/technical2.webp";
+import workshop from "../../assets/bgs/workshop1.webp";
 import Stars2 from "../../Components/Stars2/index.jsx";
-import session from "../../assets/events/speaker-session.png";
+import session from "../../assets/events/speaker-session.webp";
 import technicalEvent from "../TechnicalEvent/technicalEvent.js";
 import culturalEvent from "../CulturalEvent/list.js";
 
@@ -125,7 +125,7 @@ function CustomTabPanel(props) {
             {value === index && (
                 <Box
                     sx={{
-                         p: 5,
+                        p: 5,
                         width: "100%",
                         // minWidth: "300px",
                         // margin: "auto",
