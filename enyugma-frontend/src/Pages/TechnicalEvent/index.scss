@@ -9,7 +9,7 @@
     background-blend-mode: darken;
 
     .overlay {
-         backdrop-filter: sepia(100%) hue-rotate(240deg) contrast(100%) brightness(100%) blur(2px);
+         backdrop-filter:  blur(2px);
          background-color: rgba(6, 12, 32, 0.5);
          position: relative;
 

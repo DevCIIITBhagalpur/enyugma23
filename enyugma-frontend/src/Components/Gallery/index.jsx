@@ -39,7 +39,7 @@ const Gallery = () => {
                 setImages(structuredClone(shuffle(images)));
             },
 
-            5000,
+            60000,
         );
 
         return () => {

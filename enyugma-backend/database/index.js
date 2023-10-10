@@ -1,4 +1,6 @@
 import pg from "pg";
+import env from "dotenv";
+env.config();
 const { Client } = pg;
 
 /**
@@ -10,7 +12,7 @@ const { Client } = pg;
  * state: string;
  * city: string;
  * pincode: number;
- * type: "individual" | "teamLead" | "cognizance";
+ * type: "individual"  | "cognizance";
  * technicalEvents: string[];
  * culturalEvents: string[];
  * teamSize?: number;
@@ -25,10 +27,10 @@ const { Client } = pg;
 export default class Database {
   constructor() {
     this.client = new Client({
-      user: "postgres",
+      user: process.env.user,
       host: "localhost",
       database: "enyugma",
-      password: "p@ssw0rd",
+      password: process.env.password,
       port: 5432,
     });
     this.client.connect();
