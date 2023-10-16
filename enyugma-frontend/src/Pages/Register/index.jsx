@@ -139,20 +139,40 @@ export default function Register() {
 
         if (hasAnyError) return;
 
-        const data = {
-            name,
-            email,
-            mobile,
-            college,
-            city,
-            state,
-            pincode,
-            type,
-            size,
-            transactionId,
-            file,
-            password,
-        };
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("mobile", mobile);
+        formData.append("college", college);
+        formData.append("city", city);
+        formData.append("state", state);
+        formData.append("pincode", pincode);
+        formData.append("type", type);
+        formData.append("size", size);
+        formData.append("transactionId", transactionId);
+        formData.append("password", password);
+        const files = document.querySelector("input[type=file]").files[0];
+        // add file to formData
+        formData.append("file", files);
+
+        fetch("http://localhost:3010/api/user/register", {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                if (res.status === "success") {
+                    alert("Registered successfully");
+                    window.location.href = "/";
+                } else {
+                    alert("Error");
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                alert("Error");
+            });
     };
 
     return (
@@ -428,7 +448,7 @@ export default function Register() {
                                 variant="contained"
                                 color="primary"
                                 className="submit"
-                                disabled
+                                // disabled
                                 onClick={handleSubmit}
                             >
                                 Submit

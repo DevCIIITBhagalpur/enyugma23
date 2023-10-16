@@ -31,6 +31,7 @@ import userRoutes from "./routes/user.js";
 
 app.use(json());
 app.use(cors());
+app.use(express.urlencoded({extended:true}));
 
 // Routes Middleware
 app.use("/api/user", userRoutes);
