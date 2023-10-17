@@ -9,6 +9,7 @@ import culturalEvent from "../CulturalEvent/list.js";
 import Navbar from "../../Components/Navbar/index.jsx";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { Link } from "react-router-dom";
+import workshopevents from "../WorkshopEvent/list.js";
 
 export default function Events() {
     return (
@@ -78,13 +79,22 @@ function BasicTabs() {
                     </Tabs>
                 </Box>
                 <CustomTabPanel value={value} index={0}>
-                    <Slider list={technicalEvent} type={"technical"} />
+                    <Slider
+                        list={technicalEvent.slice(0, 5)}
+                        type={"technical"}
+                    />
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={1}>
-                    <Slider list={culturalEvent} type={"cultural"} />
+                    <Slider
+                        list={culturalEvent.slice(0, 5)}
+                        type={"cultural"}
+                    />
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={2}>
-                    Item Three
+                    <Slider
+                        list={workshopevents.slice(0, 5)}
+                        type={"workshop"}
+                    />
                 </CustomTabPanel>
             </Box>
         </ThemeProvider>

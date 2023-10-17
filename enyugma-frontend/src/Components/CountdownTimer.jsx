@@ -1,7 +1,7 @@
 import Countdown from "react-countdown";
 
 const CountdownTimer = () => {
-  const launchDay = new Date(2023, 9 - 1, 22);
+  const launchDay = new Date(2023, 11 - 1, 24);
 
   // Renderer function to format and display the countdown
   const renderer = ({ days, hours, minutes, seconds }) => {

@@ -8,8 +8,8 @@ const technicalEvent = [
         eventType: "workshop",
     },
     {
-        id: "keynotespeaker",
-        name: "Speaker Session",
+        id: "ecell",
+        name: "Entrepreneur Talk",
         banner: wk,
         description: `Event Overview: As part of Enyugma 23, E-Cell IIIT Bhagalpur proudly presents a Key-Note Speaker Session featuring a prominent entrepreneur who has achieved significant milestones in their respective field. This session aims to inspire and enlighten attendees about the essence of entrepreneurship, innovation, and the journey to success.
         
