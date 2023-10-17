@@ -13,8 +13,7 @@ const { Client } = pg;
  * city: string;
  * pincode: number;
  * type: "individual"  | "cognizance";
- * technicalEvents: string[];
- * culturalEvents: string[];
+ * events?: string[];
  * teamSize?: number;
  * token: string;
  * teamMembers?: string[];
@@ -45,8 +44,7 @@ export default class Database {
             city VARCHAR(255) NOT NULL,
             pincode INTEGER NOT NULL,
             type VARCHAR(255) NOT NULL,
-            technicalEvents VARCHAR(255)[] NOT NULL,
-            culturalEvents VARCHAR(255)[] NOT NULL,
+            events VARCHAR(255)[] NULL,
             teamSize INTEGER,
             teamMembers VARCHAR(255)[],
             token VARCHAR(255)
@@ -60,7 +58,7 @@ export default class Database {
   async createUser(user) {
     // postgres query for inserting a user
     return this.client.query(
-      "INSERT INTO users (name, email, password, college, state, city, pincode, type, technicalEvents, culturalEvents, teamSize, teamMembers, token) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)",
+      "INSERT INTO users (name, email, password, college, state, city, pincode, type, events, teamSize, teamMembers, token) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)",
       [
         user.name,
         user.email,
@@ -70,8 +68,7 @@ export default class Database {
         user.city,
         user.pincode,
         user.type,
-        user.technicalEvents,
-        user.culturalEvents,
+        user.events,
         user.teamSize,
         user.teamMembers,
         user.token,
@@ -120,7 +117,7 @@ export default class Database {
    */
   async getUsersByEvent(event) {
     return this.client.query(
-      "SELECT * FROM users WHERE $1 = ANY (technicalEvents) OR $1 = ANY (culturalEvents)",
+      "SELECT * FROM users WHERE $1 = ANY(events)",
       [event]
     );
   }
@@ -132,7 +129,7 @@ export default class Database {
   async modifyUser(email, user) {
     // postgres query for modifying a user where provided data might not be complete
     return this.client.query(
-      "UPDATE users SET name=$1, email=$2, password=$3, college=$4, state=$5, city=$6, pincode=$7, type=$8, technicalEvents=$9, culturalEvents=$10, teamSize=$11, teamMembers=$12 WHERE email=$13",
+      "UPDATE users SET name=$1, email=$2, password=$3, college=$4, state=$5, city=$6, pincode=$7, type=$8,events=$9, teamSize=$10, teamMembers=$11 WHERE email=$12",
       [
         user.name,
         user.email,
@@ -142,8 +139,7 @@ export default class Database {
         user.city,
         user.pincode,
         user.type,
-        user.technicalEvents,
-        user.culturalEvents,
+        user.events,
         user.teamSize,
         user.teamMembers,
         email,
@@ -183,46 +179,26 @@ export default class Database {
    * Description
    * @param {string} email
    * @param {string} event
-   * @param {"technical" | "cultural"} type
    * @returns {any}
    */
-  async addEvent(email, event, type) {
-    if (type === "technical") {
-      return this.client.query(
-        "UPDATE users SET technicalEvents = array_append(technicalEvents, $1) WHERE email=$2",
-        [event, email]
-      );
-    } else if (type === "cultural") {
-      return this.client.query(
-        "UPDATE users SET culturalEvents = array_append(culturalEvents, $1) WHERE email=$2",
-        [event, email]
-      );
-    } else {
-      throw new Error("Invalid type");
-    }
+  async addEvent(email, event) {
+    return this.client.query(
+      "UPDATE users SET events = array_append(events, $1) WHERE email=$2",
+      [event, email]
+    );
   }
 
   /**
    * Description
    * @param {string} email
    * @param {string} event
-   * @param {"technical" | "cultural"} type
    * @returns {any}
    */
 
-  async removeEvent(email, event, type) {
-    if (type === "technical") {
-      return this.client.query(
-        "UPDATE users SET technicalEvents = array_remove(technicalEvents, $1) WHERE email=$2",
-        [event, email]
-      );
-    } else if (type === "cultural") {
-      return this.client.query(
-        "UPDATE users SET culturalEvents = array_remove(culturalEvents, $1) WHERE email=$2",
-        [event, email]
-      );
-    } else {
-      throw new Error("Invalid type");
-    }
+  async removeEvent(email, event) {
+    return this.client.query(
+      "UPDATE users SET events = array_remove(events, $1) WHERE email=$2",
+      [event, email]
+    );
   }
 }
