@@ -31,11 +31,14 @@ const WorkshopCard = (props) => {
             }}
         >
             <div className="box-inner">
-
                 {/* <div className="creditoverlay"></div> */}
                 <div className="info" ref={hoverRef}>
-                    <h1>{props.eventName}</h1>
-                    <p>{props.eventDesc}</p>
+                    <h1>{props.name}</h1>
+                    <p>
+                        {props.description.length > 100
+                            ? props.description.slice(0, 100) + "..."
+                            : props.description}
+                    </p>
 
                     <Link to={`./${props.id}`} className="btn">
                         <span>View &#10138; </span>

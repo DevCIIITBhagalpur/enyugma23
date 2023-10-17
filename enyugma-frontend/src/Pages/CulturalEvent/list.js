@@ -4,6 +4,12 @@ import antarman from "../../assets/events/antarman.webp";
 import knockout from "../../assets/events/knock-out.webp";
 import awakenindia from "../../assets/events/awaken-india.webp";
 import stellar from "../../assets/events/stellar.webp";
+import cinesnap from "../../assets/events/cinesnap.webp";
+import groove from "../../assets/events/groove.webp";
+import comiczone from "../../assets/events/comic-zone.webp";
+import sketchhour from "../../assets/events/sketch-hour.webp";
+import spotshot from "../../assets/events/spot-shot.webp";
+import makeamoment from "../../assets/events/make-a-moment.webp";
 
 const events = [
     {
@@ -261,6 +267,342 @@ const events = [
             "Attention to Details & Theme: 10%",
         ],
         banner: stellar,
+    },
+    {
+        id: "cinesnap",
+        name: "Cine Snap",
+        eventType: "cultural",
+        description: `Cine Snap is a short film competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,
+        phases: [
+            {
+                name: "Finals",
+                desc: ``,
+                type: "online",
+            },
+        ],
+        prizes: {
+            pool: 18000,
+            distribution: ["1st: 8000", "2nd: 6000", "3rd: 4000"],
+        },
+        generalDetails: {
+            Eligibility:
+                "The competition is open to amateur and professional filmmakers of all ages. Participants can enter individually or as a team. ",
+
+            "Film Duration":
+                "Films must be no longer than [specific duration, e.g., 5 minutes] including credits. A 10-second grace period will be allowed, but films exceeding this time limit will be disqualified. ",
+
+            Theme: "There is no specific theme for the competition; participants are encouraged to be creative and original in their storytelling. ",
+
+            "Content Guidelines":
+                "Films must not contain explicit, offensive, or inappropriate content. All content, including visuals, music, and dialogues, must adhere to copyright laws. Plagiarized content will lead to disqualification. ",
+            Language:
+                "Films can be in any language, but English subtitles are required if the film is not in English. ",
+
+            Submission:
+                "All submissions must be in digital format (preferred formats: MP4, MOV). Films can be submitted via [submission platform or email address]. The submission deadline is [specific date and time]",
+
+            Originality:
+                "Films must be original works created specifically for this competition. Previously published works are not allowed. ",
+
+            Credits:
+                "Opening or closing credits should be limited to 20 seconds. A list of credits, including all participants' names and roles, should be included in the submission. ",
+
+            Judging:
+                " 2 Films will be judged on creativity, storytelling, cinematography, acting, sound design, and overall production value. The judging panel's decision is final. ",
+
+            Awards: "Awards will be given for categories such as Best Film, Best Direction, Best Cinematography, Best Editing, and Audience Choice. - Prizes may include [list of prizes, e.g., cash, certificates]. ",
+
+            Ownership:
+                " Filmmakers retain full rights to their films. However, by entering the competition, participants grant the organizing committee the right to screen and promote their films for non-commercial purposes.",
+
+            Disqualification:
+                "Films that violate the rules, contain inappropriate content, or are submitted after the deadline will be disqualified.",
+
+            Notifications:
+                "Participants will be notified of their film's acceptance or disqualification by [specific date]. ",
+
+            "Screening and Awards Ceremony":
+                "3 - Selected films will be screened at the awards ceremony on [specific date]. - Award winners will be announced and honored during the ceremony. ",
+        },
+        rules: [
+            "Code of Conduct: Participants are expected to treat each other, the judges, and the organizers with respect and professionalism. ",
+            "Note: Late submission will be penalized. ",
+            "The decision of the judges will be final and binding.  ",
+            "The organizing team reserves the right to change or modify the rules. ",
+        ],
+        judgingCriteria: [
+            "  Creativity & Innovation: 30% ",
+            "Editing, Cinematography, Sound design: 30% ",
+            "Social media likes & engagement:  20% ",
+            "Overall movie presentation & judge's decision: 20% ",
+        ],
+        banner: cinesnap,
+    },
+    {
+        id: "groove",
+        name: "Groove",
+        eventType: "cultural",
+        description: `Groove is a solo dance competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,
+        phases: [
+            {
+                name: "First Round",
+                desc: "*  Top 5 participants will be selected for the final round.",
+                type: "offline",
+            },
+            {
+                name: "Final Round",
+                desc: `*The winner will be announced on the last day of the event. 
+*Finals will be held on the last day of the event. `,
+                type: "offline",
+            },
+        ],
+        prizes: {
+            pool: 18000,
+            distribution: ["1st: 8000", "2nd: 6000", "3rd: 4000"],
+        },
+        generalDetails: {
+            theme: "Solo Dance",
+            type: "Audition",
+            mode: "Offline",
+            Platform: "IIIT Bhagalpur Campus + Instagram",
+            Rounds: "2",
+        },
+        rules: [
+            "Any dance form and usage of props are accepted. ",
+
+            "The time slots of the two rounds are mentioned. ",
+
+            "Any kind of vulgarity or indecency is prohibited, be it through dance gestures or song lyrics.",
+
+            "All participants must be studying at Indian colleges. ",
+
+            "Only one entry per participant is allowed. ",
+
+            "Any unnecessary act will not be entertained and will lead to direct disqualification. ",
+        ],
+        judgingCriteria: [
+            "Choreography: 25%",
+            "Usage any Property: 25% ",
+            "Expression: 25% ",
+            "Costume: 25%",
+        ],
+        banner: groove,
+    },
+    {
+        id: "comiczone",
+        name: "Comic Zone",
+        eventType: "cultural",
+        description: `Comic Zone is a comic strip competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,
+        phases: [
+            {
+                name: "Finals",
+                desc: `* Design a comic character (fictional only) with a small entertaining and enticing scene / story around it. 
+
+* The format of the story should be strictly a comic/manga. 
+
+* Number of blocks (dialogue with drawn images) per panel at least 3. 
+
+* Maximum 10 panel (page) comic 
+
+* Minimum 4 panel (page) comic 
+
+* Topic: College Life`,
+                type: "online",
+            },
+        ],
+        prizes: {
+            pool: 10000,
+            distribution: ["1st: 5000", "2nd: 3000", "3rd: 2000"],
+        },
+        generalDetails: {
+            theme: "Comic Strip",
+            platform: "Instagram + mysteve_iiitbh",
+            topic: "College Life",
+        },
+        rules: [
+            "This is an individual event. ",
+            "Any regular drawing sheet could be used. ",
+            "Pictures should be clear. ",
+            "No plagiarism will be tolerated ",
+            "Scheme: can be colorful or black and white in scheme ",
+            "Submission: Online ",
+            "The decision of the organizing committee will be final. ",
+        ],
+        judgingCriteria: [
+            "Creativity/ design/ Art style /storyline: 60% (15% each) ",
+            "Judge: 30% ",
+            "Instagram likes/overall engagement: 10% ",
+        ],
+        banner: comiczone,
+    },
+    {
+        id: "sketchhour",
+        name: "Sketch Hour",
+        eventType: "cultural",
+        description: `Sketch Hour is a sketching competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,
+        phases: [
+            {
+                name: "Finals",
+                desc: `* This is an individual event.
+* Participants have to draw on the topic: 'memories you would cherish forever.'
+`,
+                type: "offline",
+            },
+        ],
+        prizes: {
+            pool: 15000,
+            distribution: ["1st: 6000", "2nd: 5000", "3rd: 4000"],
+        },
+        generalDetails: {
+            theme: "Sketching",
+            topic: "Memories you would cherish forever",
+            venue: "IIIT Bhagalpur Campus",
+            "canvas size": "A4 size sheet",
+        },
+        rules: [
+            "This is an individual event. ",
+
+            "Any regular drawing sheet could be used. ",
+
+            "Art should be clear and made on the venue ",
+
+            "Submission: It should be your own. Plagiarism is not allowed. ",
+
+            "The participants must submit 2 passport sized photos. ",
+
+            "The decision of the organizing committee will be final.",
+        ],
+        judgingCriteria: [
+            "Creativity/ Clarity/ Finishing: 60% ",
+
+            "Judge: 30% ",
+
+            "Instagram likes: 10% ",
+        ],
+        banner: sketchhour,
+    },
+    {
+        id: "spotshot",
+        name: "Spot Shot",
+        eventType: "cultural",
+        description: `Spot Shot is a photography competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,
+        phases: [
+            {
+                name: "Finals",
+                desc: `* This is an individual event.
+* Maximum 2 entries per participant.
+* You will be given some time interval to click photographs regarding the theme. 
+* Mobile and DSLR both can be undertaken. `,
+                type: "offline",
+            },
+        ],
+        prizes: {
+            pool: 15000,
+            distribution: ["1st: 6000", "2nd: 5000", "3rd: 4000"],
+        },
+        generalDetails: {
+            theme: "on-spot Photography",
+            topic: "Monochrome Photography, Vintage Photography, Street Photography (Bihar culture preferred)",
+            venue: "IIIT Bhagalpur Campus",
+            "devices allowed": "Mobile and DSLR",
+        },
+        rules: [
+            "Maximum of 2 entries ",
+
+            "You will be given some time interval to click photographs regarding the theme. ",
+
+            "Mobile and DSLR both can be undertaken. ",
+
+            "No watermark should be there, and the picture should be less than 10MB. ",
+
+            "Basic editing, including color enhancement, the use of filters, and cropping of the photo(s) is acceptable, provided any such editing does not affect the authenticity and/or genuineness of the photo(s). ",
+
+            "Advanced editing used to create illusions, deceptions, and/or manipulations, and the adding and removing of significant elements within the frame is prohibited. ",
+
+            "Every image uploaded is subject to a moderation process before it becomes visible in the contest. ",
+
+            "You are required to provide a unique title and description for each image submitted. ",
+
+            "Photos that portray or otherwise include inappropriate and/or offensive content, including provocative nudity, violence, human rights and/or environmental violation, and/or any other contents deemed to be contrary to the law, religious, cultural & moral traditions and practices of India, are strictly prohibited and will be immediately discarded. ",
+            "A participant who submits any such photos may be permanently banned. ",
+
+            "You are required to provide a unique title and description for each image submitted.",
+
+            "The decision of judges will be final and binding. ",
+        ],
+        judgingCriteria: [
+            "Theme: 25% ",
+
+            "Creativity: 25% ",
+
+            "Clarity: 10% ",
+
+            "Editing: 10% ",
+
+            "Field of Depth: 25% ",
+
+            "Title and Description: 5% ",
+        ],
+        banner: spotshot,
+    },
+    {
+        id: "makeamoment",
+        name: "Make a Moment",
+        eventType: "cultural",
+        description: `Make a Moment is a Conceptual Photography competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,
+        phases: [
+            {
+                name: "Finals",
+                desc: `* This is an individual event.
+* Maximum 2 entries per participant.
+* Photography Themes: Conceptual Photography, Travel Photography (Landscapes preferred), Street Photography (Indian culture preferred) - Every artist has a central story to tell, and the difficulty, the impossible task, is trying to present that story in pictures. 
+`,
+                type: "offline",
+            },
+        ],
+        prizes: {
+            pool: 7000,
+            distribution: ["1st: 4000", "2nd: 2000", "3rd: 1000"],
+        },
+        generalDetails: {
+            theme: "Conceptual Photography, Travel Photography (Landscapes preferred), Street Photography (Indian culture preferred)",
+            venue: "IIIT Bhagalpur Campus",
+            "devices allowed": "Mobile and DSLR",
+            "file size limit": "10MB",
+        },
+        rules: [
+            "Maximum of 2 entries allowed. ",
+
+            "File size must be less than 10MB. ",
+            "Basic editing, including color enhancement, the use of filters, and cropping of the photo(s) is acceptable, provided any such editing does not affect the authenticity and/or genuineness of the photo(s). ",
+
+            "Advanced editing used to create illusions, deceptions, and/or manipulations, and the adding and removing of significant elements within the frame are prohibited. ",
+
+            "Every uploaded image is subject to a moderation process before it becomes visible in the contest. ",
+
+            "You are required to provide a unique title and description for each image submitted. ",
+
+            "Photos that portray or otherwise include inappropriate and/or offensive content, including provocative nudity, violence, human rights and/or environmental violation, and/or any other content deemed to be contrary to the law, religious, cultural & moral traditions and practices of India, are strictly prohibited and will be immediately discarded. ",
+
+            "A participant who submits any such photos may be permanently banned. ",
+
+            "You are required to provide a unique title and description for each image submitted. ",
+
+            "The decision of judges will be final and binding. ",
+        ],
+        judgingCriteria: [
+            "Theme: 25% ",
+
+            "Creativity: 25% ",
+
+            "Clarity: 10% ",
+            "Editing: 10% ",
+
+            "Field of Depth: 25% ",
+
+            "Title and Description: 5% ",
+        ],
+        banner: makeamoment,
     },
 ];
 

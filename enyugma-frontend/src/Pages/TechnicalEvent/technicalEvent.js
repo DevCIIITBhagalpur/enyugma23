@@ -5,6 +5,12 @@ import qctf from "../../assets/events/ctf.webp";
 import codeloop from "../../assets/events/codeloop.webp";
 import bitbybit from "../../assets/events/bit-by-bit.webp";
 import ideastorm from "../../assets/events/ideastorm.webp";
+import devfolio from "../../assets/devfolio.png";
+import polygon from "../../assets/polygon.png";
+import solona from "../../assets/solana.png";
+import filecoin from "../../assets/filecoin.png";
+import replit from "../../assets/replit.png";
+
 const technicalEvent = [
     {
         id: "rcoffroad",
@@ -191,6 +197,37 @@ participants`,
         generalDetails: {
             type: "team",
             teamSize: "2-3",
+        },
+        sponsors: {
+            gold: [
+                {
+                    name: "Devfolio",
+                    logo: devfolio,
+                    link: "https://devfolio.co",
+                },
+                {
+                    name: "polygon",
+                    logo: polygon,
+                    link: "https://polygon.technology/",
+                },
+            ],
+            silver: [
+                {
+                    name: "Solana",
+                    logo: solona,
+                    link: "https://solana.com/",
+                },
+                {
+                    name: "Filecoin",
+                    logo: filecoin,
+                    link: "https://filecoin.io/",
+                },
+                {
+                    name: "Replit",
+                    logo: replit,
+                    link: "https://replit.com/",
+                },
+            ],
         },
     },
     {

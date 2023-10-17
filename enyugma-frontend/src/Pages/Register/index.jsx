@@ -1,17 +1,21 @@
 import {
     Box,
     Button,
+    Chip,
     FormControl,
     FormHelperText,
     IconButton,
     InputAdornment,
+    InputLabel,
     MenuItem,
+    OutlinedInput,
     Paper,
     Select,
     TextField,
     ThemeProvider,
     Typography,
     createTheme,
+    useTheme,
 } from "@mui/material";
 import Navbar from "../../Components/Navbar/index.jsx";
 import cultural4 from "../../assets/bgs/cultural4.webp";
@@ -19,7 +23,8 @@ import "./index.scss";
 import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-
+import qrcode from "../../assets/qrcode.jpg";
+import events from "./eventlist.js";
 export default function Register() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -46,6 +51,8 @@ export default function Register() {
     const [transactionIdError, setTransactionIdError] = useState("");
     const [fileError, setFileError] = useState("");
     const [passwordError, setPasswordError] = useState("");
+    const [events, setEvents] = useState([]);
+    const [eventsError, setEventsError] = useState("");
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -137,6 +144,11 @@ export default function Register() {
             hasAnyError = true;
         } else setTypeError("");
 
+        if(!events.length) {
+            setEventsError("Please select events");
+            hasAnyError = true;
+        }
+
         if (hasAnyError) return;
 
         const formData = new FormData();
@@ -151,6 +163,7 @@ export default function Register() {
         formData.append("size", size);
         formData.append("transactionId", transactionId);
         formData.append("password", password);
+        formData.append("events", events);
         const files = document.querySelector("input[type=file]").files[0];
         // add file to formData
         formData.append("file", files);
@@ -204,7 +217,7 @@ export default function Register() {
                     <Paper className="qrcode" elevation={8}>
                         <img
                             className="code"
-                            src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Rickrolling_QR_code.webp?20200615212723"
+                            src={qrcode}
                             alt="qr code"
                         />
                         <Typography variant="body2" className="note">
@@ -403,6 +416,14 @@ export default function Register() {
                             )}
                         </FormControl>
                         <FormControl fullWidth className="row">
+                            <MultipleSelectChip />
+                            {eventsError && (
+                                <FormHelperText error>
+                                    {eventsError}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+                        <FormControl fullWidth className="row">
                             <TextField
                                 label="Transaction ID"
                                 variant="outlined"
@@ -462,4 +483,74 @@ export default function Register() {
             </ThemeProvider>
         </div>
     );
+}
+
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+function getStyles(name, eventName, theme) {
+  return {
+    fontWeight:
+      eventName.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
+
+ function MultipleSelectChip() {
+    const theme = useTheme();
+  const [eventName, setEventName] = useState([]);
+
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setEventName(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+
+  return (
+    <div>
+      <FormControl sx={{ m: 1, width: 300 }}>
+        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+        <Select
+          labelId="demo-multiple-chip-label"
+          id="demo-multiple-chip"
+          multiple
+          value={eventName}
+          onChange={handleChange}
+          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          renderValue={(selected) => (
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+              {selected.map((value) => (
+                <Chip key={value} label={value} />
+              ))}
+            </Box>
+          )}
+          MenuProps={MenuProps}
+        >
+          {events.map((event) => (
+            <MenuItem
+              key={event.id}
+              value={event.id}
+              style={getStyles(event.name, eventName, theme)}
+            >
+              {event.name}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </div>
+  );
 }

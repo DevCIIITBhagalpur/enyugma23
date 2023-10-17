@@ -19,6 +19,8 @@ import Stars2 from "../../Components/Stars2/index.jsx";
 import session from "../../assets/events/speaker-session.webp";
 import technicalEvent from "../TechnicalEvent/technicalEvent.js";
 import culturalEvent from "../CulturalEvent/list.js";
+import EventDetailSponsorCard from "../../Components/EventDetailSponsors/index.jsx";
+import workshopevents from "../WorkshopEvent/list.js";
 
 export default function EventDetail() {
     const location = useLocation();
@@ -67,6 +69,10 @@ export default function EventDetail() {
             setEventDetails(eventdata);
         } else if (eventType === "workshop") {
             setEventBg(workshop);
+            const eventdata = workshopevents.find(
+                (event) => event.id === eventId,
+            );
+            setEventDetails(eventdata);
         } else {
             setEventBg(cultural3);
             const eventdata = culturalEvent.find(
@@ -74,6 +80,16 @@ export default function EventDetail() {
             );
             // console.log(eventdata);
             setEventDetails(eventdata);
+        }
+        if (eventId === "bitbybit") {
+            const script = document.createElement("script");
+            script.src = "https://apply.devfolio.co/v2/sdk.js";
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
+            return () => {
+                document.body.removeChild(script);
+            };
         }
     }, [arr]);
 
@@ -98,6 +114,17 @@ export default function EventDetail() {
                 <Button variant="contained" className="register-button">
                     Register
                 </Button>
+                {eventDetails.id === "bitbybit" && (
+                    <div
+                        className="apply-button"
+                        data-hackathon-slug="bitbybit-1"
+                        data-button-theme="dark"
+                        style={{
+                            height: "44px",
+                            width: "312px",
+                        }}
+                    ></div>
+                )}
             </Box>
         </>
     );
@@ -197,14 +224,30 @@ function BasicTabs({ eventDetails }) {
                         variant="scrollable"
                     >
                         <Tab label="Description" {...a11yProps(0)} />
-                        <Tab label="Details" {...a11yProps(1)} />
-                        <Tab label="Prize" {...a11yProps(2)} />
-                        <Tab label="Phases" {...a11yProps(3)} />
+                        {eventDetails.eventType !== "workshop" && (
+                            <Tab label="Details" {...a11yProps(1)} />
+                        )}
+                        {eventDetails.eventType !== "workshop" && (
+                            <Tab label="Prize" {...a11yProps(2)} />
+                        )}
+                        {eventDetails.eventType !== "workshop" && (
+                            <Tab label="Phases" {...a11yProps(3)} />
+                        )}
                         {eventDetails.eventType === "cultural" && (
                             <Tab label="Rules" {...a11yProps(4)} />
                         )}
                         {eventDetails.eventType === "cultural" && (
                             <Tab label="Judging Criteria" {...a11yProps(5)} />
+                        )}
+                        {eventDetails.sponsors && (
+                            <Tab
+                                label="Sponsors"
+                                {...a11yProps(
+                                    eventDetails.eventType === "cultural"
+                                        ? 6
+                                        : 4,
+                                )}
+                            />
                         )}
                     </Tabs>
                 </Box>
@@ -232,117 +275,154 @@ function BasicTabs({ eventDetails }) {
                             }}
                         >
                             <Typography variant="h6">
-                                {eventDetails.description}
+                                {eventDetails.description.split("*")?.length > 1
+                                    ? eventDetails.description
+                                          .split("*")
+                                          .map((x, i) => {
+                                              return (
+                                                  <blockquote
+                                                      key={i}
+                                                      style={{
+                                                          borderLeft:
+                                                              "5px solid #ffffff25",
+                                                          paddingLeft: "10px",
+                                                          marginLeft: "10px",
+                                                          marginTop: "10px",
+                                                          marginBottom: "10px",
+                                                      }}
+                                                  >
+                                                      {x}
+                                                  </blockquote>
+                                              );
+                                          })
+                                    : eventDetails.description}
                             </Typography>
                         </Box>
                     </CustomTabPanel>
-                    <CustomTabPanel value={value} index={1}>
-                        <Box
-                            sx={{
-                                display: "flex",
-                                flexDirection: "column",
-                                height: "100%",
-                            }}
-                        >
-                            {Object.keys(eventDetails.generalDetails).map(
-                                (key) => (
-                                    <Box
-                                        key={key}
-                                        sx={{
-                                            display: "flex",
-                                            flexDirection: "row",
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="h6"
-                                            sx={{ fontWeight: "bold" }}
+                    {eventDetails.eventType !== "workshop" && (
+                        <CustomTabPanel value={value} index={1}>
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    height: "100%",
+                                }}
+                            >
+                                {Object.keys(eventDetails.generalDetails).map(
+                                    (key) => (
+                                        <Box
+                                            key={key}
+                                            sx={{
+                                                display: "flex",
+                                                flexDirection: "row",
+                                            }}
                                         >
-                                            {key} :{" "}
-                                        </Typography>
-                                        <Typography variant="h6">
-                                            {eventDetails.generalDetails[key]}
-                                        </Typography>
-                                    </Box>
-                                ),
-                            )}
-                        </Box>
-                    </CustomTabPanel>
-                    <CustomTabPanel value={value} index={2}>
-                        <Box sx={{ display: "flex", flexDirection: "column" }}>
-                            <Typography
-                                variant="h6"
-                                sx={{ fontWeight: "bold" }}
-                            >
-                                Prize Pool :{" "}
-                            </Typography>
-                            <Typography variant="h6">
-                                {eventDetails.prizes.pool}
-                            </Typography>
-                            <Typography
-                                variant="h6"
-                                sx={{ fontWeight: "bold" }}
-                            >
-                                {eventDetails.prizes.pool !== "N/A"
-                                    ? "Prize Distribution"
-                                    : "Benefits & Perks"}{" "}
-                                :{" "}
-                            </Typography>
-                            {eventDetails.prizes.distribution.map(
-                                (prize, i) => (
-                                    <Typography variant="h6" key={prize}>
-                                        {i + 1}. {prize}
-                                    </Typography>
-                                ),
-                            )}
-                        </Box>
-                    </CustomTabPanel>
-                    <CustomTabPanel value={value} index={3}>
-                        {eventDetails.phases.map((phase, i) => (
-                            <Typography variant="h6" key={i}>
-                                <h2>{"Round: " + (i + 1)}</h2>
-                                {Object.entries(phase).map((x) => {
-                                    return (
-                                        <div key={x[0]}>
-                                            <h3>
-                                                {x[0][0].toUpperCase() +
-                                                    x[0].slice(1)}
-                                                :
-                                            </h3>
-                                            <pre
-                                                style={{
-                                                    whiteSpace: "pre-wrap",
-                                                    wordWrap: "break-word",
-                                                }}
+                                            <Typography
+                                                variant="h6"
+                                                sx={{ fontWeight: "bold" }}
                                             >
-                                                {x[1].split("*").map((x, i) => {
-                                                    return (
-                                                        <blockquote
-                                                            key={i}
-                                                            style={{
-                                                                borderLeft:
-                                                                    "5px solid #ffffff25",
-                                                                paddingLeft:
-                                                                    "10px",
-                                                                marginLeft:
-                                                                    "10px",
-                                                                marginTop:
-                                                                    "10px",
-                                                                marginBottom:
-                                                                    "10px",
-                                                            }}
-                                                        >
-                                                            {x}
-                                                        </blockquote>
-                                                    );
-                                                })}
-                                            </pre>
-                                        </div>
-                                    );
-                                })}
-                                <Divider />
-                            </Typography>
-                        ))}
-                    </CustomTabPanel>
+                                                {key} :{" "}
+                                            </Typography>
+                                            <Typography variant="h6">
+                                                {
+                                                    eventDetails.generalDetails[
+                                                        key
+                                                    ]
+                                                }
+                                            </Typography>
+                                        </Box>
+                                    ),
+                                )}
+                            </Box>
+                        </CustomTabPanel>
+                    )}
+                    {eventDetails.eventType !== "workshop" && (
+                        <CustomTabPanel value={value} index={2}>
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                }}
+                            >
+                                <Typography
+                                    variant="h6"
+                                    sx={{ fontWeight: "bold" }}
+                                >
+                                    Prize Pool :{" "}
+                                </Typography>
+                                <Typography variant="h6">
+                                    {eventDetails.prizes.pool}
+                                </Typography>
+                                <Typography
+                                    variant="h6"
+                                    sx={{ fontWeight: "bold" }}
+                                >
+                                    {eventDetails.prizes.pool !== "N/A"
+                                        ? "Prize Distribution"
+                                        : "Benefits & Perks"}{" "}
+                                    :{" "}
+                                </Typography>
+                                {eventDetails.prizes.distribution.map(
+                                    (prize, i) => (
+                                        <Typography variant="h6" key={prize}>
+                                            {i + 1}. {prize}
+                                        </Typography>
+                                    ),
+                                )}
+                            </Box>
+                        </CustomTabPanel>
+                    )}
+                    {eventDetails.eventType !== "workshop" && (
+                        <CustomTabPanel value={value} index={3}>
+                            {eventDetails.phases.map((phase, i) => (
+                                <Typography variant="h6" key={i}>
+                                    <h2>{"Round: " + (i + 1)}</h2>
+                                    {Object.entries(phase).map((x) => {
+                                        return (
+                                            <div key={x[0]}>
+                                                <h3>
+                                                    {x[0][0].toUpperCase() +
+                                                        x[0].slice(1)}
+                                                    :
+                                                </h3>
+                                                <pre
+                                                    style={{
+                                                        whiteSpace: "pre-wrap",
+                                                        wordWrap: "break-word",
+                                                    }}
+                                                >
+                                                    {x[1]
+                                                        .split("*")
+                                                        .map((x, i) => {
+                                                            return (
+                                                                <blockquote
+                                                                    key={i}
+                                                                    style={{
+                                                                        borderLeft:
+                                                                            "5px solid #ffffff25",
+                                                                        paddingLeft:
+                                                                            "10px",
+                                                                        marginLeft:
+                                                                            "10px",
+                                                                        marginTop:
+                                                                            "10px",
+                                                                        marginBottom:
+                                                                            "10px",
+                                                                    }}
+                                                                >
+                                                                    {x}
+                                                                </blockquote>
+                                                            );
+                                                        })}
+                                                </pre>
+                                            </div>
+                                        );
+                                    })}
+                                    <Divider />
+                                </Typography>
+                            ))}
+                        </CustomTabPanel>
+                    )}
                     {eventDetails.eventType === "cultural" && (
                         <>
                             <CustomTabPanel value={value} index={4}>
@@ -384,6 +464,45 @@ function BasicTabs({ eventDetails }) {
                                 )}
                             </CustomTabPanel>
                         </>
+                    )}
+                    {eventDetails.sponsors && (
+                        <CustomTabPanel
+                            value={value}
+                            index={
+                                eventDetails.eventType === "cultural" ? 6 : 4
+                            }
+                        >
+                            <div className="sponsors">
+                                <div className="title">Gold Sponsors</div>
+                                <div className="list">
+                                    {eventDetails.sponsors.gold.map(
+                                        (sponsor, i) => (
+                                            <EventDetailSponsorCard
+                                                key={i}
+                                                name={""}
+                                                logo={sponsor.logo}
+                                                link={sponsor.link}
+                                            />
+                                        ),
+                                    )}
+                                </div>
+                            </div>
+                            <div className="sponsors">
+                                <div className="title">Silver Sponsors</div>
+                                <div className="list">
+                                    {eventDetails.sponsors.silver.map(
+                                        (sponsor, i) => (
+                                            <EventDetailSponsorCard
+                                                name={""}
+                                                logo={sponsor.logo}
+                                                link={sponsor.link}
+                                                key={i}
+                                            />
+                                        ),
+                                    )}
+                                </div>
+                            </div>
+                        </CustomTabPanel>
                     )}
                 </Box>
             </Box>

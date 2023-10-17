@@ -1,0 +1,212 @@
+:root {
+    --background-rgb: 6 12 32;
+    --background-light-rgb: 30 41 59;
+
+    --border-rgb: 255 255 255;
+    --border: 1px solid rgb(var(--border-rgb) / 20%);
+
+    --hyperplexed-main-rgb: 41 121 255;
+    --hyperplexed-main-light-rgb: 56 182 255;
+    --hyperplexed-secondary-rgb: 42 252 152;
+
+    --edcard-size: 300px;
+    --font-size: 0.8rem;
+    --logo-size: calc(var(--edcard-size) * 0.3);
+}
+
+.edcard-track {
+    height: 100%;
+    width: var(--edcard-size);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.edcard-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    aspect-ratio: 10/9;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edcard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 10/9;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    //   margin: 1rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: rgb(12, 24, 48);
+}
+
+.edcard-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 4;
+    text-decoration: none;
+    background-color: transparent;
+
+    .text {
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: none;
+        background-color: transparent;
+    }
+}
+
+.edcard-image > img {
+    width: var(--logo-size);
+}
+
+.edcard-gradient {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: radial-gradient(
+        rgb(var(--background-light-rgb)) 40%,
+        rgb(var(--hyperplexed-main-rgb)) 50%,
+        rgb(var(--hyperplexed-main-light-rgb)),
+        rgb(var(--hyperplexed-secondary-rgb))
+    );
+    mix-blend-mode: darken;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.edcard-letters {
+    --x: 0px;
+    --y: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: var(--font-size);
+    font-weight: 500;
+    word-wrap: break-word;
+    opacity: 0;
+    transition: opacity 400ms;
+    -webkit-mask-image: radial-gradient(
+        calc(var(--edcard-size) * 0.8) circle at var(--x) var(--y),
+        rgb(255 255 255) 20%,
+        rgb(255 255 255 / 25%),
+        transparent
+    );
+    scale: 1.03;
+}
+
+.edcard:hover .edcard-letters {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    :root {
+        --edcard-size: 340px;
+    }
+
+    .edcard {
+        border-radius: 1rem;
+    }
+}
+
+/* -- Extra Styles -- */
+
+.edcard-track:before,
+.edcard-track:after {
+    content: "";
+    height: 480px;
+    width: 1px;
+    position: absolute;
+    top: 50%;
+    translate: 0% -50%;
+}
+
+.edcard-track:before {
+    left: -1px;
+    border-left: var(--border);
+}
+
+.edcard-track:after {
+    right: -1px;
+    border-right: var(--bedcardorder);
+}
+
+.edcard-wrapper:before,
+.edcard-wrapper:after {
+    content: "";
+    width: 480px;
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+}
+
+.edcard-wrapper:before {
+    top: -1px;
+    border-top: var(--border);
+}
+
+.edcard-wrapper:after {
+    bottom: -1px;
+    border-bottom: var(--border);
+}
+
+.edcard-corners {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.edcard-corners > .edcard-corner {
+    display: block;
+    height: 9px;
+    width: 1px;
+    position: absolute;
+    background-color: white;
+}
+
+.edcard-corners > .edcard-corner:after {
+    content: "";
+    width: 9px;
+    height: 1px;
+    position: absolute;
+    left: -4px;
+    top: 4px;
+    background-color: white;
+}
+
+.edcard-corners > .edcard-corner:nth-child(1) {
+    left: -1px;
+    top: -5px;
+}
+
+.edcard-corners > .edcard-corner:nth-child(2) {
+    right: -1px;
+    top: -5px;
+}
+
+.edcard-corners > .edcard-corner:nth-child(3) {
+    right: -1px;
+    bottom: -5px;
+}
+
+.edcard-corners > .edcard-corner:nth-child(4) {
+    left: -1px;
+    bottom: -5px;
+}
