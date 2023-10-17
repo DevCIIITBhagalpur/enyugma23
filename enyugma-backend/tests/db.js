@@ -12,8 +12,7 @@ const db = new Database();
  * city: string;
  * pincode: number;
  * type: "individual" | "teamLead" | "cognizance";
- * technicalEvents: string[];
- * culturalEvents: string[];
+ * events?: string[];
  * teamSize?: number;
  * token: string;
  * teamMembers?: string[];
@@ -30,8 +29,7 @@ const db = new Database();
 //   city: "Delhi",
 //   pincode: 110001,
 //   type: "individual",
-//   technicalEvents: ["code", "hack"],
-//   culturalEvents: ["dance", "music"],
+//   events: ["event1", "event2"],
 //   teamSize: 1,
 //   teamMembers: ["John", "Doe"],
 //   token: randomBytes(16).toString("hex"),
