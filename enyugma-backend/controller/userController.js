@@ -1,12 +1,13 @@
-m3gablast3r
+// m3gablast3r
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import { randomBytes } from "crypto";
+import db from "../db.js";
 
 dotenv.config();
 
-import db from "../db.js";
+
 
 export const Register = async (req, res, next) => {
   const details = req.body;
