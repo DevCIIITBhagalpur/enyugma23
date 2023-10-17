@@ -8,7 +8,7 @@ router.post("/login", (req, res) => {
     Login(email, password);
 });
 
-router.post("/register", upload.single("myFile"), (req, res) => {
+router.post("/register", upload.single("file"), (req, res) => {
     Register(req, res);
 });
 
