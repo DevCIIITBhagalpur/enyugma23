@@ -17,12 +17,12 @@ export const Register = async (req, res, next) => {
       message: "User already exists",
     });
   } else {
-    if (details.password !== details.confirmPassword) {
-      res.status(400).json({
-        message: "Invalid password",
-      });
-    }
-    delete details.confirmPassword;
+    // if (details.password !== details.confirmPassword) {
+    //   res.status(400).json({
+    //     message: "Invalid password",
+    //   });
+    // }
+    // delete details.confirmPassword;
     details.token = randomBytes(32).toString("hex");
     const token = jwt.sign(
       {

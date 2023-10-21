@@ -177,6 +177,11 @@ export default function Register() {
                 console.log(res);
                 if (res.status === "success") {
                     alert("Registered successfully");
+                    const user = res.user;
+                    const token = res.token;
+
+                    localStorage.setItem("user", JSON.stringify(user));
+                    localStorage.setItem("token", token);
                     window.location.href = "/";
                 } else {
                     alert("Error");
