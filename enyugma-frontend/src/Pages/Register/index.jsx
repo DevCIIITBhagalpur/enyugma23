@@ -421,7 +421,7 @@ export default function Register() {
                             )}
                         </FormControl>
                         <FormControl fullWidth className="row">
-                            <MultipleSelectChip />
+                            <MultipleSelectEvent />
                             {eventsError && (
                                 <FormHelperText error>
                                     {eventsError}
@@ -511,7 +511,7 @@ function getStyles(name, eventName, theme) {
   };
 }
 
- function MultipleSelectChip() {
+ function MultipleSelectEvent() {
     const theme = useTheme();
   const [eventName, setEventName] = useState([]);
 
@@ -528,14 +528,14 @@ function getStyles(name, eventName, theme) {
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+        <InputLabel id="demo-multiple-event-label">Event</InputLabel>
         <Select
-          labelId="demo-multiple-chip-label"
-          id="demo-multiple-chip"
+          labelId="demo-multiple-event-label"
+          id="demo-multiple-event"
           multiple
           value={eventName}
           onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="Events" />}
+          input={<OutlinedInput id="select-multiple-event" label="Events" />}
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (

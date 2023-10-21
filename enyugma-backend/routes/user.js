@@ -10,6 +10,6 @@ router.post("/login", (req, res) => {
 
 router.post("/register", upload.single("file"), (req, res) => {
     Register(req, res);
-});
+}); 
 
 export default router;
