@@ -168,7 +168,7 @@ export default function Register() {
         // add file to formData
         formData.append("file", files);
 
-        fetch("http://localhost:3010/api/user/register", {
+        fetch("/api/user/register", {
             method: "POST",
             body: formData,
         })

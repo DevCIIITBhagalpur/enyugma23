@@ -48,7 +48,7 @@ export default class Database {
             events VARCHAR(255)[] NULL,
             teamSize INTEGER,
             teamMembers VARCHAR(255)[],
-            token VARCHAR(255)
+            token VARCHAR(255),
             transactionId VARCHAR(255)
         )`);
   }
