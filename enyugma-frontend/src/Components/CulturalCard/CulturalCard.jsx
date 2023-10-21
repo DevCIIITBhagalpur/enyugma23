@@ -53,7 +53,7 @@ const CulturalCard = (props) => {
           }}
       >
           <Paper
-              className="card"
+              className="ccard"
               {...props.others}
               style={{
                   backgroundImage: `url(${props.banner})`,
@@ -70,7 +70,7 @@ const CulturalCard = (props) => {
           >
               {/* <img src={border} alt="bg-removebg-preview" border="0" className="bg" /> */}
               <div className="overlay" ref={bgref}>
-                  <div className="info" ref={hoverRef}>
+                  <div className="cinfo" ref={hoverRef}>
                       <h1>{props.name}</h1>
                       <p>
                           {props.description.length > 100
