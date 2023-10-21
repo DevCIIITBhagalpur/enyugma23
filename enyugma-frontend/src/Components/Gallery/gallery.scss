@@ -196,4 +196,20 @@
         margin: 20px 0px 25px;
         flex: 0 1 150px;
     }
+
+    .load {
+        animation: wave 1.5s infinite ease-in-out;
+    }
+
+    @keyframes wave {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
 }

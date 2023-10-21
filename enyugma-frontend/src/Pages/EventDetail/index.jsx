@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import "./index.scss";
 import { useLocation } from "react-router-dom";
 import {
@@ -21,6 +21,7 @@ import technicalEvent from "../TechnicalEvent/technicalEvent.js";
 import culturalEvent from "../CulturalEvent/list.js";
 import EventDetailSponsorCard from "../../Components/EventDetailSponsors/index.jsx";
 import workshopevents from "../WorkshopEvent/list.js";
+import Preloader from "../../Components/Preloader/Preloader.jsx";
 
 export default function EventDetail() {
     const location = useLocation();
@@ -95,6 +96,7 @@ export default function EventDetail() {
 
     return (
         <>
+        <Suspense fallback={<Preloader />}>
             <Box
                 className="event-detail"
                 sx={{
@@ -126,6 +128,7 @@ export default function EventDetail() {
                     ></div>
                 )}
             </Box>
+        </Suspense>
         </>
     );
 }

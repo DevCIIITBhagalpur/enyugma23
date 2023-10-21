@@ -20,11 +20,12 @@ import {
 import Navbar from "../../Components/Navbar/index.jsx";
 import cultural4 from "../../assets/bgs/cultural4.webp";
 import "./index.scss";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import qrcode from "../../assets/qrcode.jpg";
 import events from "./eventlist.js";
+import Preloader from "../../Components/Preloader/Preloader.jsx";
 export default function Register() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -194,6 +195,7 @@ export default function Register() {
     };
 
     return (
+        <Suspense fallback={<Preloader />}>
         <div
             className="register"
             style={{
@@ -203,6 +205,7 @@ export default function Register() {
                 backgroundRepeat: "no-repeat",
             }}
         >
+            <div className="overlay">
             <Navbar />
             <ThemeProvider theme={darkTheme}>
                 <Box
@@ -486,7 +489,9 @@ export default function Register() {
                     </Paper>
                 </Box>
             </ThemeProvider>
+            </div>
         </div>
+        </Suspense>
     );
 }
 

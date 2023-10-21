@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Button, Paper } from "@mui/material";
+// import "../TechnicalCard/TechnicalCard.scss";
+// import "../CulturalCard/CulturalCard.scss"
 import "./index.scss";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
@@ -21,16 +23,17 @@ const WorkshopCard = (props) => {
 
     return (
         <Paper
-            className="box"
+            className="wbox"
             elevation={16}
             sx={{
                 borderRadius: "20px",
                 backgroundImage: `url(${props.imgUrl})`,
                 width: "300px",
                 height: "300px",
+                backgroundSize: "cover",
             }}
         >
-            <div className="box-inner">
+            <div className="wbox-inner">
                 {/* <div className="creditoverlay"></div> */}
                 <div className="info" ref={hoverRef}>
                     <h1>{props.name}</h1>

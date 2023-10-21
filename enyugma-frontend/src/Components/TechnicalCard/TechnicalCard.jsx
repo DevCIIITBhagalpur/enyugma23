@@ -21,7 +21,7 @@ useEffect(() => {
 
     return (
         <Paper
-            className="card"
+            className="tcard"
             elevation={16}
             sx={{
                 borderRadius: "20px",

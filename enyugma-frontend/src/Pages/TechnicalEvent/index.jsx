@@ -1,10 +1,11 @@
 import "./index.scss";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import technicalEvent from "./technicalEvent";
 import TechnicalCard from "../../Components/TechnicalCard/TechnicalCard";
 import Navbar from "../../Components/Navbar";
 import { Box, Typography } from "@mui/material";
 import Stars2 from "../../Components/Stars2/index.jsx";
+import Preloader from "../../Components/Preloader/Preloader.jsx";
 
 function createTechnicalCard(technicalEvent) {
     return (
@@ -21,6 +22,7 @@ function createTechnicalCard(technicalEvent) {
 export default function TechnicalEvent() {
     return (
         <>
+        <Suspense fallback={<Preloader />}>
             <Box
                 sx={{
                     display: "flex",
@@ -90,6 +92,7 @@ export default function TechnicalEvent() {
                     </div>
                 </div>
             </Box>
+            </Suspense>
         </>
     );
 }

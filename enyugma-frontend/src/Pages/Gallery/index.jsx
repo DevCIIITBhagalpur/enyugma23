@@ -4,6 +4,7 @@ import { Masonry } from "@mui/lab";
 import { gallery as list } from "../../Components/Gallery/list.js";
 import Navbar from "../../Components/Navbar/index.jsx";
 import { Suspense,useEffect,useState } from "react";
+import Preloader from "../../Components/Preloader/Preloader.jsx";
 
 export default function GalleryPage() {
     const [clm,setClm] = useState(
@@ -32,31 +33,30 @@ export default function GalleryPage() {
     return (
         <>
             <Navbar />
-            <Box className="gallerybox">
-                <h1>Gallery</h1>
-                <Suspense fallback={<SkeletonComp />}>
-                    <Masonry columns={clm} spacing={2} 
-
-                    >
-                        {list.map((item, index) => (
-                            <div key={index}>
-                                <img
-                                    src={`${item}`}
-                                    alt={item.title}
-                                    loading="lazy"
-                                    style={{
-                                        borderBottomLeftRadius: 4,
-                                        borderBottomRightRadius: 4,
-                                        display: "block",
-                                        width: "100%",
-                                    }}
-                                />
-                            </div>
-                        ))}
-                    </Masonry>
-                </Suspense>
-
-            </Box>
+            <Suspense fallback={<SkeletonComp />}>
+                <Box className="gallerybox">
+                    <h1>Gallery</h1>
+                    <Suspense fallback={<SkeletonComp />}>
+                        <Masonry columns={clm} spacing={2}>
+                            {list.map((item, index) => (
+                                <div key={index}>
+                                    <img
+                                        src={`${item}`}
+                                        alt={item.title}
+                                        loading="lazy"
+                                        style={{
+                                            borderBottomLeftRadius: 4,
+                                            borderBottomRightRadius: 4,
+                                            display: "block",
+                                            width: "100%",
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </Masonry>
+                    </Suspense>
+                </Box>
+            </Suspense>
         </>
     );
 }
