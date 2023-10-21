@@ -4,15 +4,20 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
-import CountdownTimer from "../../Components/CountdownTimer";
+// import CountdownTimer from "../../Components/CountdownTimer";
 import banner from "../../assets/banner.webp";
-import Stars from "../../Components/Stars/index.jsx";
-import Gallery from "../../Components/Gallery/index.jsx";
+// import Stars from "../../Components/Stars/index.jsx";
+// import Gallery from "../../Components/Gallery/index.jsx";
 import Navbar from "../../Components/Navbar/index.jsx";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Wireframe from "../../Components/Logo/index.jsx";
-import { useState } from "react";
+// import Wireframe from "../../Components/Logo/index.jsx";
+import { useState,Suspense,lazy } from "react";
+import Preloader from "../../Components/Preloader/Preloader.jsx";
+const Gallery = lazy(() => import("../../Components/Gallery/index.jsx"));
+const Wireframe = lazy(() => import("../../Components/Logo/index.jsx"));
+const Stars = lazy(() => import("../../Components/Stars/index.jsx"));
+const CountdownTimer = lazy(() => import("../../Components/CountdownTimer.jsx"));
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: "transparent",
@@ -22,10 +27,12 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Home() {
     return (
+        <Suspense fallback={<Preloader />}>
         <div className="home">
             <HeroSection />
             <Gallery />
         </div>
+        </Suspense>
     );
 }
 

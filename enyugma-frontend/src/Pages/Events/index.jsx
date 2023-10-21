@@ -10,14 +10,17 @@ import Navbar from "../../Components/Navbar/index.jsx";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import workshopevents from "../WorkshopEvent/list.js";
+import Preloader from "../../Components/Preloader/Preloader.jsx";
 
 export default function Events() {
     return (
         <>
+        <React.Suspense fallback={<Preloader />}>
             <Navbar />
             <Box className="events">
                 <BasicTabs />
             </Box>
+        </React.Suspense>
         </>
     );
 }

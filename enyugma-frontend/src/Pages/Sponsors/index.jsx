@@ -4,10 +4,12 @@ import SponsorCard from "../../Components/SponsorCard/index.jsx";
 import "./index.scss";
 import cultural from "../../assets/bgs/cultural5.webp";
 import sponsorList from "./list.js";
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import Preloader from "../../Components/Preloader/Preloader.jsx";
 
 export default function Sponsors() {
     return (
+        <Suspense fallback={<Preloader />}>
         <Box
             sx={{
                 backgroundImage: `linear-gradient(
@@ -63,5 +65,6 @@ export default function Sponsors() {
                 </div>
             </div>
         </Box>
+        </Suspense>
     );
 }
