@@ -31,14 +31,14 @@ export const Register = async (req, res, next) => {
       },
       process.env.key
     );
+      delete details.token;
+    // const hashedPass = bcrypt.hash(details.password, 10);
 
-    const hashedPass = bcrypt.hash(details.password, 10);
-
-    details.password = hashedPass;
+    // details.password = hashedPass;
     await db.createUser(details);
 
     const copy = { ...details };
-    delete copy.password;
+    // delete copy.password;
     delete copy.token;
 
     res.status(200).json({

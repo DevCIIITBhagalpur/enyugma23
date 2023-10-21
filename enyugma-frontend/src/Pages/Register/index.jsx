@@ -37,7 +37,7 @@ export default function Register() {
     const [size, setSize] = useState(1);
     const [transactionId, setTransactionId] = useState("");
     const [file, setFile] = useState(null);
-    const [password, setPassword] = useState("");
+    // const [password, setPassword] = useState("");
 
     const [nameError, setNameError] = useState("");
     const [emailError, setEmailError] = useState("");
@@ -50,11 +50,11 @@ export default function Register() {
     const [sizeError, setSizeError] = useState("");
     const [transactionIdError, setTransactionIdError] = useState("");
     const [fileError, setFileError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
+    // const [passwordError, setPasswordError] = useState("");
     const [events, setEvents] = useState([]);
     const [eventsError, setEventsError] = useState("");
 
-    const [showPassword, setShowPassword] = useState(false);
+    // const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -73,7 +73,7 @@ export default function Register() {
         const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
         const mobileRegex = /^[0-9]{10}$/;
         const pincodeRegex = /^[0-9]{6}$/;
-        const passwordRegex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        // const passwordRegex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
         let hasAnyError = false;
 
@@ -99,10 +99,10 @@ export default function Register() {
             hasAnyError = true;
         } else setPincodeError("");
 
-        if (!passwordRegex.test(password)) {
-            setPasswordError("Invalid password");
-            hasAnyError = true;
-        } else setPasswordError("");
+        // if (!passwordRegex.test(password)) {
+        //     setPasswordError("Invalid password");
+        //     hasAnyError = true;
+        // } else setPasswordError("");
 
         if (type === "congingent" && size <= 1) {
             setSizeError("Invalid size");
@@ -162,7 +162,7 @@ export default function Register() {
         formData.append("type", type);
         formData.append("size", size);
         formData.append("transactionId", transactionId);
-        formData.append("password", password);
+        // formData.append("password", password);
         formData.append("events", events);
         const files = document.querySelector("input[type=file]").files[0];
         // add file to formData
@@ -253,7 +253,7 @@ export default function Register() {
                                     {nameError}
                                 </FormHelperText>
                             )}
-                            <TextField
+                            {/* <TextField
                                 label="Password"
                                 variant="outlined"
                                 fullWidth
@@ -288,7 +288,7 @@ export default function Register() {
                                 <FormHelperText error>
                                     {passwordError}
                                 </FormHelperText>
-                            )}
+                            )} */}
                         </FormControl>
                         <FormControl fullWidth className="row">
                             <TextField
