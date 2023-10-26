@@ -24,7 +24,7 @@ import { Suspense, useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import qrcode from "../../assets/qrcode.jpg";
-import events from "./eventlist.js";
+import Events from "./eventlist.js";
 import Preloader from "../../Components/Preloader/Preloader.jsx";
 export default function Register() {
     const [name, setName] = useState("");
@@ -38,6 +38,8 @@ export default function Register() {
     const [size, setSize] = useState(1);
     const [transactionId, setTransactionId] = useState("");
     const [file, setFile] = useState(null);
+    const [isTransactionIdRequired, setIsTransactionIdRequired] =
+        useState(false);
     // const [password, setPassword] = useState("");
 
     const [nameError, setNameError] = useState("");
@@ -145,8 +147,22 @@ export default function Register() {
             hasAnyError = true;
         } else setTypeError("");
 
-        if(!events.length) {
+        if (!events.length) {
             setEventsError("Please select events");
+            hasAnyError = true;
+        }
+
+        // check if any event is present with transactionId required
+        let istransactionIdRequired = false;
+        for (let i = 0; i < events.length; i++) {
+            if (Events[events[i]].transactionRequired) {
+                istransactionIdRequired = true;
+                break;
+            }
+        }
+
+        if (istransactionIdRequired && !transactionId) {
+            setTransactionIdError("Please enter transaction id");
             hasAnyError = true;
         }
 
@@ -196,67 +212,75 @@ export default function Register() {
 
     return (
         <Suspense fallback={<Preloader />}>
-        <div
-            className="register"
-            style={{
-                backgroundImage: ` linear-gradient(rgba(0,0,0,0) 20%, rgba(6,12,32,1) 70%), url(${cultural4})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-            }}
-        >
-            <div className="overlay">
-            <Navbar />
-            <ThemeProvider theme={darkTheme}>
-                <Box
-                    sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        minHeight: "50vh",
-                        height: "100%",
-                        backgroundColor: "rgba(6, 12, 32, 0.8);",
-                        // flexWrap: "wrap",
-                        flexDirection:
-                            window.innerWidth > 600 ? "row" : "column-reverse",
-                        borderRadius: "8px",
-                    }}
-                >
-                    <Paper className="qrcode" elevation={8}>
-                        <img
-                            className="code"
-                            src={qrcode}
-                            alt="qr code"
-                        />
-                        <Typography variant="body2" className="note">
-                            Scan this QR code to pay
-                        </Typography>
-                        <Typography variant="h5" className="note">
-                            Preview
-                        </Typography>
-                        <img
-                            className="preview"
-                            src=""
-                            alt="preview"
-                            id="preview"
-                        />
-                    </Paper>
-                    <Paper className="form" elevation={2} component="form">
-                        <FormControl fullWidth className="row">
-                            <TextField
-                                label="Name"
-                                variant="outlined"
-                                fullWidth
-                                required
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                            {nameError && (
-                                <FormHelperText error>
-                                    {nameError}
-                                </FormHelperText>
-                            )}
-                            {/* <TextField
+            <div
+                className="register"
+                style={{
+                    backgroundImage: ` linear-gradient(rgba(0,0,0,0) 20%, rgba(6,12,32,1) 70%), url(${cultural4})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                }}
+            >
+                <div className="overlay">
+                    <Navbar />
+                    <ThemeProvider theme={darkTheme}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                minHeight: "50vh",
+                                height: "100%",
+                                backgroundColor: "rgba(6, 12, 32, 0.8);",
+                                // flexWrap: "wrap",
+                                flexDirection:
+                                    window.innerWidth > 600
+                                        ? "row"
+                                        : "column-reverse",
+                                borderRadius: "8px",
+                            }}
+                        >
+                            <Paper className="qrcode" elevation={8}>
+                                <img
+                                    className="code"
+                                    src={qrcode}
+                                    alt="qr code"
+                                />
+                                <Typography variant="body2" className="note">
+                                    Scan this QR code to pay
+                                </Typography>
+                                <Typography variant="h5" className="note">
+                                    Preview
+                                </Typography>
+                                <img
+                                    className="preview"
+                                    src=""
+                                    alt="preview"
+                                    id="preview"
+                                />
+                            </Paper>
+                            <Paper
+                                className="form"
+                                elevation={2}
+                                component="form"
+                            >
+                                <FormControl fullWidth className="row">
+                                    <TextField
+                                        label="Name"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        value={name}
+                                        onChange={(e) =>
+                                            setName(e.target.value)
+                                        }
+                                    />
+                                    {nameError && (
+                                        <FormHelperText error>
+                                            {nameError}
+                                        </FormHelperText>
+                                    )}
+                                    {/* <TextField
                                 label="Password"
                                 variant="outlined"
                                 fullWidth
@@ -292,275 +316,332 @@ export default function Register() {
                                     {passwordError}
                                 </FormHelperText>
                             )} */}
-                        </FormControl>
-                        <FormControl fullWidth className="row">
-                            <TextField
-                                label="Email"
-                                variant="outlined"
-                                fullWidth
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            {emailError && (
-                                <FormHelperText error>
-                                    {emailError}
-                                </FormHelperText>
-                            )}
-                            <TextField
-                                label="Mobile"
-                                variant="outlined"
-                                fullWidth
-                                required
-                                value={mobile}
-                                onChange={(e) => setMobile(e.target.value)}
-                            />
-                            {mobileError && (
-                                <FormHelperText error>
-                                    {mobileError}
-                                </FormHelperText>
-                            )}
-                        </FormControl>
-                        <FormControl fullWidth>
-                            <TextField
-                                label="College"
-                                variant="outlined"
-                                fullWidth
-                                required
-                                value={college}
-                                onChange={(e) => setCollege(e.target.value)}
-                            />
-                            {collegeError && (
-                                <FormHelperText error>
-                                    {collegeError}
-                                </FormHelperText>
-                            )}
-                        </FormControl>
-                        <FormControl fullWidth className="row">
-                            <TextField
-                                label="City"
-                                variant="outlined"
-                                fullWidth
-                                required
-                                value={city}
-                                onChange={(e) => setCity(e.target.value)}
-                            />
-                            {cityError && (
-                                <FormHelperText error>
-                                    {cityError}
-                                </FormHelperText>
-                            )}
-                            <TextField
-                                label="State"
-                                variant="outlined"
-                                fullWidth
-                                required
-                                value={state}
-                                onChange={(e) => setState(e.target.value)}
-                            />
-                            {stateError && (
-                                <FormHelperText error>
-                                    {stateError}
-                                </FormHelperText>
-                            )}
-                            <TextField
-                                label="Pincode"
-                                variant="outlined"
-                                fullWidth
-                                required
-                                value={pincode}
-                                onChange={(e) => setPincode(e.target.value)}
-                            />
-                            {pincodeError && (
-                                <FormHelperText error>
-                                    {pincodeError}
-                                </FormHelperText>
-                            )}
-                        </FormControl>
-                        <FormControl fullWidth className="row">
-                            <Select
-                                label="Type"
-                                variant="outlined"
-                                fullWidth
-                                value={type}
-                                onChange={(e) => setType(e.target.value)}
-                                sx={{
-                                    "&.MuiSelect-select": {
-                                        color: "white",
-                                    },
-                                    "&.MuiSelect-label": {
-                                        color: "white",
-                                    },
-                                }}
-                                required
-                            >
-                                <MenuItem value="individual">
-                                    Individual
-                                </MenuItem>
-                                <MenuItem value="congingent">
-                                    Congingent
-                                </MenuItem>
-                            </Select>
-                            {typeError && (
-                                <FormHelperText error>
-                                    {typeError}
-                                </FormHelperText>
-                            )}
-                            {type === "congingent" && (
-                                <TextField
-                                    label="Size"
-                                    variant="outlined"
-                                    fullWidth
-                                    type="number"
-                                    required
-                                    value={size}
-                                    onChange={(e) => setSize(e.target.value)}
-                                />
-                            )}
-                            {sizeError && (
-                                <FormHelperText error>
-                                    {sizeError}
-                                </FormHelperText>
-                            )}
-                        </FormControl>
-                        <FormControl fullWidth className="row">
-                            <MultipleSelectEvent />
-                            {eventsError && (
-                                <FormHelperText error>
-                                    {eventsError}
-                                </FormHelperText>
-                            )}
-                        </FormControl>
-                        <FormControl fullWidth className="row">
-                            <TextField
-                                label="Transaction ID"
-                                variant="outlined"
-                                fullWidth
-                                required
-                                value={transactionId}
-                                onChange={(e) =>
-                                    setTransactionId(e.target.value)
-                                }
-                            />
-                            {transactionIdError && (
-                                <FormHelperText error>
-                                    {transactionIdError}
-                                </FormHelperText>
-                            )}
-                            <TextField
-                                helperText="Upload your payment screenshot"
-                                variant="standard"
-                                fullWidth
-                                type="file"
-                                required
-                                value={file}
-                                className="file"
-                                onChange={(e) => {
-                                    setFile(e.target.value);
-                                    const preview =
-                                        document.getElementById("preview");
-                                    const file =
-                                        document.querySelector(
-                                            "input[type=file]",
-                                        ).files[0];
-                                    preview.src = URL.createObjectURL(file);
-                                }}
-                            />
-                            {fileError && (
-                                <FormHelperText error>
-                                    {fileError}
-                                </FormHelperText>
-                            )}
-                        </FormControl>
-                        <FormControl fullWidth className="row">
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                className="submit"
-                                // disabled
-                                onClick={handleSubmit}
-                            >
-                                Submit
-                            </Button>
-                            <Typography variant="body2" className="note">
-                                Note:Payment will be comfirm after verification.
-                            </Typography>
-                        </FormControl>
-                    </Paper>
-                </Box>
-            </ThemeProvider>
+                                </FormControl>
+                                <FormControl fullWidth className="row">
+                                    <TextField
+                                        label="Email"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        value={email}
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
+                                    />
+                                    {emailError && (
+                                        <FormHelperText error>
+                                            {emailError}
+                                        </FormHelperText>
+                                    )}
+                                    <TextField
+                                        label="Mobile"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        value={mobile}
+                                        onChange={(e) =>
+                                            setMobile(e.target.value)
+                                        }
+                                    />
+                                    {mobileError && (
+                                        <FormHelperText error>
+                                            {mobileError}
+                                        </FormHelperText>
+                                    )}
+                                </FormControl>
+                                <FormControl fullWidth>
+                                    <TextField
+                                        label="College"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        value={college}
+                                        onChange={(e) =>
+                                            setCollege(e.target.value)
+                                        }
+                                    />
+                                    {collegeError && (
+                                        <FormHelperText error>
+                                            {collegeError}
+                                        </FormHelperText>
+                                    )}
+                                </FormControl>
+                                <FormControl fullWidth className="row">
+                                    <TextField
+                                        label="City"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        value={city}
+                                        onChange={(e) =>
+                                            setCity(e.target.value)
+                                        }
+                                    />
+                                    {cityError && (
+                                        <FormHelperText error>
+                                            {cityError}
+                                        </FormHelperText>
+                                    )}
+                                    <TextField
+                                        label="State"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        value={state}
+                                        onChange={(e) =>
+                                            setState(e.target.value)
+                                        }
+                                    />
+                                    {stateError && (
+                                        <FormHelperText error>
+                                            {stateError}
+                                        </FormHelperText>
+                                    )}
+                                    <TextField
+                                        label="Pincode"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        value={pincode}
+                                        onChange={(e) =>
+                                            setPincode(e.target.value)
+                                        }
+                                    />
+                                    {pincodeError && (
+                                        <FormHelperText error>
+                                            {pincodeError}
+                                        </FormHelperText>
+                                    )}
+                                </FormControl>
+                                <FormControl fullWidth className="row">
+                                    <Select
+                                        label="Type"
+                                        variant="outlined"
+                                        fullWidth
+                                        value={type}
+                                        onChange={(e) =>
+                                            setType(e.target.value)
+                                        }
+                                        sx={{
+                                            "&.MuiSelect-select": {
+                                                color: "white",
+                                            },
+                                            "&.MuiSelect-label": {
+                                                color: "white",
+                                            },
+                                        }}
+                                        required
+                                    >
+                                        <MenuItem value="individual">
+                                            Individual
+                                        </MenuItem>
+                                        <MenuItem value="congingent">
+                                            Congingent
+                                        </MenuItem>
+                                    </Select>
+                                    {typeError && (
+                                        <FormHelperText error>
+                                            {typeError}
+                                        </FormHelperText>
+                                    )}
+                                    {type === "congingent" && (
+                                        <TextField
+                                            label="Size"
+                                            variant="outlined"
+                                            fullWidth
+                                            type="number"
+                                            required
+                                            value={size}
+                                            onChange={(e) =>
+                                                setSize(e.target.value)
+                                            }
+                                        />
+                                    )}
+                                    {sizeError && (
+                                        <FormHelperText error>
+                                            {sizeError}
+                                        </FormHelperText>
+                                    )}
+                                </FormControl>
+                                <FormControl fullWidth className="row">
+                                    <MultipleSelectEvent
+                                        isTransactionIdRequired={
+                                            isTransactionIdRequired
+                                        }
+                                        setIsTransactionIdRequired={
+                                            setIsTransactionIdRequired
+                                        }
+                                        setEvents={setEvents}
+                                    />
+                                    {eventsError && (
+                                        <FormHelperText error>
+                                            {eventsError}
+                                        </FormHelperText>
+                                    )}
+                                </FormControl>
+                                <FormControl fullWidth className="row">
+                                    <TextField
+                                        label="Transaction ID"
+                                        variant="outlined"
+                                        fullWidth
+                                        required={isTransactionIdRequired}
+                                        value={transactionId}
+                                        onChange={(e) =>
+                                            setTransactionId(e.target.value)
+                                        }
+                                    />
+                                    {transactionIdError && (
+                                        <FormHelperText error>
+                                            {transactionIdError}
+                                        </FormHelperText>
+                                    )}
+                                    <TextField
+                                        helperText="Upload your payment screenshot"
+                                        variant="standard"
+                                        fullWidth
+                                        type="file"
+                                        required
+                                        value={file}
+                                        className="file"
+                                        onChange={(e) => {
+                                            setFile(e.target.value);
+                                            const preview =
+                                                document.getElementById(
+                                                    "preview",
+                                                );
+                                            const file =
+                                                document.querySelector(
+                                                    "input[type=file]",
+                                                ).files[0];
+                                            preview.src =
+                                                URL.createObjectURL(file);
+                                        }}
+                                    />
+                                    {fileError && (
+                                        <FormHelperText error>
+                                            {fileError}
+                                        </FormHelperText>
+                                    )}
+                                </FormControl>
+                                <FormControl fullWidth className="row">
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        className="submit"
+                                        // disabled
+                                        onClick={handleSubmit}
+                                    >
+                                        Submit
+                                    </Button>
+                                    <Typography
+                                        variant="body2"
+                                        className="note"
+                                    >
+                                        Note:Payment will be comfirm after
+                                        verification.
+                                    </Typography>
+                                </FormControl>
+                            </Paper>
+                        </Box>
+                    </ThemeProvider>
+                </div>
             </div>
-        </div>
         </Suspense>
     );
 }
 
-
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+            width: 250,
+        },
     },
-  },
 };
 
 function getStyles(name, eventName, theme) {
-  return {
-    fontWeight:
-      eventName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
+    return {
+        fontWeight:
+            eventName.indexOf(name) === -1
+                ? theme.typography.fontWeightRegular
+                : theme.typography.fontWeightMedium,
+    };
 }
 
- function MultipleSelectEvent() {
+function MultipleSelectEvent({
+    isTransactionIdRequired,
+    setIsTransactionIdRequired,
+    setEvents,
+}) {
     const theme = useTheme();
-  const [eventName, setEventName] = useState([]);
+    const [eventName, setEventName] = useState([]);
 
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setEventName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
+    const handleChange = (event) => {
+        const {
+            target: { value },
+        } = event;
+        console.log({ value });
+        setEventName(
+            // On autofill we get a stringified value.
+            typeof value === "string" ? value.split(",") : value,
+        );
+
+        setEvents(value);
+        let istransactionIdRequired = false;
+        for (let i = 0; i < value.length; i++) {
+            if (Events.find((x) => x.id == [value[i]])?.transactionRequired) {
+                istransactionIdRequired = true;
+                break;
+            }
+        }
+        if (istransactionIdRequired) {
+            setIsTransactionIdRequired(true);
+        } else {
+            setIsTransactionIdRequired(false);
+        }
+    };
+
+    return (
+        <div>
+            <FormControl sx={{ m: 1, width: 300 }}>
+                <InputLabel id="demo-multiple-event-label">Event</InputLabel>
+                <Select
+                    labelId="demo-multiple-event-label"
+                    id="demo-multiple-event"
+                    multiple
+                    value={eventName}
+                    onChange={handleChange}
+                    // onSelect={handleSelect}
+                    input={
+                        <OutlinedInput
+                            id="select-multiple-event"
+                            label="Events"
+                        />
+                    }
+                    renderValue={(selected) => (
+                        <Box
+                            sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}
+                        >
+                            {selected.map((value) => (
+                                <Chip key={value} label={value} />
+                            ))}
+                        </Box>
+                    )}
+                    MenuProps={MenuProps}
+                >
+                    {Events.map((event) => (
+                        <MenuItem
+                            key={event.id}
+                            value={event.id}
+                            style={getStyles(event.name, eventName, theme)}
+                        >
+                            {event.name}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+        </div>
     );
-  };
-
-  return (
-    <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-event-label">Event</InputLabel>
-        <Select
-          labelId="demo-multiple-event-label"
-          id="demo-multiple-event"
-          multiple
-          value={eventName}
-          onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-event" label="Events" />}
-          renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-          MenuProps={MenuProps}
-        >
-          {events.map((event) => (
-            <MenuItem
-              key={event.id}
-              value={event.id}
-              style={getStyles(event.name, eventName, theme)}
-            >
-              {event.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
-  );
 }

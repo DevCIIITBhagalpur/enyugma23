@@ -121,7 +121,7 @@ teams would need to register on unstop.
                 desc: `* A CTF event where participants will be given a set of challenges to solve.
 * The participants will have to solve the challenges and submit the flag.
 `,
-                type: "offline",
+                type: "online",
             },
         ],
         prizes: {

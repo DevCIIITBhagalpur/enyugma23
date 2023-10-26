@@ -6,7 +6,8 @@ const events = [...technicalEvent, ...culturalEvent, ...workshopEvent].map(
     (x) => ({
         id: x.id,
         name: x.name,
-    })
+        transactionRequired: !["smartgrid", "qctf"].includes(x.id),
+    }),
 );
 
 export default events;

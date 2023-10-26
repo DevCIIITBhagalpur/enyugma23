@@ -17,7 +17,7 @@ const { Client } = pg;
  * teamSize?: number;
  * token: string;
  * teamMembers?: string[];
- * transactionId: string;
+ * transactionId?: string;
  * }} user
  */
 
@@ -58,6 +58,7 @@ export default class Database {
    */
   async createUser(user) {
     // postgres query for inserting a user
+    if(user.transactionId)
     return this.client.query(
       "INSERT INTO users (name, email, college, state, city, pincode, type, events, teamSize, teamMembers, token, transactionId) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10,$11,$12)",
       [
@@ -75,7 +76,25 @@ export default class Database {
         user.token,
         user.transactionId,
       ]
-    );
+    ); else {
+      return this.client.query(
+        "INSERT INTO users (name, email, college, state, city, pincode, type, events, teamSize, teamMembers, token) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10,$11)",
+        [
+          user.name,
+          user.email,
+          // user.password,
+          user.college,
+          user.state,
+          user.city,
+          user.pincode,
+          user.type,
+          user.events,
+          user.teamSize,
+          user.teamMembers,
+          user.token,
+        ]
+      );
+    }
   }
   /**
    * Description

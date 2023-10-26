@@ -8,8 +8,17 @@ router.post("/login", (req, res) => {
     Login(email, password);
 });
 
-router.post("/register", upload.single("file"), (req, res) => {
+router.post("/register", (req, res) => {
+    if(!req.file && req.transactionId) {
+        res.status(400).json({
+            message: "Please upload the reciept"
+        })
+        return;
+    }
+    if (req.file) {
+        upload.single("file");
+    }
     Register(req, res);
-}); 
+});
 
 export default router;
