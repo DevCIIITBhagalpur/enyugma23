@@ -96,16 +96,32 @@ const events = [
         id: "antarman",
         name: "Antarman",
         eventType: "cultural",
-        description: `Antarman is a solo poetry competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,
+        description: `Step into the realms of imagination and creativity at our college's poetry competition. Your words, your world. Express, connect, and inspire through your own verses. Join fellow peers, ignite your imagination, and craft your masterpiece, and win big! Let your voice be heard. Come, and be part of this poetic journey that celebrates creativity, imagination, and expression.`,
         phases: [
             {
-                name: "Finals",
-                desc: `* The participants can choose any topic.
+                name: "Online Submission Round ( Platform -  Unstop )",
+                desc: `This is an online round in which participants have to submit their work via unstop. Work should follow the below guidelines:-
+
+* The participants can choose any topic.
 * The poem must be the participant's original work.
 * The line limit is 40.
 * The poem should have a particular name.
 * Each participant is allowed to submit only one entry.
 * All the entries will be taken through Unstop.
+* Under no circumstances can alterations be made to poems once submitted.
+* The poet’s name must be mentioned in the poem itself.
+* The judges will read all the poems and their decision will be final.`,
+                type: "online",
+            },
+            {
+                name: "Finals",
+                desc: `This is an Offline round in which participants have to recite their poem on stage at IIIT Bhagalpur Campus . Guidelines for this round are as follows:-
+
+* The participants can choose any topic.
+* The poem must be the participant's original work.
+* The line limit is 40.
+* The poem should have a particular name.
+* The judges will evaluate your poem as per the judging criteria mentioned and their decision will be final.
 `,
                 type: "offline",
             },
@@ -124,6 +140,9 @@ const events = [
             "The poem should have a particular name.",
             "Each participant is allowed to submit only one entry.",
             "All the entries will be taken through Unstop.",
+            "Under no circumstances can alterations be made to poems once submitted.",
+            "The poet’s name must be mentioned in the poem itself.",
+            "The judges will read all the poems and their decision will be final.",
         ],
         judgingCriteria: [
             "Theme relevance.",
@@ -148,7 +167,7 @@ const events = [
             },
             {
                 name: "Asian Parliamentary Round",
-                desc: "* N/A",
+                desc: "* Top three candidates of this round will be rewarded with First, Second and Third postion.",
                 type: "offline",
             },
         ],
@@ -272,11 +291,13 @@ const events = [
         id: "cinesnap",
         name: "Cine Snap",
         eventType: "cultural",
-        description: `Cine Snap is a short film competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,
+        description: `The CINESNAP is an online Short Film competition that invites aspiring filmmakers to unleash their creativity and filmmaking skills. Participants will have the opportunity to craft a short film that can span any genre, from drama and comedy to documentary and experimental, with a maximum duration of 10 minutes.`,
         phases: [
             {
                 name: "Finals",
-                desc: ``,
+                desc: `Participants can chose any genre and make a short-film of duration 3 to 10 minutes. Participants have to submit the short-film on  23rd november 2023.
+ Each participant is allowed to submit only one entry.
+ All the entries will be taken through Unstop.`,
                 type: "online",
             },
         ],
@@ -325,10 +346,45 @@ const events = [
                 "3 - Selected films will be screened at the awards ceremony on [specific date]. - Award winners will be announced and honored during the ceremony. ",
         },
         rules: [
-            "Code of Conduct: Participants are expected to treat each other, the judges, and the organizers with respect and professionalism. ",
-            "Note: Late submission will be penalized. ",
-            "The decision of the judges will be final and binding.  ",
-            "The organizing team reserves the right to change or modify the rules. ",
+            `Eligibility:
+
+The competition is open to all engineering undergraduate students from across India.
+Participants can either work individually or in teams of up to 5 members.`,
+
+            `Film Duration:
+
+The short film's duration should be a minimum of 3 minutes and a maximum of 10 minutes, including credits.
+Films exceeding this time limit will be disqualified.`,
+
+            `Theme and Genre:
+
+There is no specific theme. Participants are encouraged to explore any genre or subject matter.
+Content should be appropriate and follow college guidelines.`,
+
+            `Originality:
+
+All content, including the story, script, characters, and music, must be original, or proper permissions for the use of copyrighted materials must be obtained.
+Participants must upload raw footages along with the short film to ensure originality.`,
+
+            `Equipment:
+
+Participants can use any recording equipment, including smartphones, cameras, or other devices.
+Editing software of choice is allowed.`,
+
+            `Submission:
+
+Films should be submitted on or before the deadline, which is 23.11.23.
+The film file should be in a mp4 format and have a clear title and credits.`,
+
+            `Screening and Awards Ceremony:
+
+The selected short films will be screened during the Enyugma fest.
+An awards ceremony will follow the screening, where the winners will be announced and rewarded.`,
+
+            `Rights:
+
+IIITBH retains the right to use the submitted films for promotional purposes.
+Judges decision will be final decision.`,
         ],
         judgingCriteria: [
             "  Creativity & Innovation: 30% ",
@@ -557,7 +613,7 @@ const events = [
 * Maximum 2 entries per participant.
 * Photography Themes: Conceptual Photography, Travel Photography (Landscapes preferred), Street Photography (Indian culture preferred) - Every artist has a central story to tell, and the difficulty, the impossible task, is trying to present that story in pictures. 
 `,
-                type: "offline",
+                type: "online",
             },
         ],
         prizes: {

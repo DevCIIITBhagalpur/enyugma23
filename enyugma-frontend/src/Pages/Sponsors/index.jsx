@@ -48,6 +48,8 @@ export default function Sponsors() {
                             Our Past Sponsors
                         </h1>
                     </div>
+                    <br />
+                    <br />
                     <div className="sponsors-list">
                         {sponsorList.map((sponsor) => {
                             return (
