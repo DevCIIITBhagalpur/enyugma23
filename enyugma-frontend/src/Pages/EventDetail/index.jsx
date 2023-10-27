@@ -96,39 +96,39 @@ export default function EventDetail() {
 
     return (
         <>
-        <Suspense fallback={<Preloader />}>
-            <Box
-                className="event-detail"
-                sx={{
-                    backgroundImage: `linear-gradient(180deg,rgba(0,0,0,0.7) 20%,rgba(6,12,32,1) 70%), url(${eventBg})`,
-                    overflow: "hidden",
-                }}
-            >
-                <Navbar />
-                <div className="abs">
-                    <Stars2 />
-                </div>
-                <Typography variant="h2" className="event-name">
-                    {eventDetails.name}
-                </Typography>
-                <BasicTabs eventDetails={eventDetails} />
-                <br />
-                <Button variant="contained" className="register-button">
-                    Register
-                </Button>
-                {eventDetails.id === "bitbybit" && (
-                    <div
-                        className="apply-button"
-                        data-hackathon-slug="bitbybit-1"
-                        data-button-theme="dark"
-                        style={{
-                            height: "44px",
-                            width: "312px",
-                        }}
-                    ></div>
-                )}
-            </Box>
-        </Suspense>
+            <Suspense fallback={<Preloader />}>
+                <Box
+                    className="event-detail"
+                    sx={{
+                        backgroundImage: `linear-gradient(180deg,rgba(0,0,0,0.7) 20%,rgba(6,12,32,1) 70%), url(${eventBg})`,
+                        overflow: "hidden",
+                    }}
+                >
+                    <Navbar />
+                    <div className="abs">
+                        <Stars2 />
+                    </div>
+                    <Typography variant="h2" className="event-name">
+                        {eventDetails.name}
+                    </Typography>
+                    <BasicTabs eventDetails={eventDetails} />
+                    <br />
+                    <Button variant="contained" className="register-button">
+                        Register
+                    </Button>
+                    {eventDetails.id === "bitbybit" && (
+                        <div
+                            className="apply-button"
+                            data-hackathon-slug="bitbybit-1"
+                            data-button-theme="dark"
+                            style={{
+                                height: "44px",
+                                width: "312px",
+                            }}
+                        ></div>
+                    )}
+                </Box>
+            </Suspense>
         </>
     );
 }
@@ -242,16 +242,6 @@ function BasicTabs({ eventDetails }) {
                         {eventDetails.eventType === "cultural" && (
                             <Tab label="Judging Criteria" {...a11yProps(5)} />
                         )}
-                        {eventDetails.sponsors && (
-                            <Tab
-                                label="Sponsors"
-                                {...a11yProps(
-                                    eventDetails.eventType === "cultural"
-                                        ? 6
-                                        : 4,
-                                )}
-                            />
-                        )}
                     </Tabs>
                 </Box>
                 <Box
@@ -300,6 +290,56 @@ function BasicTabs({ eventDetails }) {
                                           })
                                     : eventDetails.description}
                             </Typography>
+                            <div className="sponsors">
+                                {eventDetails.sponsors && (
+                                    <>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <div className="sponsorslis">
+                                        <div className="sponsors">
+                                            <div className="title">
+                                                Gold Sponsors
+                                            </div>
+                                            <div className="list">
+                                                {eventDetails.sponsors.gold.map(
+                                                    (sponsor, i) => (
+                                                        <EventDetailSponsorCard
+                                                            key={i}
+                                                            name={""}
+                                                            logo={sponsor.logo}
+                                                            link={sponsor.link}
+                                                        />
+                                                    ),
+                                                )}
+                                            </div>
+                                        </div>
+                                        <div className="sponsors">
+                                            <div className="title">
+                                                Silver Sponsors
+                                            </div>
+                                            <div className="list">
+                                                {eventDetails.sponsors.silver.map(
+                                                    (sponsor, i) => (
+                                                        <EventDetailSponsorCard
+                                                            name={""}
+                                                            logo={sponsor.logo}
+                                                            link={sponsor.link}
+                                                            key={i}
+                                                        />
+                                                    ),
+                                                )}
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </>
+                                )}
+                            </div>
                         </Box>
                     </CustomTabPanel>
                     {eventDetails.eventType !== "workshop" && (
@@ -467,45 +507,6 @@ function BasicTabs({ eventDetails }) {
                                 )}
                             </CustomTabPanel>
                         </>
-                    )}
-                    {eventDetails.sponsors && (
-                        <CustomTabPanel
-                            value={value}
-                            index={
-                                eventDetails.eventType === "cultural" ? 6 : 4
-                            }
-                        >
-                            <div className="sponsors">
-                                <div className="title">Gold Sponsors</div>
-                                <div className="list">
-                                    {eventDetails.sponsors.gold.map(
-                                        (sponsor, i) => (
-                                            <EventDetailSponsorCard
-                                                key={i}
-                                                name={""}
-                                                logo={sponsor.logo}
-                                                link={sponsor.link}
-                                            />
-                                        ),
-                                    )}
-                                </div>
-                            </div>
-                            <div className="sponsors">
-                                <div className="title">Silver Sponsors</div>
-                                <div className="list">
-                                    {eventDetails.sponsors.silver.map(
-                                        (sponsor, i) => (
-                                            <EventDetailSponsorCard
-                                                name={""}
-                                                logo={sponsor.logo}
-                                                link={sponsor.link}
-                                                key={i}
-                                            />
-                                        ),
-                                    )}
-                                </div>
-                            </div>
-                        </CustomTabPanel>
                     )}
                 </Box>
             </Box>
