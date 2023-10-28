@@ -7,7 +7,7 @@ const app = express();
 import cors from "cors";
 config();
 const PORT = process.env.PORT;
-const uri = process.env.DB_CONNECT;
+// const uri = process.env.DB_CONNECT;
 
 
 // async function run() {
@@ -26,10 +26,11 @@ const uri = process.env.DB_CONNECT;
 // run().catch(console.dir);
 
 import userRoutes from "./routes/user.js";
-
-app.use(json());
 app.use(cors());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
+app.use(json());
+
+
 
 // Routes Middleware
 app.use("/api/user", userRoutes);

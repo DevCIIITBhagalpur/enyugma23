@@ -12,7 +12,7 @@ dotenv.config();
 export const Register = async (req, res, next) => {
   const details = req.body;
   const userExist = await db.isUserExists(details.email);
-  if (userExist) {
+  if (userExist?.rowCount > 0) {
     res.status(400).json({
       message: "User already exists",
     });
