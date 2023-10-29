@@ -88,7 +88,7 @@ export default class Database {
           user.city,
           user.pincode,
           user.type,
-          user.events,
+          JSON.parse(user.events),
           user.teamSize,
           user.teamMembers,
           user.token,

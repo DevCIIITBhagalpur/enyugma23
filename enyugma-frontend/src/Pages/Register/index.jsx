@@ -176,9 +176,9 @@ export default function Register() {
         formData.append("size", size);
         formData.append("transactionId", transactionId);
         // formData.append("password", password);
-        // console.log(events);
-        let eventUp = events;
-        formData.append("events", JSON.stringify(eventUp));
+        console.log(events);
+        // let eventUp = events;
+        formData.append("events", JSON.stringify(events));
         const files = document.querySelector("input[type=file]").files[0];
         // add file to formData
         formData.append("file", files);
