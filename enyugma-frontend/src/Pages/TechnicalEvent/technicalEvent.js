@@ -29,7 +29,7 @@ ensuring durability and speed.`,
         phases: [
             {
                 name: "Abstract Submission",
-                desc: `* Prepare a detailed overview of your vehicle, including specifications, photos, and 3D files. thorough submissions increase your chances of advancing.`,
+                desc: `* Prepare a detailed overview of your vehicle, including specifications, photos, and 3D files. Thorough submissions increase your chances of advancing.`,
                 type: "online",
             },
             {
