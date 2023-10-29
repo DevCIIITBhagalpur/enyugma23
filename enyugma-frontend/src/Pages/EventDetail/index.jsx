@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useLayoutEffect, useState } from "react";
 import "./index.scss";
 import { useLocation } from "react-router-dom";
 import {
@@ -82,7 +82,12 @@ export default function EventDetail() {
             // console.log(eventdata);
             setEventDetails(eventdata);
         }
+    }, [arr]);
+
+    useLayoutEffect(() => {
+        const eventId = arr[arr.length - 1];
         if (eventId === "bitbybit") {
+            console.log("bitbybit");
             const script = document.createElement("script");
             script.src = "https://apply.devfolio.co/v2/sdk.js";
             script.async = true;
@@ -116,17 +121,17 @@ export default function EventDetail() {
                     <Button variant="contained" className="register-button">
                         Register
                     </Button>
-                    {eventDetails.id === "bitbybit" && (
+                    {/* {eventDetails.id === "bitbybit" && ( */}
                         <div
                             className="apply-button"
-                            data-hackathon-slug="bitbybit-1"
+                            data-hackathon-slug="bitbybit-2"
                             data-button-theme="dark"
                             style={{
                                 height: "44px",
                                 width: "312px",
                             }}
                         ></div>
-                    )}
+                    {/* )} */}
                 </Box>
             </Suspense>
         </>
@@ -293,49 +298,58 @@ function BasicTabs({ eventDetails }) {
                             <div className="sponsors">
                                 {eventDetails.sponsors && (
                                     <>
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-                                    
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <div className="sponsorslis">
-                                        <div className="sponsors">
-                                            <div className="title">
-                                                Gold Sponsors
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <div className="sponsorslis">
+                                            <div className="sponsors">
+                                                <div className="title">
+                                                    Gold Sponsors
+                                                </div>
+                                                <div className="list">
+                                                    {eventDetails.sponsors.gold.map(
+                                                        (sponsor, i) => (
+                                                            <EventDetailSponsorCard
+                                                                key={i}
+                                                                name={""}
+                                                                logo={
+                                                                    sponsor.logo
+                                                                }
+                                                                link={
+                                                                    sponsor.link
+                                                                }
+                                                                alt={sponsor.alt}
+                                                            />
+                                                        ),
+                                                    )}
+                                                </div>
                                             </div>
-                                            <div className="list">
-                                                {eventDetails.sponsors.gold.map(
-                                                    (sponsor, i) => (
-                                                        <EventDetailSponsorCard
-                                                            key={i}
-                                                            name={""}
-                                                            logo={sponsor.logo}
-                                                            link={sponsor.link}
-                                                        />
-                                                    ),
-                                                )}
+                                            <div className="sponsors">
+                                                <div className="title">
+                                                    Silver Sponsors
+                                                </div>
+                                                <div className="list">
+                                                    {eventDetails.sponsors.silver.map(
+                                                        (sponsor, i) => (
+                                                            <EventDetailSponsorCard
+                                                                name={""}
+                                                                logo={
+                                                                    sponsor.logo
+                                                                }
+                                                                link={
+                                                                    sponsor.link
+                                                                }
+                                                                key={i}
+                                                            />
+                                                        ),
+                                                    )}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="sponsors">
-                                            <div className="title">
-                                                Silver Sponsors
-                                            </div>
-                                            <div className="list">
-                                                {eventDetails.sponsors.silver.map(
-                                                    (sponsor, i) => (
-                                                        <EventDetailSponsorCard
-                                                            name={""}
-                                                            logo={sponsor.logo}
-                                                            link={sponsor.link}
-                                                            key={i}
-                                                        />
-                                                    ),
-                                                )}
-                                            </div>
-                                        </div>
                                         </div>
                                     </>
                                 )}

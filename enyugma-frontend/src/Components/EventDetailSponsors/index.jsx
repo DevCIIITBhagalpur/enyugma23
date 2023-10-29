@@ -19,7 +19,7 @@ const randomString = (length) =>
 //     return str;
 // }
 
-export default function EventDetailSponsorCard({ name, logo, link }) {
+export default function EventDetailSponsorCard({ name, logo, link,alt }) {
     const [string, setString] = useState(randomString(1500, name));
 
     const letterRef = useRef(null);
@@ -50,7 +50,7 @@ export default function EventDetailSponsorCard({ name, logo, link }) {
             <div className="edcard-wrapper">
                 <div className="edcard" ref={edcardRef}>
                     <a className="edcard-image" href={link}>
-                        <img src={logo} alt={name} />
+                        <img src={logo} alt={alt} />
                         <div className="text">{name}</div>
                     </a>
                     <div className="edcard-gradient"></div>
