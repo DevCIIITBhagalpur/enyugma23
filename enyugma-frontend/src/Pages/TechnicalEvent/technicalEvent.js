@@ -194,7 +194,7 @@ Object to be picked: Cube (50mmx50mmx50mm)`,
     {
         id: "qctf",
         link: "https://unstop.com/o/qRDgo3U?lb=unHpMLw",
-        name: "Quiz + Capture The Flag",
+        name: "CySecCTF",
         eventType: "technical",
         description: `A quiz based on the basics of cyber security and cryptography followed by a capture the flag event.`,
         phases: [
@@ -212,13 +212,13 @@ Object to be picked: Cube (50mmx50mmx50mm)`,
             },
         ],
         prizes: {
-            pool: 32000,
-            distribution: ["1st: 15000", "2nd: 10000", "3rd: 7000"],
+            pool: 30000,
+            distribution: ["1st: 15000", "2nd: 10000", "3rd: 5000"],
         },
         banner: qctf,
         generalDetails: {
             type: "individual",
-            platform: "unstop + IIIT Bhagalpur Campus",
+            platform: "unstop",
         },
     },
     {
