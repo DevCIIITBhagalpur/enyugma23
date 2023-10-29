@@ -622,7 +622,7 @@ Judges decision will be final decision.`,
         },
         generalDetails: {
             theme: "Conceptual Photography, Travel Photography (Landscapes preferred), Street Photography (Indian culture preferred)",
-            venue: "IIIT Bhagalpur Campus",
+            venue: "Unstop",
             "devices allowed": "Mobile and DSLR",
             "file size limit": "10MB",
         },

@@ -49,7 +49,7 @@ export default function SponsorCard({ name, logo, link }) {
         <div className="card-track">
             <div className="card-wrapper">
                 <div className="card" ref={cardRef}>
-                    <a className="card-image" href={link}>
+                    <a className="card-image" href={link} target="_blank" rel="noreferrer">
                         <img src={logo} alt={name} />
                         <div className="text">{name}</div>
                     </a>

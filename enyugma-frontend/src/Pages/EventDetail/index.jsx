@@ -358,6 +358,7 @@ function BasicTabs({ eventDetails }) {
                                             sx={{
                                                 display: "flex",
                                                 flexDirection: "row",
+                                                whiteSpace: "pre-wrap",
                                             }}
                                         >
                                             <Typography
