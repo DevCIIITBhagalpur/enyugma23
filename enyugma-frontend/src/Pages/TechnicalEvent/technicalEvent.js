@@ -12,7 +12,7 @@ import filecoin from "../../assets/filecoin.png";
 import replit from "../../assets/replit.png";
 import nitropulse from "../../assets/events/nitropulse.webp";
 import visionsort from "../../assets/events/visionsort.webp";
-* Teams can achieve 5 points from this round.
+
 const technicalEvent = [
     {
         id: "nitropulse",
