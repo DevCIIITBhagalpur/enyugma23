@@ -14,6 +14,7 @@ import makeamoment from "../../assets/events/make-a-moment.webp";
 const events = [
     {
         id: "euphony",
+        link: "https://unstop.com/events/euphony-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-786438",
         name: "Euphony",
         eventType: "cultural",
         description: `Euphony is solo singing event where participants will be judged on the basis of their voice quality, rhythm, sur, taal, and overall presentation.`,
@@ -56,6 +57,7 @@ const events = [
     },
     {
         id: "chitraalekh",
+        link: "https://unstop.com/p/chitralekh-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-789532",
         name: "Chitraalekh",
         description: `Chitraalekh is a picture comprehension competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,
         eventType: "cultural",
@@ -94,6 +96,7 @@ const events = [
     },
     {
         id: "antarman",
+        link : "https://unstop.com/p/antarman-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-789500",
         name: "Antarman",
         eventType: "cultural",
         description: `Step into the realms of imagination and creativity at our college's poetry competition. Your words, your world. Express, connect, and inspire through your own verses. Join fellow peers, ignite your imagination, and craft your masterpiece, and win big! Let your voice be heard. Come, and be part of this poetic journey that celebrates creativity, imagination, and expression.`,
@@ -154,6 +157,7 @@ const events = [
     },
     {
         id: "knockout",
+        link : "https://unstop.com/p/knockout-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-805247",
         name: "Knockout",
         eventType: "cultural",
         description: `Knockout is a debate competition, where participants will be judged on the basis of their content, presentation, and overall performance.`,
@@ -203,6 +207,7 @@ const events = [
     },
     {
         id: "awaken-india",
+        link : "https://unstop.com/events/awaken-india-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-786433",
         name: "Awaken India",
         eventType: "cultural",
         description: `“Real life is messy, and drama is the shaped version of real life”         
@@ -245,6 +250,7 @@ const events = [
     },
     {
         id: "stellar",
+        link : "https://unstop.com/events/stellar-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-789542",
         name: "Stellar",
         eventType: "cultural",
         description: `Stellar is an animation competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,
@@ -396,6 +402,7 @@ Judges decision will be final decision.`,
     },
     {
         id: "groove",
+        link : "https://unstop.com/events/groove-20-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-805226",
         name: "Groove",
         eventType: "cultural",
         description: `Groove is a solo dance competition where participants will be judged on the basis of their creativity, imagination, and overall presentation.`,

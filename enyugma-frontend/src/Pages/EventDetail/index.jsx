@@ -5,6 +5,7 @@ import {
     Box,
     Button,
     Divider,
+    Link,
     Tab,
     Tabs,
     Typography,
@@ -118,19 +119,29 @@ export default function EventDetail() {
                     </Typography>
                     <BasicTabs eventDetails={eventDetails} />
                     <br />
-                    <Button variant="contained" className="register-button">
+                    <Button
+                        variant="contained"
+                        className="register-button"
+                    >
+                        <Link href={eventDetails.link} target="_blank" className="register-link" variant="button" 
+                        sx={{
+                            color: "white !important",
+                            textDecoration: "none !important",
+                        }}
+                        >
                         Register
+                        </Link>
                     </Button>
                     {/* {eventDetails.id === "bitbybit" && ( */}
-                        <div
-                            className="apply-button"
-                            data-hackathon-slug="bitbybit-2"
-                            data-button-theme="dark"
-                            style={{
-                                height: "44px",
-                                width: "312px",
-                            }}
-                        ></div>
+                    <div
+                        className="apply-button"
+                        data-hackathon-slug="bitbybit-2"
+                        data-button-theme="dark"
+                        style={{
+                            height: "44px",
+                            width: "312px",
+                        }}
+                    ></div>
                     {/* )} */}
                 </Box>
             </Suspense>
@@ -323,7 +334,9 @@ function BasicTabs({ eventDetails }) {
                                                                 link={
                                                                     sponsor.link
                                                                 }
-                                                                alt={sponsor.alt}
+                                                                alt={
+                                                                    sponsor.alt
+                                                                }
                                                             />
                                                         ),
                                                     )}

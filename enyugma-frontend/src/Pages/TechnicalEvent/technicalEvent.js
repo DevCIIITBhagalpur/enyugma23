@@ -16,6 +16,7 @@ import visionsort from "../../assets/events/visionsort.webp";
 const technicalEvent = [
     {
         id: "nitropulse",
+        link: "ttps://unstop.com/competitions/nitro-pulse-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-797940",
         name: "Nitro Pulse",
         eventType: "technical",
         description: `
@@ -76,6 +77,7 @@ ensuring durability and speed.`,
     },
     {
         id: "smartgrid",
+        link: "https://www.kaggle.com/competitions/grid-optimization-challenge-iiit-bhagalpur-enyugma",
         name: "Smart Grid",
         eventType: "technical",
         description: `Participants will be given a dataset which they will use to evaluate the stability of a smart grid, given some attributes and make optimizations in grid based on different ML/DL techniques and optimization Algorithms.`,
@@ -98,6 +100,7 @@ ensuring durability and speed.`,
     },
     {
         id: "visionsort",
+        link: "https://unstop.com/competitions/vision-sort-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-797914",
         name: "Vision Sort",
         eventType: "technical",
         description: `Craft a robotic arm that visually recognizes, lifts, and places objects. Online challenges test your designs, leading to an offline showdown where AI meets action. Get ready for an epic battle of innovation and precision. Are you up for the challenge?`,
@@ -190,6 +193,7 @@ Object to be picked: Cube (50mmx50mmx50mm)`,
     },
     {
         id: "qctf",
+        link: "https://unstop.com/o/qRDgo3U?lb=unHpMLw",
         name: "Quiz + Capture The Flag",
         eventType: "technical",
         description: `A quiz based on the basics of cyber security and cryptography followed by a capture the flag event.`,
@@ -219,6 +223,7 @@ Object to be picked: Cube (50mmx50mmx50mm)`,
     },
     {
         id: "codeloop",
+        link: "https://www.codechef.com/COLO2023",
         name: "CodeLoop",
         eventType: "technical",
         description: `A coding competition where participants will be given a set of problems to solve.`,
@@ -252,6 +257,7 @@ participants`,
     },
     {
         id: "bitbybit",
+        link : "https://unstop.com/p/bit-by-bit-indian-institute-of-information-technology-iiit-bhagalpur-804437",
         name: "Bit By Bit",
         eventType: "technical",
         description: `A 40-hour long hackathon where participants will be given a problem statement to solve.`,
