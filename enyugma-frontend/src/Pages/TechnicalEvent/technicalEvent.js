@@ -16,7 +16,7 @@ import visionsort from "../../assets/events/visionsort.webp";
 const technicalEvent = [
     {
         id: "nitropulse",
-        link: "ttps://unstop.com/competitions/nitro-pulse-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-797940",
+        link: "https://unstop.com/competitions/nitro-pulse-enyugma-23-indian-institute-of-information-technology-iiit-bhagalpur-797940",
         name: "Nitro Pulse",
         eventType: "technical",
         description: `
@@ -29,7 +29,7 @@ ensuring durability and speed.`,
         phases: [
             {
                 name: "Abstract Submission",
-                desc: `* Prepare a detailed overview of your vehicle, ncluding specifications, photos, and 3D files. thorough submissions increase your chances of advancing.`,
+                desc: `* Prepare a detailed overview of your vehicle, including specifications, photos, and 3D files. Thorough submissions increase your chances of advancing.`,
                 type: "online",
             },
             {
@@ -141,7 +141,7 @@ would be assigned a letter.
 white background.
 * Each letter would be associated with a particular
 color.
-* Boxes would be cubes(50mm*50mm*50mm) of
+* Boxes would be cubes(50mm×50mm×50mm) of
 assigned colors.
 * The bot should be able to recognize the color of
 boxes and letters of shelves using AI and pick &
@@ -166,7 +166,7 @@ The robot must detect the letter & color of boxes and shelves and able to pick &
         },
         banner: visionsort,
         generalDetails: {
-            "Team Size": `- Team size will be limited to 2-6 members.`,
+            "Team Size": `- Team size will be limited to 1-6 members.`,
 
             "Arm Specs": `- Arm should have a minimum of 2 degrees of freedom
 (excluding the end effector).
