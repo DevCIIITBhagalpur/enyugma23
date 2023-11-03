@@ -199,8 +199,8 @@ export default function Register() {
         let event = JSON.parse(res.user.events);
         console.log(event);
         if (
-          event.find(() => {
-            return "smartgrid";
+          event.find((e) => {
+            return e === "smartgrid";
           })
         ) {
           window.location.href =
