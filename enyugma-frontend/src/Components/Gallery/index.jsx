@@ -20,7 +20,7 @@ const Gallery = () => {
 
     const List = ({ label, link, LiClass }) => (
         <li className={LiClass} onClick={() => handleImageClick(link)}>
-            <img className="honeycomb-cell__image " src={link} alt="" loading="lazy"  />
+            <img className="honeycomb-cell__image " src={link} alt="" loading="eager"  />
             <div className="honeycomb-cell__title">{label}</div>
         </li>
     );
