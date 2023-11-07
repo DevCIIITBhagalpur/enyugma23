@@ -3,9 +3,11 @@ import "./Preloader.scss";
 
 const Preloader = () => {
   return (
-    <div className="preloader-container">
-      <div className="spinner"></div>
-    </div>
+
+    <></>
+    // <div className="preloader-container">
+    //   <div className="spinner"></div>
+    // </div>
   );
 };
 
